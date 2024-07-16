@@ -1,5 +1,3 @@
-// app/about/page.tsx
-
 import Image from "next/image";
 import { getProfile } from "@/sanity/sanity.query";
 import type { ProfileType } from "@/types";
@@ -16,10 +14,9 @@ export default async function About() {
 					<div key={data._id}>
 						<section className="grid lg:grid-cols-2 grid-cols-1 gap-x-6 justify-items-center">
 							<div className="order-2 lg:order-none">
-								<h1 className="lg:text-5xl text-4xl lg:leading-tight basis-1/2 font-bold mb-8">
-									I&apos;m {data.fullName}. I live in{" "}
-									{data.location}, where I design the
-									future.
+								<h1 className="lg:text-3xl text-4xl lg:leading-tight basis-1/2 font-bold mb-8">
+									My name is {data.fullName}. I live in{" "}
+									{data.location}, where I build things.
 								</h1>
 
 								<div className="flex flex-col gap-y-3 text-zinc-400 leading-relaxed">
@@ -66,7 +63,7 @@ export default async function About() {
 								Expertise
 							</h2>
 							<p className="text-zinc-400 max-w-lg">
-								I&apos;ve spent few years working on my
+								I&apos;ve spent a few years working on my
 								skills. In no particular order, here are a
 								few of them.
 							</p>
