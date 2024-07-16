@@ -1,6 +1,5 @@
 import { getProfile } from "@/sanity/sanity.query";
 import type { ProfileType } from "@/types";
-import HeroSvg from "./icons/HeroSvg";
 import Job from "./components/ui/Job";
 import { ModelViewer } from "./components/ui/ModelViewer";
 
@@ -9,7 +8,7 @@ export default async function Home() {
 
 	return (
 		<main className="">
-			<section className="flex xl:flex-row flex-col xl:items-center items-start xl:justify-center justify-between gap-x-12 lg:mt-32 mt-20 mb-16">
+			<section className="flex xl:flex-row flex-col xl:items-stretch items-stretch xl:justify-center justify-between gap-x-12 lg:mt-8 mt-5 mb-8">
 				{profile &&
 					profile.map((data) => (
 						<div
