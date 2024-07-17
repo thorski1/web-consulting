@@ -7,7 +7,7 @@ export default async function Home() {
 	const profile: ProfileType[] = await getProfile();
 
 	return (
-		<main className="">
+		<main>
 			<section className="flex xl:flex-row flex-col xl:items-stretch items-stretch xl:justify-center justify-between gap-x-12 lg:mt-8 mt-5 mb-8">
 				{profile &&
 					profile.map((data) => (

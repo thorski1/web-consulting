@@ -46,11 +46,12 @@ const shuffle = (accent = 0) => [
 
 export const ModelViewer: React.FC = () => (
 	<div className="w-[100%]">
-	<Scene
-		style={{
-			borderRadius: 20,
-		}}
-	/></div>
+		<Scene
+			style={{
+				borderRadius: 20,
+			}}
+		/>
+	</div>
 );
 
 // @ts-ignore
@@ -77,7 +78,6 @@ function Scene(props) {
 			}}
 			{...props}
 		>
-			<color attach="background" args={["#141622"]} />
 			<ambientLight intensity={0.4} />
 			<spotLight
 				position={[10, 10, 10]}

@@ -14,9 +14,9 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-	title: "Sanity Next.js Portfolio Site",
+	title: "Sam Thoyre | Portfolio",
 	description:
-		"A personal portfolio site built with Sanity and Next.js",
+		"Sam Thoyre's personal portfolio, used to showcase skills and experience",
 	openGraph: {
 		images: "add-your-open-graph-image-url-here",
 	},
@@ -33,7 +33,7 @@ export default function RootLayout({
 				className={`${cn(
 					"min-h-screen lg:max-w-7xl mx-auto max-w-3xl md:px-16 px-6 bg-background font-sans antialiased",
 					fontSans.variable
-				)} bg-zinc-900 text-white`}
+				)} bg-zinc-900 text-white min-h-screen`}
 			>
 				<NavigationMenuDemo />
 				{children}

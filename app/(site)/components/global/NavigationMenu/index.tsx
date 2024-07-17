@@ -58,7 +58,7 @@ const components: {
 
 export function NavigationMenuDemo() {
 	return (
-		<NavigationMenu className="mb-2">
+		<NavigationMenu className="my-8">
 			<NavigationMenuList className="text-white gap-1">
 				<NavigationMenuItem>
 					<Link
