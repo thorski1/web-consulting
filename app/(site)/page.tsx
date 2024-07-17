@@ -2,6 +2,7 @@ import { getProfile } from "@/sanity/sanity.query";
 import type { ProfileType } from "@/types";
 import Job from "./components/ui/Job";
 import { ModelViewer } from "./components/ui/ModelViewer";
+import CTASection from "./components/ui/CTASection";
 
 export default async function Home() {
 	const profile: ProfileType[] = await getProfile();
@@ -45,6 +46,7 @@ export default async function Home() {
 				<ModelViewer />
 				{/* <HeroSvg /> */}
 			</section>
+			<CTASection />
 			<Job />
 		</main>
 	);
