@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import Footer from "./components/global/Footer";
 
 import { Inter as FontSans } from "next/font/google";
-
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { cn } from "@/lib/utils";
 import { NavigationMenuDemo } from "./components/global/NavigationMenu";
 
@@ -29,6 +29,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
+			<GoogleTagManager gtmId="GTM-KPSRQ7LS" />
 			<body
 				className={`${cn(
 					"min-h-screen lg:max-w-7xl mx-auto max-w-3xl md:px-16 px-6 bg-background font-sans antialiased",
@@ -39,6 +40,7 @@ export default function RootLayout({
 				{children}
 				<Footer />
 			</body>
+			<GoogleAnalytics gaId="G-SM40308D33" />
 		</html>
 	);
 }
