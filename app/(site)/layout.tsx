@@ -7,6 +7,7 @@ import { Inter as FontSans } from "next/font/google";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { cn } from "@/lib/utils";
 import { NavigationMenuDemo } from "./components/global/NavigationMenu";
+import Analytics from "./components/global/Analytics";
 
 const fontSans = FontSans({
 	subsets: ["latin"],
@@ -41,6 +42,7 @@ export default function RootLayout({
 				<Footer />
 			</body>
 			<GoogleAnalytics gaId="G-SM40308D33" />
+			<Analytics />
 		</html>
 	);
 }
