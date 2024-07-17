@@ -67,7 +67,7 @@ export function NavigationMenuDemo() {
 						passHref
 					>
 						<NavigationMenuLink
-							className={`${navigationMenuTriggerStyle()} bg-black`}
+							className={`${navigationMenuTriggerStyle()} bg-zinc-900`}
 						>
 							<FaHome />
 						</NavigationMenuLink>
@@ -76,7 +76,7 @@ export function NavigationMenuDemo() {
 				<NavigationMenuItem>
 					<Link href="/about" legacyBehavior passHref>
 						<NavigationMenuLink
-							className={`${navigationMenuTriggerStyle()} bg-black`}
+							className={`${navigationMenuTriggerStyle()} bg-zinc-900`}
 						>
 							About
 						</NavigationMenuLink>
@@ -85,7 +85,7 @@ export function NavigationMenuDemo() {
 				<NavigationMenuItem>
 					<Link href="/projects" legacyBehavior passHref>
 						<NavigationMenuLink
-							className={`${navigationMenuTriggerStyle()} bg-black`}
+							className={`${navigationMenuTriggerStyle()} bg-zinc-900`}
 						>
 							Projects
 						</NavigationMenuLink>
