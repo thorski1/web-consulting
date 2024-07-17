@@ -21,7 +21,6 @@
     "@react-three/postprocessing": "^2.16.2",
     "@react-three/rapier": "^1.4.0",
     "@sanity/vision": "^3.50.0",
-    "@segment/analytics-next": "^1.72.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "maath": "^0.10.8",
