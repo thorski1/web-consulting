@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Form from "../components/ui/Form";
 import ThankYouPage from "../components/ui/ThankYouPage";
 
-const page = () => {
+export default async function ScheduleConsultationPage() {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isSuccessful, setIsSuccessful] = useState(false);
 	if (isLoading) {
@@ -54,5 +54,3 @@ const page = () => {
 		);
 	}
 };
-
-export default page;
