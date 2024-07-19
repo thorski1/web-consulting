@@ -14,7 +14,7 @@ export default async function Job() {
 	return (
 		<section>
 			<div className="mb-16">
-				<h2 className="font-semibold text-4xl mb-4">
+				<h2 className="font-semibold text-4xl mb-4 uppercase">
 					Work Experience
 				</h2>
 			</div>

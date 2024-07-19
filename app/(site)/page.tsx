@@ -1,25 +1,28 @@
+"use client"
 import { getProfile } from "@/sanity/sanity.query";
 import type { ProfileType } from "@/types";
 import Job from "./components/ui/Job";
 import { ModelViewer } from "./components/ui/ModelViewer";
 import CTASection from "./components/ui/CTASection";
+import Form from "./components/ui/Form";
+import { FormEvent, useState } from "react";
 
 export default async function Home() {
 	const profile: ProfileType[] = await getProfile();
 
 	return (
 		<main>
-			<section className="flex xl:flex-row flex-col xl:items-stretch items-stretch xl:justify-center justify-between gap-x-12 lg:mt-8 mt-5 mb-8">
+			<section className="flex xl:flex-row flex-col xl:items-stretch items-stretch xl:justify-center justify-between gap-x-24 lg:mt-8 mt-5 mb-8">
 				{profile &&
 					profile.map((data) => (
 						<div
 							key={data._id}
 							className="lg:max-w-2xl max-w-2xl"
 						>
-							<p className="text-base text-zinc-400 leading-relaxed">
+							<p className="text-lg text-zinc-400 leading-relaxed">
 								{data.fullName}
 							</p>
-							<h1 className="text-3xl font-bold tracking-tight sm:text-5xl mb-6 lg:leading-[3.7rem] leading-tight lg:min-w-[700px] min-w-full">
+							<h1 className="uppercase text-xl font-bold tracking-tight sm:text-4xl mb-6 lg:leading-[2.2rem] leading-tight lg:min-w-[700px] min-w-full mt-4">
 								{data.headline}
 							</h1>
 							<p className="text-base text-zinc-400 leading-relaxed">
@@ -48,6 +51,7 @@ export default async function Home() {
 			</section>
 			<CTASection />
 			<Job />
+			
 		</main>
 	);
 }

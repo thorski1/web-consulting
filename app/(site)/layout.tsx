@@ -36,7 +36,7 @@ export default function RootLayout({
 			<GoogleTagManager gtmId="GTM-KPSRQ7LS" />
 			<body
 				className={`${cn(
-					"min-h-screen lg:max-w-7xl mx-auto max-w-3xl md:px-16 px-6 bg-background font-sans antialiased",
+					"min-h-screen lg:max-w-7xl mx-auto max-w-5x md:px-16 px-6 bg-background font-sans antialiased",
 					fontSans.variable
 				)} bg-zinc-900 text-white min-h-screen relative pb-16`}
 			>

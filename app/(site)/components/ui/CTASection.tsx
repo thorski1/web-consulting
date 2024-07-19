@@ -5,9 +5,9 @@ import { FaCircleCheck } from "react-icons/fa6";
 const CTASection = () => {
 	return (
 		<section className="w-full py-4 md:py-12 lg:py-16">
-			<div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6 lg:gap-10">
+			<div className="container px-0 grid items-center justify-center gap-4 text-center lg:gap-10">
 				<div className="space-y-3">
-					<h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+					<h2 className="text-3xl uppercase font-bold tracking-tighter md:text-4xl/tight">
 						Need help with a website?
 					</h2>
 				</div>
@@ -75,7 +75,7 @@ const CTASection = () => {
 				</div>
 				<div className="mx-auto w-full max-w-sm">
 					<Link
-						href="#"
+						href="/schedule-consultation"
 						className="uppercase inline-flex h-10 w-full items-center justify-center rounded-md px-8 text-sm font-medium shadow transition-colors border border-background hover:bg-background hover:text-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
 						prefetch={false}
 					>
