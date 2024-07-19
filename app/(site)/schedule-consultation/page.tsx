@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Form from "../components/ui/Form";
 import ThankYouPage from "../components/ui/ThankYouPage";
 
-export default async function ScheduleConsultationPage() {
+export default function ScheduleConsultationPage() {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isSuccessful, setIsSuccessful] = useState(false);
 	if (isLoading) {
@@ -31,12 +31,12 @@ export default async function ScheduleConsultationPage() {
 							into how modern web development practices can
 							transform your site into a high-performing,
 							user-friendly platform. In just 10 minutes,
-							we'll discuss your current challenges, future
+							we&apos;ll discuss your current challenges, future
 							aspirations, and how I can help you achieve
 							your objectives. From responsive design and
 							SEO optimization to seamless navigation and
 							engaging content, my expertise covers all
-							aspects of web development. Don't miss this
+							aspects of web development. Don&apos;t miss this
 							opportunity to get expert advice tailored to
 							your needs—all at no cost. Schedule your
 							consultation today and take the first step
