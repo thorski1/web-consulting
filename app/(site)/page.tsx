@@ -1,11 +1,8 @@
-"use client"
 import { getProfile } from "@/sanity/sanity.query";
 import type { ProfileType } from "@/types";
 import Job from "./components/ui/Job";
 import { ModelViewer } from "./components/ui/ModelViewer";
 import CTASection from "./components/ui/CTASection";
-import Form from "./components/ui/Form";
-import { FormEvent, useState } from "react";
 
 export default async function Home() {
 	const profile: ProfileType[] = await getProfile();
@@ -51,7 +48,6 @@ export default async function Home() {
 			</section>
 			<CTASection />
 			<Job />
-			
 		</main>
 	);
 }

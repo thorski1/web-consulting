@@ -9,7 +9,7 @@ import {
 	GoogleTagManager,
 } from "@next/third-parties/google";
 import { cn } from "@/lib/utils";
-import { NavigationMenuDemo } from "./components/global/NavigationMenu";
+import NavigationMenu from "./components/global/NavigationMenu";
 import Script from "next/script";
 
 const fontSans = FontSans({
@@ -40,7 +40,7 @@ export default function RootLayout({
 					fontSans.variable
 				)} bg-zinc-900 text-white min-h-screen relative pb-16`}
 			>
-				<NavigationMenuDemo />
+				<NavigationMenu />
 				{children}
 				<Footer />
 			</body>

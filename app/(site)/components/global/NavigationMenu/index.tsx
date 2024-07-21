@@ -1,82 +1,41 @@
-"use client";
-
-import * as React from "react";
 import Link from "next/link";
-import { FaHome } from "react-icons/fa";
-import { cn } from "@/lib/utils";
+import { FaHome } from "react-icons/fa"
 
-import {
-	NavigationMenu,
-	NavigationMenuItem,
-	NavigationMenuLink,
-	NavigationMenuList,
-	navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-
-export function NavigationMenuDemo() {
+export default function NavigationMenu() {
 	return (
-		<NavigationMenu className="my-8">
-			<NavigationMenuList className="text-white gap-1">
-				<NavigationMenuItem>
-					<Link
-						href="/"
-						legacyBehavior
-						passHref
-					>
-						<NavigationMenuLink
-							className={`${navigationMenuTriggerStyle()} bg-zinc-900`}
-						>
-							<FaHome />
-						</NavigationMenuLink>
-					</Link>
-				</NavigationMenuItem>
-				<NavigationMenuItem>
-					<Link href="/about" legacyBehavior passHref>
-						<NavigationMenuLink
-							className={`${navigationMenuTriggerStyle()} bg-zinc-900`}
-						>
-							About
-						</NavigationMenuLink>
-					</Link>
-				</NavigationMenuItem>
-				<NavigationMenuItem>
-					<Link href="/projects" legacyBehavior passHref>
-						<NavigationMenuLink
-							className={`${navigationMenuTriggerStyle()} bg-zinc-900`}
-						>
-							Projects
-						</NavigationMenuLink>
-					</Link>
-				</NavigationMenuItem>
-			</NavigationMenuList>
-		</NavigationMenu>
+		<header className="flex items-center justify-between bg-zinc-900 text-white py-3">
+			<nav className="flex items-center gap-4 sm:gap-6">
+				<Link
+					href="/"
+					className="flex items-center gap-2"
+					prefetch={false}
+				>
+					<div className="h-5 w-5">
+						<FaHome className="h-5 w-5" />
+					</div>
+				</Link>
+				<Link
+					href="/about"
+					className="font-medium hover:underline"
+					prefetch={false}
+				>
+					About
+				</Link>
+				<Link
+					href="/projects"
+					className="font-medium hover:underline"
+					prefetch={false}
+				>
+					Projects
+				</Link>
+			</nav>
+			<Link
+				href="/schedule-consultation"
+				prefetch={false}
+				className="hidden sm:inline-flex bg-white text-primary px-4 py-2 rounded-md font-medium hover:bg-primary hover:text-white transition-colors"
+			>
+				Schedule a Consultation
+			</Link>
+		</header>
 	);
 }
-
-const ListItem = React.forwardRef<
-	React.ElementRef<"a">,
-	React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-	return (
-		<li>
-			<NavigationMenuLink asChild>
-				<a
-					ref={ref}
-					className={cn(
-						"block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-						className
-					)}
-					{...props}
-				>
-					<div className="text-sm font-medium leading-none">
-						{title}
-					</div>
-					<p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-						{children}
-					</p>
-				</a>
-			</NavigationMenuLink>
-		</li>
-	);
-});
-ListItem.displayName = "ListItem";

@@ -1,11 +1,6 @@
 import Image from "next/image";
 import { getJob } from "@/sanity/sanity.query";
 import type { JobType } from "@/types";
-import {
-	Avatar,
-	AvatarFallback,
-	AvatarImage,
-} from "./avatar";
 import React from "react";
 import { PortableText } from "@portabletext/react";
 
