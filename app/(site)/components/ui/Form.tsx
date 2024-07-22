@@ -2,8 +2,6 @@
 
 import React, { FormEvent, useState } from "react";
 import { postSheetData } from "../../actions/google-sheets.action";
-import { sendGTMEvent } from "@next/third-parties/google";
-import { gtag_report_conversion } from "@/lib/GoogleAdsFunctions";
 
 interface IFormProps {
 	setIsLoading: React.Dispatch<
@@ -35,7 +33,6 @@ const Form = ({ setIsLoading, setIsSuccessful }: IFormProps) => {
         ).then(res => {
             setIsLoading(false)
             setIsSuccessful(true)
-            gtag_report_conversion()
         })
         
 		setMessage("");
