@@ -3,7 +3,6 @@ import { Metadata } from "next";
 import { getSingleProject } from "@/sanity/sanity.query";
 import type { ProjectType } from "@/types";
 import { PortableText } from "@portabletext/react";
-import fallBackImage from "@/public/next.svg";
 
 type Props = {
 	params: {
@@ -56,7 +55,10 @@ export default async function Project({ params }: Props) {
 					className="rounded-xl border border-zinc-800"
 					width={900}
 					height={460}
-					src={project.coverImage?.image || fallBackImage}
+					src={
+						project.coverImage?.image ||
+						"https://new-portfolio-three-gamma.vercel.app/DKcTWlyZOE.png"
+					}
 					alt={project.coverImage?.alt || project.name}
 				/>
 
