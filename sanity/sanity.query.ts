@@ -14,7 +14,8 @@ export async function getProfile() {
       email,
       "resumeURL": resumeURL.asset->url,
       socialLinks,
-      skills
+      skills,
+      hobbies
     }`
 	);
 }

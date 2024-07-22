@@ -1,53 +1,77 @@
 import { getProfile } from "@/sanity/sanity.query";
 import type { ProfileType } from "@/types";
-import Job from "./components/ui/Job";
-import { ModelViewer } from "./components/ui/ModelViewer";
 import CTASection from "./components/ui/CTASection";
+import { Metadata, ResolvingMetadata } from "next";
+import JobSection from "./components/ui/Job";
+import AnimatedHero from "./components/global/Hero/AnimatedHero";
+
+export async function generateMetadata(
+	// @ts-ignore
+	{ params, searchParams },
+	parent: ResolvingMetadata
+): Promise<Metadata> {
+	return {
+		metadataBase: new URL(
+			"https://new-portfolio-three-gamma.vercel.app"
+		),
+		title: "Free 10-Minute Web Development Consultation",
+		description:
+			"Schedule your free 10-minute consultation with our expert web developers. Discover how we can enhance your online presence and achieve your goals.",
+		openGraph: {
+			title: "Free 10-Minute Web Development Consultation",
+			description:
+				"Schedule your free 10-minute consultation with our expert web developers. Discover how we can enhance your online presence and achieve your goals.",
+			url: `https://new-portfolio-three-gamma.vercel.app/`,
+			siteName: "ST Web Consulting",
+			images: [
+				{
+					url: `https://new-portfolio-three-gamma.vercel.app/DKcTWlyZOE.png`, // Must be an absolute URL
+					width: 800,
+					height: 600,
+				},
+				{
+					url: `https://new-portfolio-three-gamma.vercel.app/DKcTWlyZOE.png`, // Must be an absolute URL
+					width: 1800,
+					height: 1600,
+					alt: "My custom alt",
+				},
+			],
+			locale: "en-US",
+			type: "website",
+		},
+		twitter: {
+			card: "summary",
+			title: "Free 10-Minute Web Development Consultation",
+			description:
+				"Schedule your free 10-minute consultation with our expert web developers. Discover how we can enhance your online presence and achieve your goals.",
+			// siteId: "1012501",
+			creator: "@SamThoyre",
+			// creatorId: "1012501",
+			images: [
+				"https://new-portfolio-three-gamma.vercel.app/DKcTWlyZOE.png",
+			],
+		},
+		robots: {
+			index: true,
+			follow: true,
+			nocache: false,
+			googleBot: {
+				index: true,
+				follow: true,
+				noimageindex: false,
+			},
+		},
+	};
+}
 
 export default async function Home() {
 	const profile: ProfileType[] = await getProfile();
 
 	return (
 		<main>
-			<section className="flex xl:flex-row flex-col xl:items-stretch items-stretch xl:justify-center justify-between gap-x-24 lg:mt-8 mt-5 mb-8">
-				{profile &&
-					profile.map((data) => (
-						<div
-							key={data._id}
-							className="lg:max-w-2xl max-w-2xl"
-						>
-							<p className="text-lg text-zinc-400 leading-relaxed">
-								{data.fullName}
-							</p>
-							<h1 className="uppercase text-xl font-bold tracking-tight sm:text-4xl mb-6 lg:leading-[2.2rem] leading-tight lg:min-w-[700px] min-w-full mt-4">
-								{data.headline}
-							</h1>
-							<p className="text-base text-zinc-400 leading-relaxed">
-								{data.shortBio}
-							</p>
-							<ul className="flex items-center gap-x-6 my-10">
-								{Object.entries(data.socialLinks)
-									.sort()
-									.map(([key, value], id) => (
-										<li key={id}>
-											<a
-												href={value}
-												rel="noreferer noopener"
-												className="flex items-center gap-x-3 mb-5 hover:text-purple-400 duration-300"
-											>
-												{key[0].toUpperCase() +
-													key.toLowerCase().slice(1)}
-											</a>
-										</li>
-									))}
-							</ul>
-						</div>
-					))}
-				<ModelViewer />
-				{/* <HeroSvg /> */}
-			</section>
+			<AnimatedHero profile={profile} />
 			<CTASection />
-			<Job />
+			<JobSection />
 		</main>
 	);
 }

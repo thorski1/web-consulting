@@ -101,6 +101,13 @@ const profile = {
       description: "Add a list of skills",
       of: [{ type: "string" }],
     },
+    {
+      name: "hobbies",
+      title: "Hobbies",
+      type: "array",
+      description: "Add a list of hobbies",
+      of: [{ type: "string" }],
+    },
  ],
 };
 

@@ -24,7 +24,7 @@ export async function generateMetadata({
 		openGraph: {
 			images:
 				project.coverImage?.image ||
-				"add-a-fallback-project-image-here",
+				"https://new-portfolio-three-gamma.vercel.app/DKcTWlyZOE.png",
 			title: project.name,
 			description: project.tagline,
 		},
