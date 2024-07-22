@@ -21,6 +21,9 @@ export const metadata: Metadata = {
 	openGraph: {
 		images: "add-your-open-graph-image-url-here",
 	},
+	verification: {
+		google: "eUsFECnHpZa87YhtqETKfyaOWvRIq6IEPukpEdliniw",
+	},
 };
 
 export default function RootLayout({
