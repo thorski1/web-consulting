@@ -15,17 +15,7 @@ export type ProfileType = {
 	resumeURL: string;
 	socialLinks: string[];
 	skills: string[];
-};
-
-export type JobType = {
-	_id: string;
-	name: string;
-	jobTitle: string;
-	logo: string;
-	url: string;
-	description: PortableTextBlock[];
-	startDate: Date;
-	endDate: Date;
+	hobbies: string[];
 };
 
 export type ProjectType = {
@@ -40,4 +30,94 @@ export type ProjectType = {
 		image: string;
 	};
 	description: PortableTextBlock[];
+};
+
+export type Post = {
+	_id: string;
+	_type: "post";
+	_createdAt: string;
+	_updatedAt: string;
+	_rev: string;
+	title?: string;
+	slug?: string;
+	content?: Array<{
+		children?: Array<{
+			marks?: Array<string>;
+			text?: string;
+			_type: "span";
+			_key: string;
+		}>;
+		style?:
+			| "normal"
+			| "h1"
+			| "h2"
+			| "h3"
+			| "h4"
+			| "h5"
+			| "h6"
+			| "blockquote";
+		listItem?: "bullet" | "number";
+		markDefs?: Array<{
+			href?: string;
+			_type: "link";
+			_key: string;
+		}>;
+		level?: number;
+		_type: "block";
+		_key: string;
+	}>;
+	excerpt?: string;
+	coverImage?: {
+		alt: string | null;
+		image: string;
+	};
+	tags: string[];
+	date?: string;
+	author?: Author;
+	relatedArticles?: Post[];
+};
+
+export declare const internalGroqTypeReferenceTo: unique symbol;
+
+export type Author = {
+	_id: string;
+	_type: "author";
+	_createdAt: string;
+	_updatedAt: string;
+	_rev: string;
+	name?: string;
+	picture?: {
+		asset?: {
+			_ref: string;
+			_type: "reference";
+			_weak?: boolean;
+			[internalGroqTypeReferenceTo]?: "sanity.imageAsset";
+		};
+		hotspot?: SanityImageHotspot;
+		crop?: SanityImageCrop;
+		alt?: string;
+		_type: "image";
+	};
+};
+
+export type SanityImageCrop = {
+	_type: "sanity.imageCrop";
+	top?: number;
+	bottom?: number;
+	left?: number;
+	right?: number;
+};
+
+export type SanityImageHotspot = {
+	_type: "sanity.imageHotspot";
+	x?: number;
+	y?: number;
+	height?: number;
+	width?: number;
+};
+
+export type Slug = {
+	_type: "slug";
+	current?: string;
+	source?: string;
 };

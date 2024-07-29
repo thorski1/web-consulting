@@ -2,13 +2,13 @@ import Link from "next/link";
 
 export default function ThankYouPage() {
 	return (
-		<div className="flex min-h-[75dvh] flex-col items-center justify-center  bg-zinc-900 px-4 py-12 sm:px-6 lg:px-8">
+		<div className="flex min-h-[75dvh] flex-col items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-md text-center">
-				<CircleCheckIcon className="mx-auto h-12 w-12 text-green-500" />
-				<h1 className="mt-4 text-3xl font-bold tracking-tight text-background sm:text-4xl">
+				<CircleCheckIcon className="mx-auto h-12 w-12 text-muted-foreground" />
+				<h1 className="mt-4 text-3xl font-bold tracking-tight text-muted-foreground sm:text-4xl">
 					Thank You!
 				</h1>
-				<p className="mt-4 text-muted-background">
+				<p className="mt-4 text-muted-foreground">
 					Thank you for your interest! We will reach out to
 					you via email shortly to schedule your free
 					10-minute consultation. We look forward to
@@ -18,7 +18,7 @@ export default function ThankYouPage() {
 				<div className="mt-6">
 					<Link
 						href="/"
-						className="inline-flex items-center rounded-md bg-background px-4 py-2 text-sm font-medium text-zinc-900 hover:text-background shadow-sm transition-colors hover:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+						className="inline-flex items-center rounded-md bg-background border-muted-foreground border-2 px-4 py-2 text-sm font-medium text-muted-foreground hover:text-background shadow-sm transition-colors hover:bg-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
 						prefetch={false}
 					>
 						Go to Homepage

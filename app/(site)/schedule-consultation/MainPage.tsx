@@ -16,7 +16,7 @@ export default function MainPage() {
 		return <ThankYouPage />;
 	} else {
 		return (
-			<div className="flex flex-col md:flex-row justify-center gap-8 py-12 md:py-24">
+			<div className="flex flex-col md:flex-row justify-center gap-8 py-6 xl:py-9">
 				<div className="flex-1 space-y-4">
 					<h2 className="text-lg font-bold tracking-tighter sm:text-xl md:text-3xl">
 						Free 10-Minute Web Development Consultation
@@ -41,7 +41,7 @@ export default function MainPage() {
 						presence.
 					</p>
 				</div>
-				<div className="flex-1 self-start w-full max-w-md bg-card rounded-lg p-6 shadow-lg">
+				<div className="flex-1 self-start w-full max-w-md bg-card rounded-lg shadow-lg">
 					<Form
 						setIsLoading={setIsLoading}
 						setIsSuccessful={setIsSuccessful}
