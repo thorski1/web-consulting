@@ -3,6 +3,7 @@ import { FeaturedSection } from "@/components/featured-section";
 import { Metadata, ResolvingMetadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { Hero } from "./components/ui/Hero";
 
 export async function generateMetadata(
 	// @ts-ignore
@@ -69,25 +70,10 @@ export default async function Home() {
 
 	return (
 		<main>
-			<section className="w-full py-6 xl:py-12">
-				<div className="container flex flex-col items-center justify-center gap-6 px-4 md:px-6">
-					<div className="space-y-3 text-center">
-						<h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
-							Transform Your Online Presence
-						</h1>
-						<p className="text-muted-foreground md:text-xl lg:text-2xl">
-							Expert Web Development and Consulting Services
-						</p>
-					</div>
-					<Link
-						href="/schedule-consultation"
-						className="text-center inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-						prefetch={false}
-					>
-						Schedule Your Free Consultation
-					</Link>
-				</div>
-			</section>
+			<Hero
+				title={"Transform Your Online Presence"}
+				subtitle="Expert Web Development and Consulting Services"
+			/>
 			<section className="w-full py-6 xl:py-12">
 				<div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
 					<div className="space-y-3">

@@ -10,8 +10,9 @@ const CTASection = () => {
 						Ready to elevate your online presence?
 					</h2>
 					<p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-						Let's work together to create a stunning website
-						that showcases your brand and drives results.
+						Let&apos;s work together to create a stunning
+						website that showcases your brand and drives
+						results.
 					</p>
 				</div>
 				<div className="mx-auto w-full max-w-sm">
