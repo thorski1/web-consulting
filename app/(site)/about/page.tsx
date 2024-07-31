@@ -85,10 +85,11 @@ export default async function About() {
 							<p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
 								Founded in 2024, our company was created
 								with a vision to transform the digital
-								landscape for businesses. While we're a new
-								player in the industry, our team comprises
-								seasoned professionals with a deep passion
-								for web development and digital marketing.
+								landscape for businesses. While we&apos;re a
+								new player in the industry, our team
+								comprises seasoned professionals with a deep
+								passion for web development and digital
+								marketing.
 							</p>
 						</div>
 					</div>
@@ -178,7 +179,7 @@ export default async function About() {
 								Our team of experts offers a wide range of
 								web consulting services to help your
 								business succeed online. From strategy to
-								implementation, we've got you covered.
+								implementation, we&apos;ve got you covered.
 							</p>
 						</div>
 					</div>
