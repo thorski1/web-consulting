@@ -1,99 +1,133 @@
+import Image from "next/image";
 import Link from "next/link";
+import { HeaderSection } from "./header-section";
 
 export default function BlogCategories() {
 	return (
 		<section className="w-full py-6 xl:py-12">
 			<div className="grid gap-8">
-				<div className="flex flex-col items-center justify-center space-y-4 text-center">
-					<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-						Explore Our Blog Categories
-					</h2>
-					<p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-						Discover a wealth of knowledge across a diverse
-						range of topics.
-					</p>
-				</div>
+				<HeaderSection
+					header="Explore Our Blog Categories"
+					subheader="Discover a wealth of knowledge across a diverse range of topics."
+				/>
 				<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
 					<Link
 						href="#"
 						prefetch={false}
-						className="group rounded-lg bg-background transition-all hover:shadow-lg"
+						className="flex flex-col items-center text-center rounded-lg bg-background transition-all hover:shadow-lg"
 					>
-						<div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground">
-							<BookIcon className="h-6 w-6" />
+						<div className="flex h-20 w-20 items-center justify-center rounded-full text-primary-foreground">
+							<Image
+								src="/icons/web-development.svg"
+								width="100"
+								height="100"
+								alt="web development icon"
+								className="mx-auto overflow-hidden object-cover object-center w-16"
+							/>
 						</div>
 						<h3 className="mt-4 text-xl font-semibold">
 							Web Development
 						</h3>
 						<p className="mt-2 text-muted-foreground">
-							Dive into the world of literature and explore
-							the latest trends, reviews, and insights.
+							Expertly crafted websites and web apps
+							tailored to elevate your business. Proven
+							results driving growth and exceeding
+							expectations.
 						</p>
 					</Link>
 					<Link
 						href="#"
 						prefetch={false}
-						className="group rounded-lg bg-background transition-all hover:shadow-lg"
+						className="flex flex-col items-center text-center roundedbackground transition-all hover:shadow-lg"
 					>
-						<div className="flex h-12 w-12 items-center justify-center rounded-full bg-secondary text-secondary-foreground">
-							<CodeIcon className="h-6 w-6" />
+						<div className="flex h-20 w-20 items-center justify-center rounded-full text-primary-foreground">
+							<Image
+								src="/icons/seo.svg"
+								width="100"
+								height="100"
+								alt="web development icon"
+								className="mx-auto overflow-hidden object-cover object-center w-16"
+							/>
 						</div>
 						<h3 className="mt-4 text-xl font-semibold">
 							SEO
 						</h3>
 						<p className="mt-2 text-muted-foreground">
-							Stay up-to-date with the latest advancements
-							in technology and learn from industry experts.
+							Elevate your online presence with expert SEO
+							services. Boost your website&apos;s
+							visibility, attract targeted traffic, and
+							achieve lasting growth.
 						</p>
 					</Link>
 					<Link
 						href="#"
 						prefetch={false}
-						className="group rounded-lg bg-background transition-all hover:shadow-lg"
+						className="flex flex-col items-center text-center roundedbackground transition-all hover:shadow-lg"
 					>
-						<div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent text-accent-foreground">
-							<BrushIcon className="h-6 w-6" />
-						</div>
-						<h3 className="mt-4 text-xl font-semibold">
-							E-Commmerce
-						</h3>
-						<p className="mt-2 text-muted-foreground">
-							Explore the latest design trends, techniques,
-							and inspirations from industry leaders.
-						</p>
-					</Link>
-					<Link
-						href="#"
-						prefetch={false}
-						className="group rounded-lg bg-background transition-all hover:shadow-lg"
-					>
-						<div className="flex h-12 w-12 items-center justify-center rounded-full bg-muted text-muted-foreground">
-							<BriefcaseIcon className="h-6 w-6" />
-						</div>
-						<h3 className="mt-4 text-xl font-semibold">
-							UI/UX Design
-						</h3>
-						<p className="mt-2 text-muted-foreground">
-							Gain insights into the world of business,
-							entrepreneurship, and professional
-							development.
-						</p>
-					</Link>
-					<Link
-						href="#"
-						prefetch={false}
-						className="group rounded-lg bg-background transition-all hover:shadow-lg"
-					>
-						<div className="flex h-12 w-12 items-center justify-center rounded-full bg-card text-card-foreground">
-							<ApertureIcon className="h-6 w-6" />
+						<div className="flex h-20 w-20 items-center justify-center rounded-full text-primary-foreground">
+							<Image
+								src="/icons/digital-marketing.svg"
+								width="100"
+								height="100"
+								alt="web development icon"
+								className="mx-auto overflow-hidden object-cover object-center w-16"
+							/>
 						</div>
 						<h3 className="mt-4 text-xl font-semibold">
 							Digital Marketing
 						</h3>
 						<p className="mt-2 text-muted-foreground">
-							Explore the art of photography, from
-							techniques to inspiration and industry
-							insights.
+							Ignite your brand with strategic digital
+							marketing campaigns. Increase reach,
+							engagement, and conversions through targeted
+							solutions.
+						</p>
+					</Link>
+					<Link
+						href="#"
+						prefetch={false}
+						className="flex flex-col items-center text-center roundedbackground transition-all hover:shadow-lg"
+					>
+						<div className="flex h-20 w-20 items-center justify-center rounded-full text-primary-foreground">
+							<Image
+								src="/icons/project-design.svg"
+								width="100"
+								height="100"
+								alt="web development icon"
+								className="mx-auto overflow-hidden object-cover object-center w-16"
+							/>
+						</div>
+						<h3 className="mt-4 text-xl font-semibold">
+							UI/UX Design
+						</h3>
+						<p className="mt-2 text-muted-foreground">
+							Craft intuitive, user-centric interfaces for
+							seamless digital experiences. Enhance
+							usability and drive customer satisfaction.
+						</p>
+					</Link>
+					<Link
+						href="#"
+						prefetch={false}
+						className="flex flex-col items-center text-center roundedbackground transition-all hover:shadow-lg"
+					>
+						<div className="flex h-20 w-20 items-center justify-center rounded-full text-primary-foreground">
+							<Image
+								src="/icons/consultation-strategy.svg"
+								width="100"
+								height="100"
+								alt="web development icon"
+								className="mx-auto overflow-hidden object-cover object-center w-16"
+							/>
+						</div>
+						<h3 className="mt-4 text-xl font-semibold">
+							Consultation and Strategy Development
+						</h3>
+						<p className="mt-2 text-muted-foreground">
+							Unlock your business potential with expert
+							consultation and data-driven strategies.
+							Achieve your goals and stay ahead of the
+							curve.
 						</p>
 					</Link>
 				</div>

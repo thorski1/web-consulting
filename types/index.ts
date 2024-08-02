@@ -87,16 +87,8 @@ export type Author = {
 	_rev: string;
 	name?: string;
 	picture?: {
-		asset?: {
-			_ref: string;
-			_type: "reference";
-			_weak?: boolean;
-			[internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-		};
-		hotspot?: SanityImageHotspot;
-		crop?: SanityImageCrop;
-		alt?: string;
-		_type: "image";
+		alt: string | null;
+		image: string;
 	};
 };
 

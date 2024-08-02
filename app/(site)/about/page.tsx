@@ -5,6 +5,11 @@ import { PortableText } from "@portabletext/react";
 import { BiEnvelope, BiFile } from "react-icons/bi";
 import { Metadata, ResolvingMetadata } from "next";
 import { Hero } from "../components/ui/Hero";
+import CTASection from "@/components/cta-section";
+import TextBlock from "@/components/text-block";
+import { ThreeFeatureSection } from "@/components/featured-section";
+import { ItemList } from "@/components/item-list";
+import { HeaderSection } from "@/components/header-section";
 
 // export async function generateMetadata(
 // 	// @ts-ignore
@@ -66,16 +71,49 @@ import { Hero } from "../components/ui/Hero";
 // }
 
 export default async function About() {
-	const profile: ProfileType[] = await getProfile();
+	const threeFeatureConfig = {
+		header: "What sets us apart?",
+		items: [
+			{
+				header: "AI-First Philosophy",
+				subheader:
+					"We integrate AI into every aspect of our work, from website development and SEO to digital marketing and UI/UX design.",
+				image: { url: "/ai-first-philosophy.svg", alt: "AI-First Philosophy" },
+			},
+			{
+				header: "Personalized Attention",
+				subheader:
+					"We offer dedicated focus and personalized attention to each client, ensuring your vision is realized.",
+				image: { url: "/personalized-attention.svg", alt: "Personalized Attention" },
+			},
+			{
+				header: "Data-Driven Strategies",
+				subheader:
+					"We don't rely on guesswork. We use AI-powered analytics to make informed decisions that drive results.",
+				image: { url: "data-driven-strategies.svg", alt: "Data-Driven Strategies" },
+			},
+		],
+	};
 
 	return (
 		<main>
 			<Hero
-				title="Welcome to ReCode Pros - Your Partner in Digital Success"
-				subtitle="At ReCode Pros, our mission is to empower businesses with cutting-edge web solutions that drive growth and innovation."
+				title="The AI-Powered Approach to Digital Transformation"
+				subtitle="Your Partner in Innovation and Growth"
 				hasCta={false}
+				image="/success-partner.svg"
 			/>
-			<section className="w-full py-6 xl:py-12">
+			<TextBlock
+				text={[
+					"At ReCode Pros, we're not your typical web development and digital marketing agency. I'm Sam Thoyre, a passionate innovator fueled by a love for technology and a drive to help businesses thrive in the digital age.",
+					"Our mission is simple: to empower your business with AI-driven solutions that deliver real, measurable results. We believe in the power of data, the efficiency of automation, and the limitless possibilities of artificial intelligence.",
+				]}
+			/>
+			<ThreeFeatureSection
+				header={threeFeatureConfig.header}
+				items={threeFeatureConfig.items}
+			/>
+			{/* <section className="w-full py-6 xl:py-12">
 				<div className="container px-4 md:px-6">
 					<div className="flex flex-col items-center justify-center space-y-4 text-center">
 						<div className="space-y-2">
@@ -94,9 +132,16 @@ export default async function About() {
 						</div>
 					</div>
 					<div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-2 lg:gap-12">
+						<Image
+							src="/experienced-professionals.svg"
+							width="550"
+							height="310"
+							alt="Experienced Professionals"
+							className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
+						/>
 						<div className="flex flex-col justify-center space-y-4">
 							<div className="grid gap-1">
-								<h3 className="text-xl font-bold">
+								<h3 className="text-xl font-bold pb-4">
 									Fresh Approach:
 								</h3>
 								<p className="text-muted-foreground">
@@ -117,48 +162,114 @@ export default async function About() {
 								</p>
 							</div>
 						</div>
-						<img
-							src="/people-lightbulb.png"
-							width="550"
-							height="310"
-							alt="Our Founders"
-							className="mx-auto aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full"
-						/>
 					</div>
 				</div>
-			</section>
+			</section> */}
+			<ItemList
+				header={"Why AI Matters"}
+				subheader={
+					"Artificial Intelligence (AI) isn't just a buzzword; it's a game-changer for businesses in every industry. At Recode Pros, we harness the power of AI to give your business a competitive edge and drive unprecedented growth. Here's how:"
+				}
+				items={[
+					{
+						header: "Smarter Web Development:",
+						subheader:
+							"AI enables us to build websites and applications that are more than just pretty – they're intuitive, adaptive, and tailor-made for your users. Through machine learning, your site learns and improves over time, delivering personalized experiences that keep visitors coming back for more.",
+						image: {
+							url: "/icons/web-development.svg",
+							alt: "web development icon",
+						},
+					},
+					{
+						header: "Targeted Digital Marketing",
+						subheader:
+							"Gone are the days of generic campaigns. AI allows us to dive deep into customer data, crafting laser-focused marketing strategies that resonate with your ideal audience. This means more engagement, higher conversions, and a better return on your investment.",
+						image: {
+							url: "/icons/digital-marketing.svg",
+							alt: "digital marketing icon",
+						},
+					},
+					{
+						header: "Data-Driven Decision Making",
+						subheader:
+							"AI-powered analytics uncover hidden patterns and insights in your data, transforming raw information into actionable strategies. You'll make decisions based on facts, not guesswork, leading to smarter choices and better business outcomes.",
+						image: {
+							url: "/icons/seo.svg",
+							alt: "Data-Driven Decision Making",
+						},
+					},
+					{
+						header:
+							"Streamlined Processes and Increased Efficiency",
+						subheader:
+							"AI automates repetitive tasks, freeing up your valuable time and resources to focus on what matters most – growing your business.",
+						image: {
+							url: "/icons/project-design.svg",
+							alt: "Processes",
+						},
+					},
+					{
+						header: "Enhanced Customer Experience",
+						subheader:
+							"AI-powered chatbots, personalized recommendations, and predictive analytics create a seamless and engaging customer experience, building loyalty and driving sales.",
+						image: {
+							url: "/icons/consulting-strategy.svg",
+							alt: "Customer Experience",
+						},
+					},
+				]}
+			/>
 			<section className="w-full py-6 xl:py-12">
-				<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl text-center pb-6">
-					Our Values
-				</h2>
+				<HeaderSection header="Our Values" />
 				<div className="container grid items-start justify-center gap-8 px-4 md:px-6 lg:grid-cols-3">
-					<div className="space-y-4">
-						<h3 className="text-xl font-bold tracking-tighter sm:text-2xl md:text-3xl">
+					<div className="space-y-4 text-center">
+						<Image
+							src="/icons/ribbon.svg"
+							width="100"
+							height="100"
+							alt="ribbon icon"
+							className="mx-auto overflow-hidden object-cover object-center w-32 fill-white"
+						/>
+						<h3 className="text-lg font-bold tracking-tighter sm:text-xl md:text-2xl">
 							Commitment to Excellence
 						</h3>
-						<p className="text-muted-foreground">
+						<p className="text-muted-foreground text-left">
 							We are committed to delivering top-notch web
 							solutions that meet the highest standards of
 							quality and performance. Our work is driven by
 							a dedication to excellence in every project.
 						</p>
 					</div>
-					<div className="space-y-4">
-						<h3 className="text-xl font-bold tracking-tighter sm:text-2xl md:text-3xl">
+					<div className="space-y-4 text-center">
+						<Image
+							src="/icons/customer-centric.svg"
+							width="100"
+							height="100"
+							alt="customer-centric icon"
+							className="mx-auto overflow-hidden object-cover object-center w-32 fill-white"
+						/>
+						<h3 className="text-lg font-bold tracking-tighter sm:text-xl md:text-2xl">
 							Customer-Centric Approach
 						</h3>
-						<p className="text-muted-foreground">
-							At [Your Company Name], our clients are at the
-							heart of everything we do. We take the time to
+						<p className="text-muted-foreground text-left">
+							At ReCode Pros, our clients are at the heart
+							of everything we do. We take the time to
 							understand your unique needs and tailor our
 							services to help you achieve your goals.
 						</p>
 					</div>
-					<div className="space-y-4">
-						<h3 className="text-xl font-bold tracking-tighter sm:text-2xl md:text-3xl">
+					<div className="space-y-4 text-center">
+						<Image
+							src="/icons/innovation-adaptability.svg"
+							width="100"
+							height="100"
+							alt="lightbulb icon"
+							className="mx-auto overflow-hidden object-cover object-center w-32 fill-white"
+						/>
+						<h3 className="text-lg font-bold tracking-tighter sm:text-xl md:text-2xl">
 							Innovation and Adaptability
 						</h3>
-						<p className="text-muted-foreground">
+						<p className="text-muted-foreground text-left">
 							In the ever-evolving digital landscape,
 							innovation is key. We stay ahead of the curve
 							by embracing the latest technologies and
@@ -168,14 +279,14 @@ export default async function About() {
 					</div>
 				</div>
 			</section>
-			<section className="w-full py-6 xl:py-12">
+			{/* <section className="w-full py-6 xl:py-12">
 				<div className="container px-4 md:px-6">
 					<div className="flex flex-col items-center justify-center space-y-6 text-center">
 						<div className="space-y-2">
-							<h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+							<h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-center">
 								Comprehensive Web Consulting Services
 							</h2>
-							<p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+							<p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
 								Our team of experts offers a wide range of
 								web consulting services to help your
 								business succeed online. From strategy to
@@ -184,12 +295,18 @@ export default async function About() {
 						</div>
 					</div>
 					<div className="mx-auto grid gap-8 py-12 sm:grid-cols-2 lg:grid-cols-3">
-						<div className="grid gap-4">
-							<div className="bg-accent h-12 rounded-md p-4 flex items-center justify-center">
-								<CodeIcon className="w-6 h-6 text-primary-foreground" />
+						<div className="flex gap-4 flex-col">
+							<div className="rounded-md flex items-center justify-center">
+								<Image
+									src="/icons/web-development.svg"
+									width="100"
+									height="100"
+									alt="web development icon"
+									className="mx-auto overflow-hidden object-cover object-center w-32"
+								/>
 							</div>
 							<div>
-								<h3 className="text-xl font-bold">
+								<h3 className="text-xl font-bold pb-4">
 									Web Development
 								</h3>
 								<p className="text-muted-foreground">
@@ -201,12 +318,18 @@ export default async function About() {
 								</p>
 							</div>
 						</div>
-						<div className="grid gap-4">
-							<div className="bg-accent-foreground h-12 rounded-md p-4 flex items-center justify-center">
-								<SearchIcon className="w-6 h-6 text-accent-foreground" />
+						<div className="flex gap-4 flex-col">
+							<div className="rounded-md flex items-center justify-center">
+								<Image
+									src="/icons/seo.svg"
+									width="100"
+									height="100"
+									alt="seo icon"
+									className="mx-auto overflow-hidden object-cover object-center w-32"
+								/>
 							</div>
 							<div>
-								<h3 className="text-xl font-bold">
+								<h3 className="text-xl font-bold pb-4">
 									Search Engine Optimization (SEO)
 								</h3>
 								<p className="text-muted-foreground">
@@ -220,12 +343,18 @@ export default async function About() {
 								</p>
 							</div>
 						</div>
-						<div className="grid gap-4">
-							<div className="bg-secondary h-12 rounded-md p-4 flex items-center justify-center">
-								<Megaphone className="w-6 h-6 text-accent-foreground" />
+						<div className="flex gap-4 flex-col">
+							<div className="rounded-md flex items-center justify-center">
+								<Image
+									src="/icons/digital-marketing.svg"
+									width="100"
+									height="100"
+									alt="digital marketing icon"
+									className="mx-auto overflow-hidden object-cover object-center w-32"
+								/>
 							</div>
 							<div>
-								<h3 className="text-xl font-bold">
+								<h3 className="text-xl font-bold pb-4">
 									Digital Marketing
 								</h3>
 								<p className="text-muted-foreground">
@@ -239,17 +368,24 @@ export default async function About() {
 								</p>
 							</div>
 						</div>
-						<div className="grid gap-4">
-							<div className="bg-secondary-foreground h-12 bg-success rounded-md p-4 flex items-center justify-center">
+						<div className="flex gap-4 flex-col">
+							<div className="rounded-md flex items-center justify-center">
+								<Image
+									src="/icons/project-design.svg"
+									width="100"
+									height="100"
+									alt="digital marketing icon"
+									className="mx-auto overflow-hidden object-cover object-center w-32"
+								/>
 								<BrushIcon className="w-6 h-6 text-secondary-foreground" />
 							</div>
 							<div>
-								<h3 className="text-xl font-bold">
-									UX/UI Design
+								<h3 className="text-xl font-bold pb-4">
+									UI/UX Design
 								</h3>
 								<p className="text-muted-foreground">
 									Create exceptional digital experiences
-									with our UX/UI design services. We focus
+									with our UI/UX design services. We focus
 									on crafting intuitive and engaging
 									interfaces that enhance user satisfaction
 									and drive conversions. Our process
@@ -259,12 +395,18 @@ export default async function About() {
 								</p>
 							</div>
 						</div>
-						<div className="grid gap-4">
-							<div className="bg-muted h-12 rounded-md p-4 flex items-center justify-center">
-								<PresentationIcon className="w-6 h-6 text-warning-foreground" />
+						<div className="flex gap-4 flex-col">
+							<div className="rounded-md flex items-center justify-center">
+								<Image
+									src="/icons/consulting-strategy.svg"
+									width="100"
+									height="100"
+									alt="digital marketing icon"
+									className="mx-auto overflow-hidden object-cover object-center w-32"
+								/>
 							</div>
 							<div>
-								<h3 className="text-xl font-bold">
+								<h3 className="text-xl font-bold pb-4">
 									Consultation and Strategy Development
 								</h3>
 								<p className="text-muted-foreground">
@@ -283,7 +425,11 @@ export default async function About() {
 						</div>
 					</div>
 				</div>
-			</section>
+			</section> */}
+			<CTASection
+				header="Ready to experience the ReCode Pros difference?"
+				subheader=""
+			/>
 		</main>
 	);
 }

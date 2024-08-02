@@ -5,6 +5,7 @@
  */
 import CTASection from "@/components/cta-section";
 import FeaturedBlogArticles from "@/components/featured-blog-articles";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import DateComponent from "@/components/ui/date";
 import CustomPortableText from "@/components/ui/portable-text";
 import { getSingleBlogArticle } from "@/sanity/sanity.query";
@@ -14,41 +15,62 @@ type Props = {
 	params: { slug: string };
 };
 
-export default async function BlogArticle({ params }: Props) {
-    const blog: Post = await getSingleBlogArticle(params.slug)
+export default async function BlogArticle({
+	params,
+}: Props) {
+	const blog: Post = await getSingleBlogArticle(
+		params.slug
+	);
 	return (
-		<div className="text-foreground">
-			<header className="py-6 xl:py-9">
-				<div className="space-y-4">
-					<h1 className="text-5xl font-bold tracking-tight">
-						{blog.title}
-					</h1>
-					<div className="flex items-center space-x-4 text-muted-foreground">
-						<p className="text-sm font-medium">
-							{blog.author?.name}
-						</p>
-						<span className="h-4 w-px bg-muted" />
-						<p className="text-sm">
-							Published on{" "}
-							<DateComponent dateString={blog.date!} />
-						</p>
+		<div className="bg-background text-foreground">
+			<div className="w-[80%] py-6 xl:py-12 mx-auto">
+				<article className="prose prose-gray mx-auto dark:prose-invert">
+					<div className="space-y-4 not-prose">
+						<h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl lg:leading-[3.5rem]">
+							{blog.title}
+						</h1>
+						<div className="flex items-center space-x-4">
+							<div className="flex items-center space-x-2">
+								<Avatar className="h-8 w-8 rounded-full">
+									<AvatarImage
+										src={blog.author?.picture?.image}
+									/>
+									<AvatarFallback></AvatarFallback>
+								</Avatar>
+								<div className="text-sm font-medium">
+									{blog.author?.name}
+								</div>
+							</div>
+							<div className="text-sm text-muted-foreground">
+								Published on{" "}
+								<DateComponent dateString={blog.date!} />
+							</div>
+						</div>
 					</div>
-				</div>
-			</header>
-			<article className="py-6 xl:pr-72 xl:py-9">
-				{blog.content?.length && (
-					<CustomPortableText
-						className=""
-						value={blog.content}
+					<figure className="my-8">
+						<img
+							width={1250}
+							src={blog.coverImage?.image}
+							height={340}
+							alt={blog.coverImage?.alt || "image"}
+							className="aspect-video w-full object-cover"
+						/>
+					</figure>
+
+					{blog.content?.length && (
+						<CustomPortableText
+							className=""
+							value={blog.content}
+						/>
+					)}
+				</article>
+				{blog.relatedArticles && (
+					<FeaturedBlogArticles
+						articles={blog.relatedArticles}
 					/>
 				)}
-			</article>
-			{blog.relatedArticles && (
-				<FeaturedBlogArticles
-					articles={blog.relatedArticles}
-				/>
-			)}
-			<CTASection />
+				<CTASection />
+			</div>
 		</div>
 	);
 }

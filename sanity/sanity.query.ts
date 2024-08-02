@@ -31,7 +31,7 @@ export async function getBlogs() {
       coverImage {alt, "image": asset->url},
       tags,
       "date": coalesce(date, _updatedAt),
-      "author": author->{"name": coalesce(name, "Anonymous"), picture},
+      "author": author->{"name": coalesce(name, "Anonymous"), "picture": {alt, "image": asset->url}},
     }`
 	);
 }
@@ -60,7 +60,7 @@ export async function getSingleBlogArticle(slug: string) {
       coverImage {alt, "image": asset->url},
       tags,
       "date": coalesce(date, _updatedAt),
-      "author": author->{"name": coalesce(name, "Anonymous"), picture},
+      "author": author->{"name": coalesce(name, "Anonymous"), "picture": {alt, "image": asset->url}},
       "relatedArticles": *[
      _type == "post"
      && _id != ^._id

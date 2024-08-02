@@ -1,32 +1,37 @@
 import Link from 'next/link';
 import React from 'react'
+import { HeaderSection } from './header-section';
 
-const CTASection = () => {
-  return (
-		<section className="w-full py-6 xl:py-9">
-			<div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
-				<div className="space-y-3">
-					<h2 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-						Ready to elevate your online presence?
-					</h2>
-					<p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-						Let&apos;s work together to create a stunning
-						website that showcases your brand and drives
-						results.
-					</p>
-				</div>
+interface Props {
+	header?: string;
+	subheader?: string;
+	ctaLabel?: string;
+}
+
+const CTASection = ({
+	header = "Ready to harness the power of AI for your business?",
+	subheader = "Let's chat about how we can transform your online presence and drive real growth.",
+	ctaLabel = "Schedule Your Free Consultation",
+}) => {
+	return (
+		<section className="w-full py-6 lg:py-12">
+			<div className="grid items-center justify-center gap-4 px-4 text-center md:px-6">
+				<HeaderSection
+					header={header}
+					subheader={subheader}
+				/>
 				<div className="mx-auto w-full max-w-sm">
 					<Link
-						href="#"
-						className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
+						href="/schedule-consultation"
+						className="inline-flex h-10 items-center justify-center rounded-md bg-popover px-8 text-sm font-medium text-white shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
 						prefetch={false}
 					>
-						Schedule Your Free Consultation
+						{ctaLabel}
 					</Link>
 				</div>
 			</div>
 		</section>
 	);
-}
+};
 
 export default CTASection

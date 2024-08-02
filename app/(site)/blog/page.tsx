@@ -10,7 +10,7 @@ const BlogHomepage = async () => {
   return (
 		<main>
 			<section className="w-full py-6 xl:py-12">
-				<div className="container px-4 md:px-6 text-center text-secondary-foreground">
+				<div className="container px-4 md:px-6 text-center">
 					<div className="space-y-4">
 						<h1 className="text-2xl font-bold tracking-tighter sm:text-3xl md:text-4xl lg:text-5xl">
 							Stay up-to-date with the latest web

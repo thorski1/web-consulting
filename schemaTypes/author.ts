@@ -17,33 +17,15 @@ export default defineType({
 			name: "picture",
 			title: "Picture",
 			type: "image",
+			description: "Upload a profile avatar",
+			options: { hotspot: true },
 			fields: [
 				{
 					name: "alt",
+					title: "Alt",
 					type: "string",
-					title: "Alternative text",
-					description:
-						"Important for SEO and accessiblity.",
-					validation: (rule) => {
-						return rule.custom((alt, context) => {
-							if (
-								(context.document?.picture as any)?.asset
-									?._ref &&
-								!alt
-							) {
-								return "Required";
-							}
-							return true;
-						});
-					},
 				},
 			],
-			options: {
-                hotspot: true,
-				// aiAssist: {
-				// 	imageDescriptionField: "alt",
-				// },
-			},
 			validation: (rule) => rule.required(),
 		}),
 	],
