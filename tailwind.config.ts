@@ -75,6 +75,16 @@ const config = {
 					},
 					to: { height: "0" },
 				},
+				"shimmer": {
+					"0%, 90%, 100%": {
+						"background-position":
+							"calc(-100% - var(--shimmer-width)) 0",
+					},
+					"30%, 60%": {
+						"background-position":
+							"calc(100% + var(--shimmer-width)) 0",
+					},
+				},
 			},
 			animation: {
 				"accordion-down": "accordion-down 0.2s ease-out",
