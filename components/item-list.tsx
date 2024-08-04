@@ -37,7 +37,7 @@ export function ItemList({
 							<h3 className="mb-2 text-lg text-center font-semibold">
 								{item.header}
 							</h3>
-							<p className="text-muted-foreground">
+							<p className="text-muted-foreground text-center">
 								{item.subheader}
 							</p>
 						</>

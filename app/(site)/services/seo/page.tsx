@@ -57,56 +57,6 @@ const SEOServicePage = async () => {
 			},
 		],
 	};
-    const twoByTwoConfig = {
-			header: "Our SEO Services",
-			items: [
-				{
-					header: "Technical SEO",
-					subheader:
-						"We lay a solid foundation for your website's search engine visibility. Our technical SEO experts conduct in-depth audits to identify and resolve any issues that might hinder search engine crawlers from accessing and indexing your site. We'll optimize your site's speed, mobile responsiveness, and overall technical health, ensuring a seamless user experience and maximum search engine friendliness.",
-					image: {
-						url: "/services/seo/technical-seo.svg",
-						alt: "Technical SEO",
-					},
-				},
-				{
-					header: "On-Page SEO",
-					subheader:
-						"We craft content that resonates with both your audience and search engines. Our team of SEO specialists will conduct thorough keyword research, optimize your meta tags and headings, and refine your content structure for maximum relevance and visibility. We'll also analyze your internal linking structure, ensuring that search engines can easily crawl and understand your website's hierarchy.",
-					image: {
-						url: "/services/seo/on-page-seo.svg",
-						alt: "On-Page SEO",
-					},
-				},
-				{
-					header: "Off-Page SEO",
-					subheader:
-						"We build your website's authority and reputation. Our off-page SEO strategies focus on earning high-quality backlinks from reputable websites, engaging in strategic link-building campaigns, and monitoring your brand's online presence. We'll help you establish your website as a trusted source of information in your industry, driving organic traffic and improving your search rankings.",
-					image: {
-						url: "/services/seo/off-page-seo.svg",
-						alt: "Off-Page SEO",
-					},
-				},
-				{
-					header: "Local SEO",
-					subheader:
-						"Reach customers in your area with targeted local SEO. We'll optimize your Google My Business profile, build local citations, and ensure your business appears in relevant local search results. We'll also help you gather and manage online reviews, building trust and credibility with potential customers.",
-					image: {
-						url: "/services/seo/local-seo.svg",
-						alt: "Local SEO",
-					},
-				},
-				{
-					header: "Content Marketing",
-					subheader:
-						"Attract and engage your audience with valuable content. Our content marketing experts will develop a data-driven content strategy that aligns with your business goals and resonates with your target audience. We'll create high-quality blog posts, articles, infographics, and other content assets that inform, educate, and inspire your readers, establishing you as a thought leader in your industry.",
-					image: {
-						url: "/services/seo/content-marketing.svg",
-						alt: "Content Marketing",
-					},
-				},
-			],
-		};
 	const twoColumnConfig = {
 		header: "The ReCode Pros Difference",
 		eyebrow: "What We Offer",
@@ -133,6 +83,57 @@ const SEOServicePage = async () => {
 			},
 		],
 	};
+	const twoByTwoConfig = {
+		header: "Our SEO Services",
+		items: [
+			{
+				header: "Technical SEO",
+				subheader:
+					"We lay a solid foundation for your website's search engine visibility. Our technical SEO experts conduct in-depth audits to identify and resolve any issues that might hinder search engine crawlers from accessing and indexing your site. We'll optimize your site's speed, mobile responsiveness, and overall technical health, ensuring a seamless user experience and maximum search engine friendliness.",
+				image: {
+					url: "/services/seo/technical-seo.svg",
+					alt: "Technical SEO",
+				},
+			},
+			{
+				header: "On-Page SEO",
+				subheader:
+					"We craft content that resonates with both your audience and search engines. Our team of SEO specialists will conduct thorough keyword research, optimize your meta tags and headings, and refine your content structure for maximum relevance and visibility. We'll also analyze your internal linking structure, ensuring that search engines can easily crawl and understand your website's hierarchy.",
+				image: {
+					url: "/services/seo/on-page-seo.svg",
+					alt: "On-Page SEO",
+				},
+			},
+			{
+				header: "Off-Page SEO",
+				subheader:
+					"We build your website's authority and reputation. Our off-page SEO strategies focus on earning high-quality backlinks from reputable websites, engaging in strategic link-building campaigns, and monitoring your brand's online presence. We'll help you establish your website as a trusted source of information in your industry, driving organic traffic and improving your search rankings.",
+				image: {
+					url: "/services/seo/off-page-seo.svg",
+					alt: "Off-Page SEO",
+				},
+			},
+			{
+				header: "Local SEO",
+				subheader:
+					"Reach customers in your area with targeted local SEO. We'll optimize your Google My Business profile, build local citations, and ensure your business appears in relevant local search results. We'll also help you gather and manage online reviews, building trust and credibility with potential customers.",
+				image: {
+					url: "/services/seo/local-seo.svg",
+					alt: "Local SEO",
+				},
+			},
+			{
+				header: "Content Marketing",
+				subheader:
+					"Attract and engage your audience with valuable content. Our content marketing experts will develop a data-driven content strategy that aligns with your business goals and resonates with your target audience. We'll create high-quality blog posts, articles, infographics, and other content assets that inform, educate, and inspire your readers, establishing you as a thought leader in your industry.",
+				image: {
+					url: "/services/seo/content-marketing.svg",
+					alt: "Content Marketing",
+				},
+			},
+		],
+	};
+
 	return (
 		<main>
 			<Hero
@@ -150,14 +151,14 @@ const SEOServicePage = async () => {
 				header={itemList.header}
 				items={itemList.items}
 			/>
-			<TwoByTwoGrid
-				header={twoByTwoConfig.header}
-				items={twoByTwoConfig.items}
-			/>
 			<TwoColumnSection
 				header={twoColumnConfig.header}
 				eyebrow={twoColumnConfig.eyebrow}
 				items={twoColumnConfig.items}
+			/>
+			<TwoByTwoGrid
+				header={twoByTwoConfig.header}
+				items={twoByTwoConfig.items}
 			/>
 			<CTASection
 				header="Ready to dominate search results and unleash your website's full potential?"

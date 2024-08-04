@@ -56,7 +56,33 @@ const DigitalMarketingServicePage = async () => {
 				},
 			},
 		],
-	};
+    };
+    const twoColumnConfig = {
+			header: "The ReCode Pros Difference",
+			eyebrow: "What We Offer",
+			items: [
+				{
+					header: "AI-Driven Personalization",
+					subheader:
+						"We deliver hyper-personalized experiences that resonate with your audience and drive action.",
+				},
+				{
+					header: "Full-Funnel Marketing",
+					subheader:
+						"We create comprehensive strategies that cover the entire customer journey, from awareness to conversion and beyond.",
+				},
+				{
+					header: "Data-Driven Optimization",
+					subheader:
+						"We track and measure every aspect of your campaigns, using data to continuously refine and improve your results.",
+				},
+				{
+					header: "Results-Oriented Approach",
+					subheader:
+						"We focus on delivering tangible outcomes, whether it's increased website traffic, lead generation, or improved sales.",
+				},
+			],
+		};
 	const twoByTwoConfig = {
 		header: "Our Digital Marketing Services",
 		items: [
@@ -107,32 +133,7 @@ const DigitalMarketingServicePage = async () => {
 			},
 		],
 	};
-	const twoColumnConfig = {
-		header: "The ReCode Pros Difference",
-		eyebrow: "What We Offer",
-		items: [
-			{
-				header: "AI-Driven Personalization",
-				subheader:
-					"We deliver hyper-personalized experiences that resonate with your audience and drive action.",
-			},
-			{
-				header: "Full-Funnel Marketing",
-				subheader:
-					"We create comprehensive strategies that cover the entire customer journey, from awareness to conversion and beyond.",
-			},
-			{
-				header: "Data-Driven Optimization",
-				subheader:
-					"We track and measure every aspect of your campaigns, using data to continuously refine and improve your results.",
-			},
-			{
-				header: "Results-Oriented Approach",
-				subheader:
-					"We focus on delivering tangible outcomes, whether it's increased website traffic, lead generation, or improved sales.",
-			},
-		],
-	};
+	
 	return (
 		<main>
 			<Hero
@@ -150,14 +151,14 @@ const DigitalMarketingServicePage = async () => {
 				header={itemList.header}
 				items={itemList.items}
 			/>
+                <TwoColumnSection
+                    header={twoColumnConfig.header}
+                    eyebrow={twoColumnConfig.eyebrow}
+                    items={twoColumnConfig.items}
+                />
 			<TwoByTwoGrid
 				header={twoByTwoConfig.header}
 				items={twoByTwoConfig.items}
-			/>
-			<TwoColumnSection
-				header={twoColumnConfig.header}
-				eyebrow={twoColumnConfig.eyebrow}
-				items={twoColumnConfig.items}
 			/>
 			<CTASection
 				header="Ready to supercharge your marketing efforts with AI?"
