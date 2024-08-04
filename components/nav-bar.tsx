@@ -70,20 +70,20 @@ export function NavBar() {
 											<span>SEO</span>
 										</Link>
 										<Link
-											href="#"
-											className="flex items-center gap-2 hover:bg-accent hover:text-accent-foreground p-2 rounded-md"
-											prefetch={false}
-										>
-											<TypeIcon className="h-4 w-4" />
-											<span>Design</span>
-										</Link>
-										<Link
-											href="#"
+											href="/services/digital-marketing"
 											className="flex items-center gap-2 hover:bg-accent hover:text-accent-foreground p-2 rounded-md"
 											prefetch={false}
 										>
 											<PaletteIcon className="h-4 w-4" />
-											<span>Branding</span>
+											<span>Digital Marketing</span>
+										</Link>
+										<Link
+											href="/services/design"
+											className="flex items-center gap-2 hover:bg-accent hover:text-accent-foreground p-2 rounded-md"
+											prefetch={false}
+										>
+											<PaletteIcon className="h-4 w-4" />
+											<span>UI/UX Design</span>
 										</Link>
 										<Link
 											href="#"
@@ -91,7 +91,7 @@ export function NavBar() {
 											prefetch={false}
 										>
 											<RocketIcon className="h-4 w-4" />
-											<span>Marketing</span>
+											<span>Strategy Development</span>
 										</Link>
 									</div>
 								</CollapsibleContent>
@@ -159,20 +159,20 @@ export function NavBar() {
 							<span>SEO</span>
 						</Link>
 						<Link
-							href="#"
+							href="/services/digital-marketing"
 							className="flex items-center gap-2 px-4 py-2 hover:bg-muted"
 							prefetch={false}
 						>
-							<TypeIcon className="h-4 w-4" />
-							<span>Design</span>
+							<BriefcaseIcon className="h-4 w-4" />
+							<span>Digital Marketing</span>
 						</Link>
 						<Link
-							href="#"
+							href="/services/design"
 							className="flex items-center gap-2 px-4 py-2 hover:bg-muted"
 							prefetch={false}
 						>
 							<PaletteIcon className="h-4 w-4" />
-							<span>Branding</span>
+							<span>UI/UX Design</span>
 						</Link>
 						<Link
 							href="#"
@@ -180,7 +180,7 @@ export function NavBar() {
 							prefetch={false}
 						>
 							<RocketIcon className="h-4 w-4" />
-							<span>Marketing</span>
+							<span>Digital Strategy</span>
 						</Link>
 					</div>
 				</div>
