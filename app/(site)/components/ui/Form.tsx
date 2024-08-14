@@ -1,7 +1,7 @@
 "use client";
 
 import React, { FormEvent, useState } from "react";
-import { postSheetData } from "../../actions/google-sheets.action";
+import { submitForm } from "../../actions/google-sheets.action";
 
 interface IFormProps {
 	setIsLoading: React.Dispatch<
@@ -12,32 +12,46 @@ interface IFormProps {
 	>;
 }
 
-const Form = ({ setIsLoading, setIsSuccessful }: IFormProps) => {
+const Form = ({
+	setIsLoading,
+	setIsSuccessful,
+}: IFormProps) => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
-    const [message, setMessage] = useState("");
+	const [company, setCompany] = useState("");
+	const [error, setError] = useState("");
+
 	const handleSubmit = async (
 		e: FormEvent<HTMLFormElement>
 	) => {
 		e.preventDefault();
-        setIsLoading(true)
+		setIsLoading(true);
 		let form = {
 			name,
 			email,
-			message,
-        };
-		const response = await postSheetData(
-			name,
-			email,
-			message
-        ).then(res => {
-            setIsLoading(false)
-            setIsSuccessful(true)
-        })
-        
-		setMessage("");
-		setName("");
-        setEmail("");
+			company,
+		};
+
+		try {
+			await submitForm(form);
+			setIsSuccessful(true);
+
+			setCompany("");
+			setName("");
+			setEmail("");
+		} catch (err: any) {
+			// Handle specific errors if needed
+			if (err.message === "Invalid email format") {
+				setError("Please enter a valid email address.");
+			} else {
+				setError(
+					"An error occurred while submitting the form. Please try again later."
+				);
+			}
+			console.error(err);
+		} finally {
+			setIsLoading(false);
+		}
 	};
 	return (
 		<form onSubmit={handleSubmit} className="grid gap-4">
@@ -55,6 +69,7 @@ const Form = ({ setIsLoading, setIsSuccessful }: IFormProps) => {
 					name="name"
 					id="name"
 					placeholder="Enter your name"
+					required
 					className="block w-full rounded-md border border-neutral-300 px-3 py-2 text-base text-neutral-900 placeholder-neutral-500 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary"
 				/>
 			</div>
@@ -72,28 +87,31 @@ const Form = ({ setIsLoading, setIsSuccessful }: IFormProps) => {
 					name="email"
 					id="email"
 					placeholder="Enter your email"
+					required
 					className="block w-full rounded-md border border-neutral-300 px-3 py-2 text-base text-neutral-900 placeholder-neutral-500 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary"
 				/>
 			</div>
 			<div className="grid gap-2">
 				<label
-					htmlFor="message"
+					htmlFor="company"
 					className="text-foreground font-medium"
 				>
-					Message
+					Company
 				</label>
-				<textarea
-					value={message}
-					onChange={(e) => setMessage(e.target.value)}
-					id="message"
-					rows={4}
-					placeholder="Enter your message"
+				<input
+					value={company}
+					onChange={(e) => setCompany(e.target.value)}
+					type="company"
+					name="company"
+					id="company"
+					placeholder="Enter your company name"
+					required
 					className="block w-full rounded-md border border-neutral-300 px-3 py-2 text-base text-neutral-900 placeholder-neutral-500 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary"
 				/>
 			</div>
 			<button
 				type="submit"
-				className="rounded-md bg-primary px-4 py-2 text-base font-medium text-primary-foreground hover:bg-primary-hover focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+				className="inline-flex h-10 items-center justify-center rounded-md bg-popover px-8 text-sm font-medium text-white shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
 			>
 				Submit
 			</button>
