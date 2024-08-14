@@ -125,7 +125,7 @@ export function NavBar() {
 								Pricing
 							</Link>
 							<Link
-								href="#"
+								href="/contact"
 								className="hover:underline hover:underline-offset-4"
 								prefetch={false}
 							>
@@ -220,7 +220,7 @@ export function NavBar() {
 					Pricing
 				</Link>
 				<Link
-					href="#"
+					href="/contact"
 					className="hover:underline hover:underline-offset-4"
 					prefetch={false}
 				>

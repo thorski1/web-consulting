@@ -1,66 +1,120 @@
 "use server";
+
+import nodemailer from "nodemailer";
 import { google } from "googleapis";
-import EmailTemplate from "../../../components/email-template";
-import { Resend } from "resend";
+import { NextResponse } from "next/server";
+import { PrismaClient } from "@prisma/client";
+import SMTPTransport from "nodemailer/lib/smtp-transport";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const prisma = new PrismaClient();
 
-export async function postSheetData(
-	name: string,
-	email: string,
-	message: string
-) {
-	const glAuth = await google.auth.getClient({
-		projectId: process.env.GOOGLE_PROJECT_ID,
-		credentials: {
-			type: "service_account",
-			project_id: process.env.GOOGLE_PROJECT_ID,
-			private_key_id: process.env.GOOGLE_PRIVAT_KEY_ID,
-			private_key: process.env
-				.GOOGLE_PRIVATE_KEY!.split(String.raw`\n`)
-				.join("\n"),
-			client_email: process.env.GOOGLE_CLIENT_EMAIL,
-			universe_domain: "googleapis.com",
-		},
-		scopes: [
-			"https://www.googleapis.com/auth/spreadsheets",
-		],
-	});
+export async function submitForm(formData: any) {
+	try {
+		console.log("Form Data Received:", formData);
 
-	const glSheets = google.sheets({
-		version: "v4",
-		auth: glAuth,
-	});
+		const { name, email, company } = formData;
 
-	const data = await glSheets.spreadsheets.values
-		.append({
-			spreadsheetId: process.env.GOOGLE_SHEET_ID,
-			range: "A1:C1",
-			valueInputOption: "USER_ENTERED",
-			requestBody: {
-				values: [[name, email, message]],
+		// 1. Create or find the user
+		console.log("Looking for user in database...");
+		let user = await prisma.user.findUnique({
+			where: { email },
+		});
+
+		if (!user) {
+			console.log("User not found, creating new user...");
+			user = await prisma.user.create({
+				data: {
+					email,
+					name,
+					companyName: company,
+				},
+			});
+		} else {
+			console.log("User found:", user);
+		}
+
+		// 2. Save information as a lead, linked to the user
+		console.log("Saving lead information...");
+		const lead = await prisma.lead.create({
+			data: {
+				user: { connect: { id: user.id } },
+				source: "Website Form",
+				status: "New",
 			},
-		})
-		.then(async (res) => {
-			const { data: emailData, error } = await resend.emails
-				.send({
-					from: "Recode Pros <onboarding@resend.dev>",
-					to: [email],
-					subject: "Test!",
-					react: EmailTemplate({ name }),
-				})
-				// @ts-ignore
-				.then((res) => {
-					console.log(res);
-					return new Response(JSON.stringify(emailData), {
-						status: 200,
-					});
-				});
-		})
-		.catch(
-			(e) =>
-				new Response(JSON.stringify(e), {
-					status: 400,
-				})
+		});
+		console.log("Lead saved:", lead);
+
+		// 3. Load service account key file and create JWT client
+		console.log("Loading service account key file...");
+		const keyFile = JSON.parse(
+			process.env.GOOGLE_EMAIL_SENDER_KEYFILE!
 		);
+		console.log("Creating JWT client...");
+		const jwtClient = new google.auth.JWT(
+			keyFile.client_email,
+			// @ts-ignore
+			null,
+			keyFile.private_key,
+			["https://mail.google.com/"]
+		);
+		console.log("JWT client created:", jwtClient);
+
+		// 4. Get access token
+		const tokens = await jwtClient.getAccessToken();
+    console.log("Access token generated:", tokens.token);
+    
+    // Manually construct the XOAUTH2 string
+    const authString = `user=${process.env.GMAIL_USER}\x01auth=Bearer ${tokens.token}\x01\x01`;
+    const authStringBase64 = Buffer.from(authString).toString("base64");
+
+		// 5. Set up Nodemailer transporter with direct SMTP configuration
+		console.log("Setting up Nodemailer transporter...");
+		const transporter = nodemailer.createTransport({
+			host: "smtp.gmail.com",
+			port: 465,
+			secure: true,
+			auth: {
+				user: process.env.GMAIL_USER,
+				pass: process.env.GMAIL_PASSWORD,
+			},
+			logger: true,
+			debug: true,
+			socketTimeout: 10000, 
+			connectionTimeout: 10000,
+		} as SMTPTransport.Options);
+
+		console.log("transporter set up", transporter);
+
+		// 6. Send notification to yourself
+		const notificationMailOptions = {
+			from: `<${process.env.GMAIL_USER}>`,
+			to: `<${process.env.GMAIL_USER}>`,
+			subject: "New Lead from Website",
+			text: `
+        A new lead has been created:
+        Name: ${name}
+        Email: ${email}
+        Company: ${company}
+      `,
+		};
+
+		console.log("Sending email notification...");
+    await transporter.sendMail(notificationMailOptions)
+		console.log("Email sent successfully.");
+
+		return { success: true };
+	} catch (error) {
+		console.error(
+			"Error occurred during form submission:",
+			error
+		);
+		throw new Error(
+			`Error handling form submission: ${error}`
+		);
+	} finally {
+		console.log("Disconnecting Prisma...");
+		await prisma.$disconnect();
+    console.log("Prisma disconnected.");
+    
+	}
 }

@@ -1,0 +1,69 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           Int       @id @default(autoincrement())   
+  email        String    @unique @db.VarChar(255)
+  name         String?   @db.VarChar(255)   
+  companyName  String?   @db.VarChar(255)
+  createdAt    DateTime  @default(now())
+  leads        Lead[]
+  projects     Project[]
+}
+
+model Lead {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  source    String   @db.VarChar(255)
+  status    String   @db.VarChar(255)
+  createdAt DateTime @default(now())
+}
+
+model Project {
+  id          Int      @id @default(autoincrement())
+  clientId    Int
+  client      User     @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  name        String   @db.VarChar(255)
+  description String?
+  startDate   DateTime @db.Date
+  endDate     DateTime? @db.Date
+  status      String?   @db.VarChar(255)
+  createdAt   DateTime @default(now())
+  services    ProjectService[]
+  invoices    Invoice[]
+}
+
+model Service {
+  id          Int             @id @default(autoincrement())
+  name        String          @db.VarChar(255)
+  description String?
+  basePrice   Decimal         @db.Decimal(10, 2)
+  projectServices ProjectService[]
+}
+
+model ProjectService {
+  projectId   Int
+  serviceId   Int
+  project     Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  service     Service @relation(fields: [serviceId], references: [id], onDelete: Cascade)   
+  price       Decimal @db.Decimal(10, 2)
+
+  @@id([projectId, serviceId])
+}
+
+model Invoice {
+  id        Int      @id @default(autoincrement())
+  projectId Int
+  project   Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  amount    Decimal  @db.Decimal(10, 2)
+  dueDate   DateTime @db.Date
+  status    String   @db.VarChar(255)
+  createdAt DateTime @default(now())
+}

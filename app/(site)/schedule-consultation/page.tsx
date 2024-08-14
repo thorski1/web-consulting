@@ -1,6 +1,6 @@
 import React from "react";
-import MainPage from "./MainPage";
 import { Metadata, ResolvingMetadata } from "next";
+import ScheduleConsultationSection from "./ScheduleConsultationSection";
 
 export async function generateMetadata(
     // @ts-ignore
@@ -65,7 +65,7 @@ export async function generateMetadata(
 export default function ScheduleConsultationPage() {
 	return (
             <main>
-                <MainPage />
+                <ScheduleConsultationSection />
 			</main>
 		);
 	

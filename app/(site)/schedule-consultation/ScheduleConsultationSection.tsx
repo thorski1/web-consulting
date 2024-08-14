@@ -4,7 +4,7 @@ import Form from "../components/ui/Form";
 import ThankYouPage from "../components/ui/ThankYouPage";
 import LoadingSpinnerPage from "../components/global/LoadingSpinner";
 
-export default function MainPage() {
+export default function ScheduleConsultationSection() {
 	const [isLoading, setIsLoading] = useState(false);
 	const [isSuccessful, setIsSuccessful] = useState(false);
 	if (isLoading) {
