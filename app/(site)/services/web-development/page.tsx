@@ -1,9 +1,68 @@
 import CTASection from "@/components/cta-section";
 import { Hero } from "../../components/ui/Hero";
 import { FourColumnIconSection } from "@/components/four-column-icon-section";
-import { TwoColumnSection } from "@/components/two-column-section";
 import { TwoByTwoGrid } from "@/components/two-by-two-grid";
 import TextBlock from "@/components/text-block";
+import { Metadata, ResolvingMetadata } from "next";
+
+export async function generateMetadata(
+	// @ts-ignore
+	{ params, searchParams },
+	parent: ResolvingMetadata
+): Promise<Metadata> {
+	return {
+		metadataBase: new URL("https://recodepros.dev"),
+		title: "Web Development - Recode Pros",
+		description:
+			"Build your digital empire with Recode Pros' AI-driven web development services. We create stunning, high-performing websites and web apps tailored to your business needs.",
+		openGraph: {
+			title:
+				"AI-Powered Web Development | Custom Websites & Web Apps",
+			description:
+				"Build your digital empire with Recode Pros' AI-driven web development services. We create stunning, high-performing websites and web apps tailored to your business needs.",
+			url: `https://recodepros.dev/services/web-development`,
+			siteName: "ReCode Pros",
+			images: [
+				{
+					url: `https://recodepros.dev/people-lightbulb.png`, // Must be an absolute URL
+					width: 800,
+					height: 600,
+				},
+				{
+					url: `https://recodepros.dev/people-lightbulb.png`, // Must be an absolute URL
+					width: 1800,
+					height: 1600,
+					alt: "My custom alt",
+				},
+			],
+			locale: "en-US",
+			type: "website",
+		},
+		twitter: {
+			card: "summary",
+			title:
+				"AI-Powered Web Development | Custom Websites & Web Apps",
+			description:
+				"Build your digital empire with Recode Pros' AI-driven web development services. We create stunning, high-performing websites and web apps tailored to your business needs.",
+			// siteId: "1012501",
+			creator: "@SamThoyre",
+			creatorId: "1012501",
+			images: [
+				"https://recodepros.dev/people-lightbulb.png",
+			],
+		},
+		robots: {
+			index: true,
+			follow: true,
+			nocache: false,
+			googleBot: {
+				index: true,
+				follow: true,
+				noimageindex: false,
+			},
+		},
+	};
+}
 
 const WebDevelopmentServicePage = async () => {
 	const fourColumnConfig = {

@@ -11,64 +11,64 @@ import { ThreeFeatureSection } from "@/components/featured-section";
 import { ItemList } from "@/components/item-list";
 import { HeaderSection } from "@/components/header-section";
 
-// export async function generateMetadata(
-// 	// @ts-ignore
-// 	{ params, searchParams },
-// 	parent: ResolvingMetadata
-// ): Promise<Metadata> {
-// 	return {
-// 		metadataBase: new URL(
-// 			"https://new-portfolio-three-gamma.vercel.app"
-// 		),
-// 		title: "Free 10-Minute Web Development Consultation",
-// 		description:
-// 			"Schedule your free 10-minute consultation with our expert web developers. Discover how we can enhance your online presence and achieve your goals.",
-// 		openGraph: {
-// 			title: "Free 10-Minute Web Development Consultation",
-// 			description:
-// 				"Schedule your free 10-minute consultation with our expert web developers. Discover how we can enhance your online presence and achieve your goals.",
-// 			url: `https://new-portfolio-three-gamma.vercel.app/about`,
-// 			siteName: "ST Web Consulting",
-// 			images: [
-// 				{
-// 					url: `https://new-portfolio-three-gamma.vercel.app/DKcTWlyZOE.png`, // Must be an absolute URL
-// 					width: 800,
-// 					height: 600,
-// 				},
-// 				{
-// 					url: `https://new-portfolio-three-gamma.vercel.app/DKcTWlyZOE.png`, // Must be an absolute URL
-// 					width: 1800,
-// 					height: 1600,
-// 					alt: "My custom alt",
-// 				},
-// 			],
-// 			locale: "en-US",
-// 			type: "website",
-// 		},
-// 		twitter: {
-// 			card: "summary",
-// 			title: "Free 10-Minute Web Development Consultation",
-// 			description:
-// 				"Schedule your free 10-minute consultation with our expert web developers. Discover how we can enhance your online presence and achieve your goals.",
-// 			// siteId: "1012501",
-// 			creator: "@SamThoyre",
-// 			creatorId: "1012501",
-// 			images: [
-// 				"https://new-portfolio-three-gamma.vercel.app/DKcTWlyZOE.png",
-// 			],
-// 		},
-// 		robots: {
-// 			index: true,
-// 			follow: true,
-// 			nocache: false,
-// 			googleBot: {
-// 				index: true,
-// 				follow: true,
-// 				noimageindex: false,
-// 			},
-// 		},
-// 	};
-// }
+export async function generateMetadata(
+	// @ts-ignore
+	{ params, searchParams },
+	parent: ResolvingMetadata
+): Promise<Metadata> {
+	return {
+		metadataBase: new URL("https://recodepros.dev"),
+		title: "About - Recode Pros",
+		description:
+			"Learn about Recode Pros' mission, team, and AI-first philosophy. Discover how we leverage cutting-edge technology to deliver exceptional results for our clients.",
+		openGraph: {
+			title:
+				"About Recode Pros | AI-First Approach to Digital Success",
+			description:
+				"Learn about Recode Pros' mission, team, and AI-first philosophy. Discover how we leverage cutting-edge technology to deliver exceptional results for our clients.",
+			url: `https://recodepros.dev/about`,
+			siteName: "ReCode Pros",
+			images: [
+				{
+					url: `https://recodepros.dev/people-lightbulb.png`, // Must be an absolute URL
+					width: 800,
+					height: 600,
+				},
+				{
+					url: `https://recodepros.dev/people-lightbulb.png`, // Must be an absolute URL
+					width: 1800,
+					height: 1600,
+					alt: "My custom alt",
+				},
+			],
+			locale: "en-US",
+			type: "website",
+		},
+		twitter: {
+			card: "summary",
+			title:
+				"About Recode Pros | AI-First Approach to Digital Success",
+			description:
+				"Learn about Recode Pros' mission, team, and AI-first philosophy. Discover how we leverage cutting-edge technology to deliver exceptional results for our clients.",
+			// siteId: "1012501",
+			creator: "@SamThoyre",
+			creatorId: "1012501",
+			images: [
+				"https://recodepros.dev/people-lightbulb.png",
+			],
+		},
+		robots: {
+			index: true,
+			follow: true,
+			nocache: false,
+			googleBot: {
+				index: true,
+				follow: true,
+				noimageindex: false,
+			},
+		},
+	};
+}
 
 export default async function About() {
 	const threeFeatureConfig = {

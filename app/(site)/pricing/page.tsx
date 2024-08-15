@@ -1,4 +1,64 @@
+import { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link"
+
+export async function generateMetadata(
+	// @ts-ignore
+	{ params, searchParams },
+	parent: ResolvingMetadata
+): Promise<Metadata> {
+	return {
+		metadataBase: new URL("https://recodepros.dev"),
+		title: "Pricing - Recode Pros",
+		description:
+			"Explore Recode Pros' affordable and customizable pricing options for AI-powered web development, SEO, digital marketing, and more.",
+		openGraph: {
+			title:
+				"Recode Pros Pricing | Transparent & Flexible Plans",
+			description:
+				"Explore Recode Pros' affordable and customizable pricing options for AI-powered web development, SEO, digital marketing, and more.",
+			url: `https://recodepros.dev/pricing`,
+			siteName: "ReCode Pros",
+			images: [
+				{
+					url: `https://recodepros.dev/people-lightbulb.png`, // Must be an absolute URL
+					width: 800,
+					height: 600,
+				},
+				{
+					url: `https://recodepros.dev/people-lightbulb.png`, // Must be an absolute URL
+					width: 1800,
+					height: 1600,
+					alt: "My custom alt",
+				},
+			],
+			locale: "en-US",
+			type: "website",
+		},
+		twitter: {
+			card: "summary",
+			title:
+				"Recode Pros Pricing | Transparent & Flexible Plans",
+			description:
+				"Explore Recode Pros' affordable and customizable pricing options for AI-powered web development, SEO, digital marketing, and more.",
+			// siteId: "1012501",
+			creator: "@SamThoyre",
+			creatorId: "1012501",
+			images: [
+				"https://recodepros.dev/people-lightbulb.png",
+			],
+		},
+		robots: {
+			index: true,
+			follow: true,
+			nocache: false,
+			googleBot: {
+				index: true,
+				follow: true,
+				noimageindex: false,
+			},
+		},
+	};
+}
 
 const PricingPage = () => {
    return (

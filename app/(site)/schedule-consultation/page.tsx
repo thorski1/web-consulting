@@ -3,32 +3,30 @@ import { Metadata, ResolvingMetadata } from "next";
 import ScheduleConsultationSection from "./ScheduleConsultationSection";
 
 export async function generateMetadata(
-    // @ts-ignore
+	// @ts-ignore
 	{ params, searchParams },
 	parent: ResolvingMetadata
 ): Promise<Metadata> {
-
 	return {
-		metadataBase: new URL(
-			"https://new-portfolio-three-gamma.vercel.app"
-		),
-		title: "Free 10-Minute Web Development Consultation",
+		metadataBase: new URL("https://recodepros.dev"),
+		title: "Schedule a Consultation - Recode Pros",
 		description:
-			"Schedule your free 10-minute consultation with our expert web developers. Discover how we can enhance your online presence and achieve your goals.",
+			"Book a free consultation with Recode Pros' experts to discuss your digital goals and discover how our AI-powered solutions can transform your business.",
 		openGraph: {
-			title: "Free 10-Minute Web Development Consultation",
+			title:
+				"Schedule a Free Consultation | Recode Pros",
 			description:
-				"Schedule your free 10-minute consultation with our expert web developers. Discover how we can enhance your online presence and achieve your goals.",
-			url: `https://new-portfolio-three-gamma.vercel.app/schedule-consultation`,
-			siteName: "ST Web Consulting",
+				"Book a free consultation with Recode Pros' experts to discuss your digital goals and discover how our AI-powered solutions can transform your business.",
+			url: `https://recodepros.dev/schedule-consultation`,
+			siteName: "ReCode Pros",
 			images: [
 				{
-					url: `https://new-portfolio-three-gamma.vercel.app/DKcTWlyZOE.png`, // Must be an absolute URL
+					url: `https://recodepros.dev/people-lightbulb.png`, // Must be an absolute URL
 					width: 800,
 					height: 600,
 				},
 				{
-					url: `https://new-portfolio-three-gamma.vercel.app/DKcTWlyZOE.png`, // Must be an absolute URL
+					url: `https://recodepros.dev/people-lightbulb.png`, // Must be an absolute URL
 					width: 1800,
 					height: 1600,
 					alt: "My custom alt",
@@ -39,14 +37,15 @@ export async function generateMetadata(
 		},
 		twitter: {
 			card: "summary",
-			title: "Free 10-Minute Web Development Consultation",
+			title:
+				"Schedule a Free Consultation | Recode Pros",
 			description:
-				"Schedule your free 10-minute consultation with our expert web developers. Discover how we can enhance your online presence and achieve your goals.",
+				"Book a free consultation with Recode Pros' experts to discuss your digital goals and discover how our AI-powered solutions can transform your business.",
 			// siteId: "1012501",
 			creator: "@SamThoyre",
-			// creatorId: "1012501",
+			creatorId: "1012501",
 			images: [
-				"https://new-portfolio-three-gamma.vercel.app/DKcTWlyZOE.png",
+				"https://recodepros.dev/people-lightbulb.png",
 			],
 		},
 		robots: {

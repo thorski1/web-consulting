@@ -5,6 +5,66 @@ import { TwoColumnSection } from "@/components/two-column-section";
 import { TwoByTwoGrid } from "@/components/two-by-two-grid";
 import TextBlock from "@/components/text-block";
 import { ItemList } from "@/components/item-list";
+import { Metadata, ResolvingMetadata } from "next";
+
+export async function generateMetadata(
+	// @ts-ignore
+	{ params, searchParams },
+	parent: ResolvingMetadata
+): Promise<Metadata> {
+	return {
+		metadataBase: new URL("https://recodepros.dev"),
+		title: "SEO - Recode Pros",
+		description:
+			"Dominate search results with Recode Pros' AI-powered SEO strategies. Increase organic traffic, improve rankings, and achieve sustainable growth.",
+		openGraph: {
+			title:
+				"Intelligent SEO Services | Boost Your Online Visibility",
+			description:
+				"Dominate search results with Recode Pros' AI-powered SEO strategies. Increase organic traffic, improve rankings, and achieve sustainable growth.",
+			url: `https://recodepros.dev/blog`,
+			siteName: "ReCode Pros",
+			images: [
+				{
+					url: `https://recodepros.dev/people-lightbulb.png`, // Must be an absolute URL
+					width: 800,
+					height: 600,
+				},
+				{
+					url: `https://recodepros.dev/people-lightbulb.png`, // Must be an absolute URL
+					width: 1800,
+					height: 1600,
+					alt: "My custom alt",
+				},
+			],
+			locale: "en-US",
+			type: "website",
+		},
+		twitter: {
+			card: "summary",
+			title:
+				"Intelligent SEO Services | Boost Your Online Visibility",
+			description:
+				"Dominate search results with Recode Pros' AI-powered SEO strategies. Increase organic traffic, improve rankings, and achieve sustainable growth.",
+			// siteId: "1012501",
+			creator: "@SamThoyre",
+			creatorId: "1012501",
+			images: [
+				"https://recodepros.dev/people-lightbulb.png",
+			],
+		},
+		robots: {
+			index: true,
+			follow: true,
+			nocache: false,
+			googleBot: {
+				index: true,
+				follow: true,
+				noimageindex: false,
+			},
+		},
+	};
+}
 
 const SEOServicePage = async () => {
 	const itemList = {

@@ -13,28 +13,25 @@ export async function generateMetadata(
 	parent: ResolvingMetadata
 ): Promise<Metadata> {
 	return {
-		metadataBase: new URL(
-			"https://new-portfolio-three-gamma.vercel.app"
-		),
-		title:
-			"Expert Web Development & Consulting Services | ReCode Pros",
+		metadataBase: new URL("https://recodepros.dev"),
+		title: "Recode Pros",
 		description:
-			"Transform your online presence with our expert web development and consulting services. Schedule a free consultation today!",
+			"Unlock your business's full potential with Recode Pros' AI-driven web development, SEO, and digital marketing services. We craft custom solutions that deliver measurable results.",
 		openGraph: {
 			title:
-				"Expert Web Development & Consulting Services | ReCode Pros",
+				"Recode Pros | AI-Powered Web Solutions for Business Growth",
 			description:
-				"Transform your online presence with our expert web development and consulting services. Schedule a free consultation today!",
-			url: `https://new-portfolio-three-gamma.vercel.app/`,
+				"Unlock your business's full potential with Recode Pros' AI-driven web development, SEO, and digital marketing services. We craft custom solutions that deliver measurable results.",
+			url: `https://recodepros.dev/blog`,
 			siteName: "ReCode Pros",
 			images: [
 				{
-					url: `https://new-portfolio-three-gamma.vercel.app/DKcTWlyZOE.png`, // Must be an absolute URL
+					url: `https://recodepros.dev/people-lightbulb.png`, // Must be an absolute URL
 					width: 800,
 					height: 600,
 				},
 				{
-					url: `https://new-portfolio-three-gamma.vercel.app/DKcTWlyZOE.png`, // Must be an absolute URL
+					url: `https://recodepros.dev/people-lightbulb.png`, // Must be an absolute URL
 					width: 1800,
 					height: 1600,
 					alt: "My custom alt",
@@ -46,14 +43,14 @@ export async function generateMetadata(
 		twitter: {
 			card: "summary",
 			title:
-				"Expert Web Development & Consulting Services | ReCode Pros",
+				"Recode Pros | AI-Powered Web Solutions for Business Growth",
 			description:
-				"Transform your online presence with our expert web development and consulting services. Schedule a free consultation today!",
+				"Unlock your business's full potential with Recode Pros' AI-driven web development, SEO, and digital marketing services. We craft custom solutions that deliver measurable results.",
 			// siteId: "1012501",
 			creator: "@SamThoyre",
-			// creatorId: "1012501",
+			creatorId: "1012501",
 			images: [
-				"https://new-portfolio-three-gamma.vercel.app/DKcTWlyZOE.png",
+				"https://recodepros.dev/people-lightbulb.png",
 			],
 		},
 		robots: {
