@@ -33,7 +33,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<GoogleTagManager gtmId="GTM-KPSRQ7LS" />
+			<GoogleTagManager gtmId="GTM-NCJRDXKB" />
 			<body
 				className={`${cn(
 					"min-h-screen lg:max-w-7xl mx-auto max-w-5x md:px-16 px-6 bg-background font-sans antialiased",
@@ -44,7 +44,7 @@ export default function RootLayout({
 				{children}
 				<Footer />
 			</body>
-			<GoogleAnalytics gaId="G-SM40308D33" />
+			<GoogleAnalytics gaId="G-82N8RY63ZQ" />
 		</html>
 	);
 }
