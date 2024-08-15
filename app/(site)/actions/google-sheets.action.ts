@@ -8,9 +8,13 @@ import SMTPTransport from "nodemailer/lib/smtp-transport";
 
 const prisma = new PrismaClient();
 
-export async function submitForm(formData: any) {
+export async function submitForm(formData: {
+	name: string;
+	email: string;
+	company: string;
+}) {
 	try {
-		console.log("Form Data Received:", formData);
+		console.log("Form Data Received:");
 
 		const { name, email, company } = formData;
 
@@ -30,7 +34,7 @@ export async function submitForm(formData: any) {
 				},
 			});
 		} else {
-			console.log("User found:", user);
+			console.log("User found");
 		}
 
 		// 2. Save information as a lead, linked to the user
@@ -42,7 +46,7 @@ export async function submitForm(formData: any) {
 				status: "New",
 			},
 		});
-		console.log("Lead saved:", lead);
+		console.log("Lead saved");
 
 		// 3. Load service account key file and create JWT client
 		console.log("Loading service account key file...");
@@ -57,15 +61,16 @@ export async function submitForm(formData: any) {
 			keyFile.private_key,
 			["https://mail.google.com/"]
 		);
-		console.log("JWT client created:", jwtClient);
+		console.log("JWT client created:");
 
 		// 4. Get access token
 		const tokens = await jwtClient.getAccessToken();
-    console.log("Access token generated:", tokens.token);
-    
-    // Manually construct the XOAUTH2 string
-    const authString = `user=${process.env.GMAIL_USER}\x01auth=Bearer ${tokens.token}\x01\x01`;
-    const authStringBase64 = Buffer.from(authString).toString("base64");
+		console.log("Access token generated:");
+
+		// Manually construct the XOAUTH2 string
+		const authString = `user=${process.env.GMAIL_USER}\x01auth=Bearer ${tokens.token}\x01\x01`;
+		const authStringBase64 =
+			Buffer.from(authString).toString("base64");
 
 		// 5. Set up Nodemailer transporter with direct SMTP configuration
 		console.log("Setting up Nodemailer transporter...");
@@ -79,11 +84,11 @@ export async function submitForm(formData: any) {
 			},
 			logger: true,
 			debug: true,
-			socketTimeout: 10000, 
+			socketTimeout: 10000,
 			connectionTimeout: 10000,
 		} as SMTPTransport.Options);
 
-		console.log("transporter set up", transporter);
+		console.log("transporter set up");
 
 		// 6. Send notification to yourself
 		const notificationMailOptions = {
@@ -99,7 +104,7 @@ export async function submitForm(formData: any) {
 		};
 
 		console.log("Sending email notification...");
-    await transporter.sendMail(notificationMailOptions)
+		await transporter.sendMail(notificationMailOptions);
 		console.log("Email sent successfully.");
 
 		return { success: true };
@@ -114,7 +119,6 @@ export async function submitForm(formData: any) {
 	} finally {
 		console.log("Disconnecting Prisma...");
 		await prisma.$disconnect();
-    console.log("Prisma disconnected.");
-    
+		console.log("Prisma disconnected.");
 	}
 }
