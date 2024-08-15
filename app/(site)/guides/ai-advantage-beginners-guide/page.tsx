@@ -67,7 +67,7 @@ export default function ContactPage() {
 				<div className="container px-4 md:px-6 text-center">
 					<div className="max-w-5xl mx-auto space-y-6">
 						<h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-muted-foreground">
-							The AI Advantage: A Beginner's Guide to
+							The AI Advantage: A Beginner&apos;s Guide to
 							Leveraging Artificial Intelligence for
 							Business Growth
 						</h1>
