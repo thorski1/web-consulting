@@ -9,7 +9,7 @@ interface Props {
 export function TwoColumnSection({header, eyebrow, items}: Props) {
   return (
 		<section className="w-full py-6 md:py-12">
-			<div className="grid items-center justify-center gap-12 px-4 text-center md:px-6 lg:grid-cols-2 lg:text-left">
+			<div className="grid items-center justify-center gap-12 px-4 text-left md:px-6 lg:grid-cols-2 lg:text-left">
 				<div className="space-y-4">
 					<div className="inline-block rounded-lg bg-primary px-3 py-1 text-sm text-primary-foreground">
 						{eyebrow}

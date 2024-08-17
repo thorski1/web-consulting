@@ -14,18 +14,6 @@ const fontSans = FontSans({
 	variable: "--font-sans",
 });
 
-export const metadata: Metadata = {
-	// title: "Sam Thoyre | Portfolio",
-	// description:
-	// 	"Sam Thoyre's personal portfolio, used to showcase skills and experience",
-	// openGraph: {
-	// 	images: "add-your-open-graph-image-url-here",
-	// },
-	// verification: {
-	// 	google: "eUsFECnHpZa87YhtqETKfyaOWvRIq6IEPukpEdliniw",
-	// },
-};
-
 export default function RootLayout({
 	children,
 }: {
@@ -38,7 +26,7 @@ export default function RootLayout({
 				className={`${cn(
 					"min-h-screen lg:max-w-7xl mx-auto max-w-5x md:px-16 px-6 bg-background font-sans antialiased",
 					fontSans.variable
-				)} min-h-screen relative pb-16 dark`}
+				)} min-h-screen relative pb-40 dark`}
 			>
 				<NavBar />
 				{children}

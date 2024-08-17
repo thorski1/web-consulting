@@ -52,7 +52,7 @@ export function ItemList({
 							<InnerComponent />
 						</Link>
 					) : (
-						<div className="rounded-lg bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg">
+						<div key={i} className="rounded-lg bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg">
 							<InnerComponent />
 						</div>
 					);

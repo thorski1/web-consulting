@@ -1,3 +1,6 @@
+import AnimatedShinyText from "./magicui/animated-shiny-text";
+
+
 interface Props {
     header: string;
     subheader?: string;
@@ -5,9 +8,9 @@ interface Props {
 export const HeaderSection = ({ header, subheader }: Props) => {
     return (
 			<div className="mb-2 md:mb-4 lg:mb-8">
-				<h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-center">
+				<AnimatedShinyText as="h2" className="text-3xl font-bold tracking-tight sm:text-4xl text-center">
 					{header}
-				</h2>
+				</AnimatedShinyText>
 				{subheader && subheader !== "" && (
 					<p className="mx-auto max-w-[1000px] text-muted-foreground md:text-xl/relaxed text-center pt-3">
 						{subheader}
