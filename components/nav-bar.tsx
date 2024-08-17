@@ -228,10 +228,12 @@ export function NavBar() {
 					Contact
 				</Link>
 			</nav>
-			<CalendarModal label={"Schedule consultation"} />
+			<div className="hidden lg:inline-flex">
+				<CalendarModal label={"Schedule consultation"} />
+			</div>
 			{/* <Link
 				href="/schedule-consultation"
-				className="h-9 items-center justify-center rounded-md px-4 text-sm font-medium bg-popover text-white shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 md:ml-4 mt-4 md:mt-0 hidden lg:inline-flex"
+				
 				prefetch={false}
 			>
 				Schedule Consultation
