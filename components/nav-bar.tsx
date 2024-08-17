@@ -10,10 +10,11 @@ import {
 	CollapsibleContent,
 } from "@/components/ui/collapsible";
 import Image from "next/image";
+import CalendarModal from "./calendar-modal";
 
 export function NavBar() {
 	return (
-		<header className="flex flex-col sm:flex-row h-auto md:h-16 items-center justify-between px-4 md:px-6">
+		<header className="flex flex-col sm:flex-row items-center justify-between px-4 md:px-6 pt-3">
 			<div className="flex items-center justify-between w-full md:w-auto">
 				<Link
 					href="/"
@@ -33,7 +34,7 @@ export function NavBar() {
 				</Link>
 				<Sheet>
 					<SheetTrigger asChild>
-						<button className="sm:hidden">
+						<button className="md:hidden">
 							<MenuIcon className="h-6 w-6" />
 						</button>
 					</SheetTrigger>
@@ -227,13 +228,14 @@ export function NavBar() {
 					Contact
 				</Link>
 			</nav>
-			<Link
+			<CalendarModal label={"Schedule consultation"} />
+			{/* <Link
 				href="/schedule-consultation"
-				className="inline-flex h-9 items-center justify-center rounded-md px-4 text-sm font-medium bg-popover text-white shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 md:ml-4 mt-4 md:mt-0"
+				className="h-9 items-center justify-center rounded-md px-4 text-sm font-medium bg-popover text-white shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 md:ml-4 mt-4 md:mt-0 hidden lg:inline-flex"
 				prefetch={false}
 			>
 				Schedule Consultation
-			</Link>
+			</Link> */}
 		</header>
 	);
 }

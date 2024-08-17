@@ -158,7 +158,7 @@ export default async function Home() {
 					"In today's fast-paced digital world, your business needs more than just a website; it needs an online powerhouse. At ReCode Pros, we harness the power of artificial intelligence and machine learning to create custom websites and web applications that accelerate your growth.",
 				]}
 			/>
-			<section className="w-full py-6 xl:py-12">
+			<section className="w-full py-6 lg:py-12">
 				<div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
 					<HeaderSection header="Why Choose ReCode Pros?" />
 					<div className="mx-auto grid max-w-5xl items-center gap-6 pb-12 lg:grid-cols-2 lg:gap-12">
