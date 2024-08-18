@@ -12,7 +12,11 @@ export async function submitForm(formData: {
 	name: string;
 	email: string;
 	company: string;
+	transactionalId?: string
 }) {
+	if (!formData.transactionalId) {
+		formData.transactionalId = "clzuldhjd01d52ha4nrggm11m";
+	}
 	try {
 		console.log("Form Data Received:");
 
@@ -49,12 +53,11 @@ export async function submitForm(formData: {
 		console.log("Lead saved");
 
 		// 3. Send email to the user using Loops.so
-		const loopsApiKey = process.env.LOOPS_API_KEY; // Get your Loops.so API key from environment variables
-		const transactionalId = "clzuldhjd01d52ha4nrggm11m"; // Replace with your actual template ID from Loops.so
+		const loopsApiKey = process.env.LOOPS_API_KEY; 
 
 		const emailData = {
 			email: email,
-			transactionalId,
+			transactionalId: formData.transactionalId,
 			addToAudience: true,
 			dataVariables: {
 				name: name,

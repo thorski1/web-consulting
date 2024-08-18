@@ -10,11 +10,13 @@ interface IFormProps {
 	setIsSuccessful: React.Dispatch<
 		React.SetStateAction<boolean>
 	>;
+	transactionalId?: string;
 }
 
 const Form = ({
 	setIsLoading,
 	setIsSuccessful,
+	transactionalId
 }: IFormProps) => {
 	const [name, setName] = useState("");
 	const [email, setEmail] = useState("");
@@ -30,6 +32,7 @@ const Form = ({
 			name,
 			email,
 			company,
+			transactionalId
 		};
 
 		try {

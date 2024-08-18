@@ -20,7 +20,7 @@ export const Hero = ({
 		<header className="w-full pt-10 lg:pt-16 pb:6 lg:pb-12">
 			<div className="container grid items-center gap-6 px-4 md:px-6 lg:grid-cols-2 lg:gap-12">
 				<div className="space-y-4">
-					<AnimatedShinyText className="text-xl font-bold tracking-tighter sm:text-2xl md:text-3xl lg:text-4xl">
+					<AnimatedShinyText className="text-3xl font-bold tracking-tight sm:text-4xl">
 						{title}
 					</AnimatedShinyText>
 					<p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed">

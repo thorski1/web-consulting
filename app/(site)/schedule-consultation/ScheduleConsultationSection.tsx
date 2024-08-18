@@ -13,7 +13,15 @@ export default function ScheduleConsultationSection() {
 		);
 	}
 	if (isSuccessful) {
-		return <ThankYouPage />;
+		return (
+			<ThankYouPage
+				content="Thank you for your interest! We will reach out to
+					you via email shortly to schedule your free
+					10-minute consultation. We look forward to
+					discussing how we can help elevate your website.
+					Talk to you soon!"
+			/>
+		);
 	} else {
 		return (
 			<div className="flex flex-col md:flex-row justify-center gap-8 py-6 xl:py-9">

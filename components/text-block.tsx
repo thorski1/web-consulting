@@ -1,20 +1,30 @@
+import { ElementType } from "react";
+
 interface Props {
-    text: string[]
+	text: string[];
+	alignment?: "left" | "center" | "right";
+	as?: ElementType;
 }
 
-const TextBlock = ({ text }: Props) => {
-  return (
-		<section className="text-muted-foreground py-6 lg:py-12 text-center">
+const TextBlock = ({
+	text,
+	alignment = "center",
+	as: Component = "p",
+}: Props) => {
+	return (
+		<section
+			className={`text-muted-foreground py-6 lg:py-12 text-${alignment}`}
+		>
 			{text.map((t, i) => (
-				<p
+				<Component
 					key={i}
-					className="mx-auto max-w-[1000px] text-muted-foreground md:text-xl/relaxed text-center"
+					className="mx-auto max-w-[1000px] text-muted-foreground md:text-xl/relaxed"
 				>
 					{t}
-				</p>
+				</Component>
 			))}
 		</section>
 	);
-}
+};
 
 export default TextBlock
