@@ -29,11 +29,11 @@ export default function NavBar() {
 		{
 			name: "Services",
 			items: [
-				{ name: "Web Development", href: "/web-development" },
+				{ name: "Web Development", href: "/services/web-development" },
 				{ name: "SEO", href: "/services/seo" },
 				{ name: "Digital Marketing", href: "/services/digital-marketing" },
 				{ name: "UI/UX Design", href: "/services/design" },
-				{ name: "Digital Strategy", href: "/services/digital-strategy" },
+				{ name: "Digital Strategy", href: "/services/strategy" },
 			],
 		},
 		{ name: "Blog", href: "/blog" },
