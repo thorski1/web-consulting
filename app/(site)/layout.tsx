@@ -25,7 +25,6 @@ export default function RootLayout({
 				rel="icon"
 				href="/favicon.svg"
 				type="image/svg"
-				// sizes="<generated>"
 			/>
 			<GoogleTagManager gtmId="GTM-NCJRDXKB" />
 			<body
