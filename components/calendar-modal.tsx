@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import ShimmerButton from "@/components/shimmer-button";
 import {
@@ -8,12 +8,17 @@ import {
 	DialogClose,
 } from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
+import { sendGTMEvent } from "@next/third-parties/google";
 
-const CalendarModal = ({label}: {label: string}) => {
+const CalendarModal = ({ label }: { label: string }) => {
 	const [isOpen, setIsOpen] = useState(false);
 
 	const toggleModal = () => {
 		setIsOpen(!isOpen);
+		sendGTMEvent({
+			event: "buttonClicked",
+			value: "schedule-consultation",
+		});
 	};
 
 	return (
