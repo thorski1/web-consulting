@@ -1,5 +1,6 @@
 import { Metadata, ResolvingMetadata } from "next";
 import Link from "next/link";
+import ClientSide from "./client-side";
 
 export async function generateMetadata(
 	// @ts-ignore
@@ -62,35 +63,6 @@ export async function generateMetadata(
 
 export default function ContactPage() {
 	return (
-		<main>
-			<section className="w-full py-6 lg:py-12">
-				<div className="container px-4 md:px-6 text-center">
-					<div className="max-w-5xl mx-auto space-y-6">
-						<h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-muted-foreground">
-							The AI Advantage: A Beginner&apos;s Guide to
-							Leveraging Artificial Intelligence for
-							Business Growth
-						</h1>
-						<p className="text-xl md:text-2xl text-muted-foreground">
-							Demystify AI and Discover its Potential for
-							Your Business
-						</p>
-						<p className="text-lg md:text-xl text-muted-foreground">
-							Understand AI, use it for web development,
-							digital marketing, and UX design, make
-							data-driven decisions, and implement AI in
-							your business.
-						</p>
-						<Link
-							href="#"
-							className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
-							prefetch={false}
-						>
-							Get My Free Guide
-						</Link>
-					</div>
-				</div>
-			</section>
-		</main>
+		<ClientSide />
 	);
 }

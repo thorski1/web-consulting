@@ -7,7 +7,7 @@ import {
 	GoogleTagManager,
 } from "@next/third-parties/google";
 import { cn } from "@/lib/utils";
-import { NavBar } from "@/components/nav-bar";
+import NavBar from "@/components/navigation-menu";
 
 const fontSans = FontSans({
 	subsets: ["latin"],
@@ -29,6 +29,7 @@ export default function RootLayout({
 				)} min-h-screen relative pb-40 dark`}
 			>
 				<NavBar />
+				{/* <NavBar /> */}
 				{children}
 				<Footer />
 			</body>
