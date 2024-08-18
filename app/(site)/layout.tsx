@@ -34,7 +34,6 @@ export default function RootLayout({
 				)} min-h-screen relative pb-40 dark`}
 			>
 				<NavBar />
-				{/* <NavBar /> */}
 				{children}
 				<Footer />
 			</body>

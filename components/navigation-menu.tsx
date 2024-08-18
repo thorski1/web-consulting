@@ -149,7 +149,6 @@ export default function NavBar() {
 											)}
 										</div>
 										<div
-											onClick={closeMenu}
 											className="py-6 "
 										>
 											<CalendarModal
