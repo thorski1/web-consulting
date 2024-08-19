@@ -82,7 +82,7 @@ const PricingPage = () => {
 					<div className="grid grid-cols-1 gap-10 md:grid-cols-3">
 						<ShineBorder
 							borderWidth={3}
-							className="rounded-lg text-background border bg-background shadow-sm flex flex-col justify-between items-start"
+							className="rounded-lg text-background border bg-background shadow-sm flex flex-col justify-between items-start w-full"
 							color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
 						>
 							<div className="flex-grow">
@@ -122,7 +122,7 @@ const PricingPage = () => {
 						</ShineBorder>
 						<ShineBorder
 							borderWidth={3}
-							className="rounded-lg text-background border bg-background shadow-sm flex flex-col justify-between items-start"
+							className="rounded-lg text-background border bg-background shadow-sm flex flex-col justify-between items-start w-full"
 							color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
 						>
 							<div className="flex-grow">
@@ -168,7 +168,7 @@ const PricingPage = () => {
 						</ShineBorder>
 						<ShineBorder
 							borderWidth={3}
-							className="rounded-lg text-background border bg-background shadow-sm flex flex-col justify-between items-start"
+							className="rounded-lg text-background border bg-background shadow-sm flex flex-col justify-between items-start w-full"
 							color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
 						>
 							<div className="flex-grow">
