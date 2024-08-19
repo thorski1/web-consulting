@@ -38,6 +38,17 @@ const config = {
 							"calc(100% + var(--shimmer-width)) 0",
 					},
 				},
+				"shine-pulse": {
+					"0%": {
+						"background-position": "0% 0%",
+					},
+					"50%": {
+						"background-position": "100% 100%",
+					},
+					to: {
+						"background-position": "0% 0%",
+					},
+				},
 				"spin-around": {
 					"0%": {
 						transform: "translateZ(0) rotate(0)",
