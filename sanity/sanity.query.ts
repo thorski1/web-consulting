@@ -36,6 +36,12 @@ export async function getBlogs() {
 	);
 }
 
+export async function getUniqueTags(): Promise<string[]> {
+	return client.fetch(
+      groq`*[_type == "post" && defined(tags)].tags[]`
+	).then((res: string[]) => [...new Set(res)])
+}
+
 export async function getProjects() {
 	return client.fetch(
 		groq`*[_type == "project"]{
@@ -60,7 +66,10 @@ export async function getSingleBlogArticle(slug: string) {
       coverImage {alt, "image": asset->url},
       tags,
       "date": coalesce(date, _updatedAt),
-      "author": author->{"name": coalesce(name, "Anonymous"), "picture": {alt, "image": asset->url}},
+      "author": author->{
+        name,
+        picture {alt, "image": asset->url}
+      },
       "relatedArticles": *[
      _type == "post"
      && _id != ^._id
@@ -75,9 +84,27 @@ export async function getSingleBlogArticle(slug: string) {
       coverImage {alt, "image": asset->url},
       tags,
       "date": coalesce(date, _updatedAt),
-      "author": author->{"name": coalesce(name, "Anonymous"), picture},}
+      "author": author->{"name": coalesce(name, "Anonymous"), "picture": {alt, "image": asset->url}}}
       }`,
 		{ slug }
+	);
+}
+
+export async function getPostsByTag(tag: string) {
+	return client.fetch(
+		groq`*[_type == "post" && defined(tags) && $tag in tags[]] | order(date desc) {
+      _id,
+      "status": select(_originalId in path("drafts.**") => "draft", "published"),
+      "title": coalesce(title, "Untitled"),
+      "slug": slug.current,
+      excerpt,
+      coverImage {alt, "image": asset->url},
+      tags,
+      "date": coalesce(date, _updatedAt),
+      "author": author->{"name": coalesce(name, "Anonymous"), "picture": {alt, "image": asset->url}},
+    }`,
+   //  @ts-ignore
+		{ tag }
 	);
 }
 

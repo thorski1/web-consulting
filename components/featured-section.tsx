@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { HeaderSection } from "./header-section";
+import ShineBorder from "./magicui/shine-border";
 
 interface Props {
 	header: string;
@@ -18,9 +19,11 @@ export function ThreeFeatureSection({ header, items }: Props) {
 				<div className="mx-auto grid gap-8 sm:grid-cols-2 md:grid-cols-3">
 					{items.map((item, i) => {
 						return (
-							<div
+							<ShineBorder
 								key={i}
-								className="group relative overflow-hidden rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl"
+								borderWidth={3}
+								color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+								className="group transition-all duration-300 hover:shadow-xl relative flex h-auto w-full flex-col items-start overflow-hidden border md:shadow-xl bg-muted-foreground shadow-md rounded-lg p-4"
 							>
 								<Image
 									src={item.image.url}
@@ -29,15 +32,15 @@ export function ThreeFeatureSection({ header, items }: Props) {
 									alt={item.image.alt}
 									className="w-full object-cover object-center transition-all duration-300 group-hover:scale-105"
 								/>
-								<div className="bg-background pt-4">
+								<div className="text-background pt-4">
 									<h3 className="text-lg font-bold">
 										{item.header}
 									</h3>
-									<p className="text-sm text-muted-foreground">
+									<p className="text-sm">
 										{item.subheader}
 									</p>
 								</div>
-							</div>
+							</ShineBorder>
 						);
 					})}
 				</div>
