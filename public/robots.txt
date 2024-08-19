@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://recodepros.dev
+
+# Sitemaps
+Sitemap: https://recodepros.dev/sitemap.xml
