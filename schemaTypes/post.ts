@@ -3,18 +3,6 @@ import { format, parseISO } from "date-fns";
 import { defineField, defineType } from "sanity";
 import authorType from "./author";
 
-/**
- * This file is the schema definition for a post.
- *
- * Here you'll be able to edit the different fields that appear when you 
- * create or edit a post in the studio.
- * 
- * Here you can see the different schema types that are available:
-
-  https://www.sanity.io/docs/schema-types
-
- */
-
 export default defineType({
 	name: "post",
 	title: "Post",
@@ -68,11 +56,12 @@ export default defineType({
 			type: "datetime",
 			initialValue: () => new Date().toISOString(),
 		}),
+		// Updated tags field to be an array of objects
 		defineField({
 			name: "tags",
 			title: "Tags",
 			type: "array",
-			of: [{ type: "string" }],
+			of: [{ type: "reference", to: [{ type: "tag" }] }],
 			validation: (rule) => rule.required(),
 		}),
 		defineField({
