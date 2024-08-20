@@ -8,7 +8,7 @@ export default function FeaturedBlogArticles({
 	articles,
 }: {
 	articles: Post[];
-}) {
+	}) {
 	return (
 		<section className="w-full py-6 xl:py-9">
 			<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -36,12 +36,12 @@ export default function FeaturedBlogArticles({
 							<div className="mb-4 flex flex-wrap gap-2">
 								{art.tags?.map((tag, i) => (
 									<Badge className="bg-background" variant="default" key={i}>
-										{tag}
+										{tag.name}
 									</Badge>
 								))}
 							</div>
 							<p className="mb-4 text-background">
-								{art.excerpt}
+								{art.excerpt?.slice(0,50)}...
 							</p>
 							<div className="z-10 text-background inline-flex items-center gap-2 text-sm font-medium transition-colors hover:text-background/80">
 								Read more

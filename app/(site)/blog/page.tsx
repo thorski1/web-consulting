@@ -67,7 +67,7 @@ export async function generateMetadata(
 
 const BlogHomepage = async () => {
 	const posts = await getBlogs()
-	const tags: string[] = await getUniqueTags()
+	const tags: { name: string; excerpt: string }[] = await getUniqueTags()
   return (
 		<main>
 			<div className="container mx-auto px-4 py-8">
@@ -114,7 +114,7 @@ const BlogHomepage = async () => {
 							Popular Topics
 						</h2>
 						<div className="grid grid-cols-2 gap-4">
-							{tags.map((topic: string, i: number) => (
+						  {tags.map((topic: { name: string; excerpt: string}, i: number) => (
 								<ShineBorder
 									key={i}
 									borderWidth={3}
@@ -122,10 +122,10 @@ const BlogHomepage = async () => {
 									color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
 								>
 									<h3 className="text-lg font-semibold mb-2 text-background">
-										{topic}
+										{topic.name}
 									</h3>
 									<a
-										href={`/blog/tags/${topic}`}
+										href={`/blog/tags/${topic.name.split(" ").join("-")}`}
 										className="z-10 text-blue-600 hover:underline"
 									>
 										Explore articles

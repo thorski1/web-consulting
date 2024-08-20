@@ -18,9 +18,10 @@ type Props = {
 export default async function BlogArticle({
 	params,
 }: Props) {
-	const blog: Post = await getSingleBlogArticle(
+	const article: {article: Post, relatedPosts: Post[]} = await getSingleBlogArticle(
 		params.slug
 	);
+	const { article: blog } = article
 	return (
 		<div className="bg-background text-foreground">
 			<div className="w-[80%] py-6 xl:py-12 mx-auto">
@@ -59,14 +60,14 @@ export default async function BlogArticle({
 
 					{blog.content?.length && (
 						<CustomPortableText
-							className=""
+							className="text-lg"
 							value={blog.content}
 						/>
 					)}
 				</article>
-				{blog.relatedArticles && (
+				{article.relatedPosts && (
 					<FeaturedBlogArticles
-						articles={blog.relatedArticles}
+						articles={article.relatedPosts}
 					/>
 				)}
 				<CTASection />

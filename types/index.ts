@@ -71,7 +71,7 @@ export type Post = {
 		alt: string | null;
 		image: string;
 	};
-	tags: string[];
+	tags: {name: string; excerpt: string}[];
 	date?: string;
 	author?: Author;
 	relatedArticles?: Post[];

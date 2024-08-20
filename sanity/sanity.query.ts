@@ -29,17 +29,30 @@ export async function getBlogs() {
       "slug": slug.current,
       excerpt,
       coverImage {alt, "image": asset->url},
-      tags,
+      tags[]->{name, excerpt},  // Fetch name and excerpt from the referenced tag documents
       "date": coalesce(date, _updatedAt),
       "author": author->{"name": coalesce(name, "Anonymous"), "picture": {alt, "image": asset->url}},
     }`
 	);
 }
 
-export async function getUniqueTags(): Promise<string[]> {
+export async function getUniqueTags(): Promise<
+	{ name: string; excerpt: string }[]
+> {
 	return client.fetch(
-      groq`*[_type == "post" && defined(tags)].tags[]`
-	).then((res: string[]) => [...new Set(res)])
+		groq`*[_type == "tag"]{name, excerpt}`
+	);
+}
+
+export async function getTagByName(tagName: string) {
+	return client.fetch(
+		groq`*[_type == "tag" && name == $tagName][0]{
+      _id,
+      name,
+      excerpt
+    }`,
+		{ tagName }
+	);
 }
 
 export async function getProjects() {
@@ -55,56 +68,62 @@ export async function getProjects() {
 }
 
 export async function getSingleBlogArticle(slug: string) {
-	return client.fetch(
-		groq`*[_type == "post" && slug.current == $slug] [0]{
+	// Fetch the main article along with its tags
+	const article = await client.fetch(
+		groq`
+    *[_type == "post" && slug.current == $slug][0] {
+      _id,
+      title,
       content,
-      _id,
-      "status": select(_originalId in path("drafts.**") => "draft", "published"),
-      "title": coalesce(title, "Untitled"),
-      "slug": slug.current,
       excerpt,
-      coverImage {alt, "image": asset->url},
-      tags,
+      coverImage { alt, "image": asset->url },
+      tags[]->{_id, name, excerpt},
       "date": coalesce(date, _updatedAt),
-      "author": author->{
-        name,
-        picture {alt, "image": asset->url}
-      },
-      "relatedArticles": *[
-     _type == "post"
-     && _id != ^._id
-    //  TODO: Something isn't working correctly here
-     && count(tags[@._ref in ^.^.tags[]._ref]) > 0
-   ][0...3]{
-      _id,
-      "status": select(_originalId in path("drafts.**") => "draft", "published"),
-      "title": coalesce(title, "Untitled"),
-      "slug": slug.current,
-      excerpt,
-      coverImage {alt, "image": asset->url},
-      tags,
-      "date": coalesce(date, _updatedAt),
-      "author": author->{"name": coalesce(name, "Anonymous"), "picture": {alt, "image": asset->url}}}
-      }`,
+      "author": author->{"name": coalesce(name, "Anonymous"), "picture": { alt, "image": asset->url }},
+    }
+    `,
 		{ slug }
 	);
+
+	// If the article has tags, fetch related posts
+	let relatedPosts = [];
+	if (article?.tags?.length > 0) {
+		const tagIds = article.tags.map((tag: any) => tag._id);
+
+		relatedPosts = await client.fetch(
+			groq`
+      *[_type == "post" && slug.current != $slug && count(tags[@._ref in $tagIds]) > 0] | order(date desc)[0...3] {
+        _id,
+        title,
+        excerpt,
+        slug,
+        coverImage { alt, "image": asset->url },
+        tags[]->{name, excerpt},
+        "date": coalesce(date, _updatedAt),
+        "author": author->{"name": coalesce(name, "Anonymous"), "picture": { alt, "image": asset->url }},
+      }
+      `,
+			{ slug, tagIds }
+		);
+	}
+
+	return { article, relatedPosts };
 }
 
-export async function getPostsByTag(tag: string) {
+export async function getPostsByTag(tagId: string) {
 	return client.fetch(
-		groq`*[_type == "post" && defined(tags) && $tag in tags[]] | order(date desc) {
+		groq`*[_type == "post" && $tagId in tags[]._ref] | order(date desc) {
       _id,
       "status": select(_originalId in path("drafts.**") => "draft", "published"),
       "title": coalesce(title, "Untitled"),
       "slug": slug.current,
       excerpt,
       coverImage {alt, "image": asset->url},
-      tags,
+      tags[]->{name, excerpt},
       "date": coalesce(date, _updatedAt),
       "author": author->{"name": coalesce(name, "Anonymous"), "picture": {alt, "image": asset->url}},
     }`,
-   //  @ts-ignore
-		{ tag }
+		{ tagId }
 	);
 }
 
