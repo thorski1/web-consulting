@@ -8,6 +8,8 @@ import {
 } from "@next/third-parties/google";
 import { cn } from "@/lib/utils";
 import NavBar from "@/components/navigation-menu";
+import { Analytics } from "@vercel/analytics/react";
+
 
 const fontSans = FontSans({
 	subsets: ["latin"],
@@ -36,6 +38,7 @@ export default function RootLayout({
 				<NavBar />
 				{children}
 				<Footer />
+				<Analytics />
 			</body>
 			<GoogleAnalytics gaId="G-82N8RY63ZQ" />
 		</html>
