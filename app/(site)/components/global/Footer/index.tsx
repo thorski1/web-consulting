@@ -18,35 +18,35 @@ export default function Footer() {
 					</span>
 				</div>
 				<div className="flex flex-col items-start gap-0">
-					<Link href="#" className="block" prefetch={false}>
+					<Link href="/blog" className="block" prefetch={false}>
 						Blog
 					</Link>
-					<Link href="#" className="block" prefetch={false}>
+					<Link href="/pricing" className="block" prefetch={false}>
 						Pricing
 					</Link>
-					<Link href="#" className="block" prefetch={false}>
+					<Link href="/about" className="block" prefetch={false}>
 						About
 					</Link>
 				</div>
 				<div className="grid gap-0">
-					<Link href="#" className="block" prefetch={false}>
+					<Link href="/contact" className="block" prefetch={false}>
 						Contact
 					</Link>
-					<Link href="#" className="block" prefetch={false}>
+					<Link href="/services/web-development" className="block" prefetch={false}>
 						Web Development
 					</Link>
-					<Link href="#" className="block" prefetch={false}>
+					<Link href="/services/seo" className="block" prefetch={false}>
 						SEO
 					</Link>
 				</div>
 				<div className="grid gap-0">
-					<Link href="#" className="block" prefetch={false}>
+					<Link href="/services/digital-marketing" className="block" prefetch={false}>
 						Digital Marketing
 					</Link>
-					<Link href="#" className="block" prefetch={false}>
+					<Link href="/services/design" className="block" prefetch={false}>
 						UI/UX Design
 					</Link>
-					<Link href="#" className="block" prefetch={false}>
+					<Link href="/services/strategy" className="block" prefetch={false}>
 						Digital Strategy
 					</Link>
 				</div>
