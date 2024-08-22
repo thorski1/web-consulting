@@ -1,5 +1,6 @@
+"use client"
 import AnimatedShinyText from "./magicui/animated-shiny-text";
-
+import { motion } from "framer-motion";
 
 interface Props {
     header: string;
@@ -7,8 +8,16 @@ interface Props {
 }
 export const HeaderSection = ({ header, subheader }: Props) => {
     return (
-			<div className="mb-2 md:mb-4 lg:mb-8">
-				<AnimatedShinyText as="h2" className="text-3xl font-bold tracking-tight sm:text-4xl text-center">
+			<motion.section
+				initial={{ opacity: 0, y: 50 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.6, ease: "easeOut" }}
+				className="mb-2 md:mb-4 lg:mb-8"
+			>
+				<AnimatedShinyText
+					as="h2"
+					className="text-3xl font-bold tracking-tight sm:text-4xl text-center"
+				>
 					{header}
 				</AnimatedShinyText>
 				{subheader && subheader !== "" && (
@@ -16,6 +25,6 @@ export const HeaderSection = ({ header, subheader }: Props) => {
 						{subheader}
 					</p>
 				)}
-			</div>
+			</motion.section>
 		);
 }

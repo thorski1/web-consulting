@@ -1,6 +1,8 @@
+"use client"
 import Image from "next/image";
 import { HeaderSection } from "./header-section";
 import ShineBorder from "./magicui/shine-border";
+import { motion } from "framer-motion";
 
 interface Props {
 	header: string;
@@ -13,7 +15,14 @@ interface Props {
 
 export function ThreeFeatureSection({ header, items }: Props) {
 	return (
-		<section className="w-full py-6 xl:py-12">
+		<motion.section
+			id="about"
+			initial={{ x: -100, opacity: 0 }}
+			whileInView={{ x: 0, opacity: 1 }}
+			viewport={{ once: true }}
+			transition={{ duration: 0.7, ease: "easeOut" }}
+			className="w-full py-6 xl:py-12"
+		>
 			<div className="container space-y-12 px-4 md:px-6">
 				<HeaderSection header={header} />
 				<div className="mx-auto grid gap-8 sm:grid-cols-2 md:grid-cols-3">
@@ -45,6 +54,6 @@ export function ThreeFeatureSection({ header, items }: Props) {
 					})}
 				</div>
 			</div>
-		</section>
+		</motion.section>
 	);
 }

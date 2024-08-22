@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Form from "../components/ui/Form";
 import ThankYouPage from "../components/ui/ThankYouPage";
 import LoadingSpinnerPage from "../components/global/LoadingSpinner";
+import { motion } from "framer-motion";
 
 export default function ScheduleConsultationSection() {
 	const [isLoading, setIsLoading] = useState(false);
@@ -24,7 +25,13 @@ export default function ScheduleConsultationSection() {
 		);
 	} else {
 		return (
-			<div className="flex flex-col md:flex-row justify-center gap-8 py-6 xl:py-9">
+			<motion.section
+				initial={{ x: -100, opacity: 0 }}
+				whileInView={{ x: 0, opacity: 1 }}
+				viewport={{ once: true }}
+				transition={{ duration: 0.7, ease: "easeOut" }}
+				className="flex flex-col md:flex-row justify-center gap-8 py-6 xl:py-9"
+			>
 				<div className="flex-1 space-y-4">
 					<h2 className="text-lg font-bold tracking-tighter sm:text-xl md:text-3xl">
 						Free 10-Minute Web Development Consultation
@@ -55,7 +62,7 @@ export default function ScheduleConsultationSection() {
 						setIsSuccessful={setIsSuccessful}
 					/>
 				</div>
-			</div>
+			</motion.section>
 		);
 	}
 }

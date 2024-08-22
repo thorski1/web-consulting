@@ -1,8 +1,10 @@
+"use client"
 import { Post } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "./ui/badge";
 import ShineBorder from "./magicui/shine-border";
+import { motion } from "framer-motion";
 
 export default function FeaturedBlogArticles({
 	articles,
@@ -10,7 +12,11 @@ export default function FeaturedBlogArticles({
 	articles: Post[];
 	}) {
 	return (
-		<section className="w-full py-6 xl:py-9">
+		<motion.section
+			initial={{ x: -100, opacity: 0 }}
+			whileInView={{ x: 0, opacity: 1 }}
+			viewport={{ once: true }}
+			transition={{ duration: 0.7, ease: "easeOut" }} className="w-full py-6 xl:py-9">
 			<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
 				{articles.map((art, i) => (
 					<ShineBorder
@@ -51,7 +57,7 @@ export default function FeaturedBlogArticles({
 					</ShineBorder>
 				))}
 			</div>
-		</section>
+		</motion.section>
 	);
 }
 

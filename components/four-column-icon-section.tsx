@@ -1,5 +1,7 @@
+"use client"
 import Image from "next/image";
 import { HeaderSection } from "./header-section";
+import { motion } from "framer-motion";
 
 interface Props {
 	header: string;
@@ -20,7 +22,11 @@ export const FourColumnIconSection = ({
 	items,
 }: Props) => {
 	return (
-		<section className="w-full py-6 lg:py-12">
+		<motion.section
+			initial={{ x: -100, opacity: 0 }}
+			whileInView={{ x: 0, opacity: 1 }}
+			viewport={{ once: true }}
+			transition={{ duration: 0.7, ease: "easeOut" }} className="w-full py-6 lg:py-12">
             <div className="grid gap-8 px-4 md:px-6">
                 <HeaderSection header={header} subheader={subheader} />
 				<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -48,6 +54,6 @@ export const FourColumnIconSection = ({
 					})}
 				</div>
 			</div>
-		</section>
+		</motion.section>
 	);
 };

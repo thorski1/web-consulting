@@ -1,7 +1,8 @@
+"use client"
 import Image from "next/image"
-import Link from "next/link"
 import { HeaderSection } from "./header-section"
 import ShineBorder from "./magicui/shine-border";
+import { motion } from "framer-motion";
 
 interface Props {
 	items: {
@@ -16,7 +17,11 @@ interface Props {
 
 export function TwoByTwoGrid({header, subheader, items}: Props) {
   return (
-		<section className="w-full py-6 lg:py-12">
+		<motion.section
+			initial={{ x: -100, opacity: 0 }}
+			whileInView={{ x: 0, opacity: 1 }}
+			viewport={{ once: true }}
+			transition={{ duration: 0.7, ease: "easeOut" }} className="w-full py-6 lg:py-12">
 			<HeaderSection
 				header={header}
 				subheader={subheader}
@@ -47,6 +52,6 @@ export function TwoByTwoGrid({header, subheader, items}: Props) {
 					</ShineBorder>
 				))}
 			</div>
-		</section>
+		</motion.section>
 	);
 }

@@ -5,6 +5,8 @@ import React from 'react'
 import { BookOpenIcon } from "lucide-react";
 import TextBlock from '@/components/text-block';
 import ShineBorder from '@/components/magicui/shine-border';
+import HeroNoImage from '@/components/hero-no-image';
+import MainBlogSection from '@/components/main-blog-section';
 
 export async function generateMetadata(
 	// @ts-ignore
@@ -71,71 +73,13 @@ const BlogHomepage = async () => {
   return (
 		<main>
 			<div className="container mx-auto px-4 py-8">
-				<h1 className="text-4xl font-bold text-center">
-					Insights & Inspiration for the AI-Driven Business
-				</h1>
-				<TextBlock
-					text={[
-						"Welcome to our blog, where we share our expertise, insights, and latest developments in the world of AI-powered web solutions. Stay informed, get inspired, and learn how to leverage AI to take your business to new heights.",
-					]}
+				<HeroNoImage
+					header="Insights & Inspiration for the AI-Driven Business"
+					subheader="Welcome to our blog, where we share our expertise, insights, and latest developments in the world of AI-powered web solutions. Stay informed, get inspired, and learn how to leverage AI to take your business to new heights."
 				/>
-
-				<div className="grid md:grid-cols-2 gap-8 mb-12">
-					<div>
-						<h2 className="text-2xl font-semibold mb-4">
-							Latest Articles
-						</h2>
-						<div className="space-y-4">
-							{posts.map((post: any, i: number) => (
-								<ShineBorder
-									key={i}
-									borderWidth={3}
-									className="relative flex h-auto w-full flex-col items-start overflow-hidden border md:shadow-xl bg-muted-foreground shadow-md rounded-lg p-4"
-									color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-								>
-									<h3 className="text-xl font-semibold mb-2 text-background">
-										{post.title}
-									</h3>
-									<p className="text-background mb-2">
-										{post.excerpt}
-									</p>
-									<a
-										href={`/blog/${post.slug}`}
-										className="z-10 text-blue-600 hover:underline text-left"
-									>
-										Read more
-									</a>
-								</ShineBorder>
-							))}
-						</div>
-					</div>
-					<div>
-						<h2 className="text-2xl font-semibold mb-4">
-							Popular Topics
-						</h2>
-						<div className="grid grid-cols-2 gap-4">
-						  {tags.map((topic: { name: string; excerpt: string}, i: number) => (
-								<ShineBorder
-									key={i}
-									borderWidth={3}
-									className="relative flex h-auto w-full flex-col items-start overflow-hidden border md:shadow-xl bg-muted-foreground shadow-md rounded-lg p-4"
-									color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
-								>
-									<h3 className="text-lg font-semibold mb-2 text-background">
-										{topic.name}
-									</h3>
-									<a
-										href={`/blog/tags/${topic.name.split(" ").join("-")}`}
-										className="z-10 text-blue-600 hover:underline"
-									>
-										Explore articles
-									</a>
-								</ShineBorder>
-							))}
-						</div>
-					</div>
-				</div>
-							{/* TODO: SET THIS UP */}
+			  <MainBlogSection posts={posts} tags={tags} />
+				{/*
+				{/* TODO: SET THIS UP */}
 				{/* <div className="bg-muted-foreground shadow-md rounded-lg p-6 mb-8">
 					<h2 className="text-2xl font-semibold mb-2 text-background">
 						Subscribe to Our Newsletter

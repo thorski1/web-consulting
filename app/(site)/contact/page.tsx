@@ -1,5 +1,6 @@
 import { Metadata, ResolvingMetadata } from "next";
 import ScheduleConsultationSection from "../schedule-consultation/ScheduleConsultationSection";
+import HeroNoImage from "@/components/hero-no-image";
 
 export async function generateMetadata(
 	// @ts-ignore
@@ -63,21 +64,10 @@ export async function generateMetadata(
 export default function ContactPage() {
 	return (
 		<div>
-			<section className="w-full py-6 lg:py-12">
-				<div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
-					<div className="space-y-3">
-						<h1 className="text-3xl font-bold tracking-tighter md:text-4xl/tight">
-							Let&apos;s Talk: Your AI-Powered
-							Transformation Starts Here
-						</h1>
-						<p className="mt-4 text-muted-foreground md:text-xl">
-							Connect with our team to learn how our
-							AI-powered solutions can help transform your
-							business.
-						</p>
-					</div>
-				</div>
-			</section>
+			<HeroNoImage
+				header="Let's Talk: Your AI-Powered Transformation Starts Here"
+				subheader="Connect with our team to learn how our AI-powered solutions can help transform your digital presence and drive business."
+			/>
 			<ScheduleConsultationSection />
 		</div>
 	);
