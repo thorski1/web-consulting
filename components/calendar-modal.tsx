@@ -36,7 +36,7 @@ const CalendarModal = ({ label }: { label: string }) => {
 						<DialogClose asChild>
 							<button
 								onClick={toggleModal}
-								className="absolute top-3 right-3 rounded-full p-2 hover:bg-gray-200 text-black"
+								className="absolute top-3 right-3 rounded-full p-2 hover:bg-muted-foreground hover:text-background text-muted-foreground bg-background"
 							>
 								<X size={24} />
 							</button>
