@@ -1,6 +1,8 @@
+"use client"
 import Image from "next/image";
 import Link from "next/link";
 import { HeaderSection } from "./header-section";
+import { motion } from "framer-motion";
 
 interface Props {
 	items: {
@@ -19,8 +21,18 @@ export function ItemList({
 	subheader,
 }: Props) {
 	return (
-    <section className="w-full py-6 lg:py-12">
-      <HeaderSection header={header} subheader={subheader} />
+		<motion.section
+			id="about"
+			initial={{ x: -100, opacity: 0 }}
+			whileInView={{ x: 0, opacity: 1 }}
+			viewport={{ once: true }}
+			transition={{ duration: 0.7, ease: "easeOut" }}
+			className="w-full py-6 lg:py-12"
+		>
+			<HeaderSection
+				header={header}
+				subheader={subheader}
+			/>
 			<div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
 				{items.map((item, i) => {
 					const InnerComponent = () => (
@@ -52,12 +64,15 @@ export function ItemList({
 							<InnerComponent />
 						</Link>
 					) : (
-						<div key={i} className="rounded-lg bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg">
+						<div
+							key={i}
+							className="rounded-lg bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg"
+						>
 							<InnerComponent />
 						</div>
 					);
 				})}
 			</div>
-		</section>
+		</motion.section>
 	);
 }

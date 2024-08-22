@@ -1,4 +1,6 @@
+"use client"
 import { ElementType } from "react";
+import { motion } from "framer-motion";
 
 interface Props {
 	text: string[];
@@ -12,7 +14,12 @@ const TextBlock = ({
 	as: Component = "p",
 }: Props) => {
 	return (
-		<section
+		<motion.section
+			id="about"
+			initial={{ x: -100, opacity: 0 }}
+			whileInView={{ x: 0, opacity: 1 }}
+			viewport={{ once: true }}
+			transition={{ duration: 0.7, ease: "easeOut" }}
 			className={`text-muted-foreground py-6 lg:py-12 text-${alignment}`}
 		>
 			{text.map((t, i) => (
@@ -23,7 +30,7 @@ const TextBlock = ({
 					{t}
 				</Component>
 			))}
-		</section>
+		</motion.section>
 	);
 };
 

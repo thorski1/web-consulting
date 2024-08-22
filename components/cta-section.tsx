@@ -1,7 +1,8 @@
-import Link from 'next/link';
+"use client"
 import React from 'react'
 import { HeaderSection } from './header-section';
 import CalendarModal from './calendar-modal';
+import { motion } from "framer-motion";
 
 interface Props {
 	header?: string;
@@ -15,19 +16,24 @@ const CTASection = ({
 	ctaLabel = "Schedule Your Free Consultation",
 }: Props) => {
 	return (
-		<section className="w-full py-6 lg:py-12">
+		<motion.section
+			id="about"
+			initial={{ x: -100, opacity: 0 }}
+			whileInView={{ x: 0, opacity: 1 }}
+			viewport={{ once: true }}
+			transition={{ duration: 0.7, ease: "easeOut" }}
+			className="w-full py-6 lg:py-12"
+		>
 			<div className="grid items-center justify-center gap-4 px-4 text-center md:px-6">
 				<HeaderSection
 					header={header}
 					subheader={subheader}
 				/>
 				<div className="w-full flex justify-center">
-					<CalendarModal
-						label={ctaLabel}
-					/>
+					<CalendarModal label={ctaLabel} />
 				</div>
 			</div>
-		</section>
+		</motion.section>
 	);
 };
 
