@@ -28,15 +28,15 @@ const ThreeBoxSection = () => {
 							</p>
 							<ul className="mt-6 space-y-4 text-background">
 								<li className="flex items-center">
-									<CheckIcon className="mr-2 h-5 w-5 text-primary" />
+									<CheckIcon strokeWidth={3} className="mr-2 h-5 w-5 text-green-500" />
 									Basic Website Development
 								</li>
 								<li className="flex items-center">
-									<CheckIcon className="mr-2 h-5 w-5 text-primary" />
+									<CheckIcon strokeWidth={3} className="mr-2 h-5 w-5 text-green-500" />
 									Basic SEO
 								</li>
 								<li className="flex items-center">
-									<CheckIcon className="mr-2 h-5 w-5 text-primary" />
+									<CheckIcon strokeWidth={3} className="mr-2 h-5 w-5 text-green-500" />
 									Social Media Setup & Consultation
 								</li>
 							</ul>
@@ -69,19 +69,19 @@ const ThreeBoxSection = () => {
 							</p>
 							<ul className="mt-6 space-y-4 text-background">
 								<li className="flex items-center">
-									<CheckIcon className="mr-2 h-5 w-5 text-primary" />
+									<CheckIcon strokeWidth={3} className="mr-2 h-5 w-5 text-green-500" />
 									Custom website design
 								</li>
 								<li className="flex items-center">
-									<CheckIcon className="mr-2 h-5 w-5 text-primary" />
+									<CheckIcon strokeWidth={3} className="mr-2 h-5 w-5 text-green-500" />
 									Responsive design
 								</li>
 								<li className="flex items-center">
-									<CheckIcon className="mr-2 h-5 w-5 text-primary" />
+									<CheckIcon strokeWidth={3} className="mr-2 h-5 w-5 text-green-500" />
 									Basic SEO optimization
 								</li>
 								<li className="flex items-center">
-									<CheckIcon className="mr-2 h-5 w-5 text-primary" />
+									<CheckIcon strokeWidth={3} className="mr-2 h-5 w-5 text-green-500" />
 									CMS integration
 								</li>
 							</ul>
@@ -114,19 +114,19 @@ const ThreeBoxSection = () => {
 							</p>
 							<ul className="mt-6 space-y-4 text-background">
 								<li className="flex items-center">
-									<CheckIcon className="mr-2 h-5 w-5 text-primary" />
+									<CheckIcon strokeWidth={3} className="mr-2 h-5 w-5 text-green-500" />
 									Advanced website/web app development
 								</li>
 								<li className="flex items-center">
-									<CheckIcon className="mr-2 h-5 w-5 text-primary" />
+									<CheckIcon strokeWidth={3} className="mr-2 h-5 w-5 text-green-500" />
 									AI-powered marketing automation
 								</li>
 								<li className="flex items-center">
-									<CheckIcon className="mr-2 h-5 w-5 text-primary" />
+									<CheckIcon strokeWidth={3} className="mr-2 h-5 w-5 text-green-500" />
 									Predictive analytics
 								</li>
 								<li className="flex items-center">
-									<CheckIcon className="mr-2 h-5 w-5 text-primary" />
+									<CheckIcon strokeWidth={3} className="mr-2 h-5 w-5 text-green-500" />
 									Dedicated support
 								</li>
 							</ul>
