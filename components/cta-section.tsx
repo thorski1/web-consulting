@@ -25,10 +25,9 @@ const CTASection = ({
 					header={header}
 					subheader={subheader}
 				/>
-				<BlurFade delay={0.5} inView>
 				<div className="w-full flex justify-center">
 					<CalendarModal label={ctaLabel} />
-				</div></BlurFade>
+				</div>
 			</div>
 		</section>
 	);

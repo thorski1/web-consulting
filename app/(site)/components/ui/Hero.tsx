@@ -34,10 +34,10 @@ export const Hero = ({
 						</p>
 						</BlurFade>
 					{hasCta && (
-						<BlurFade delay={0.75} inView>
+						// <BlurFade delay={0.75} inView>
 						<CalendarModal
 							label={"Schedule a consultation"}
-						/></BlurFade>
+						/>
 					)}
 				</div>
 				<BlurFade delay={1} inView className="relative -z-10">
