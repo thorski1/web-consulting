@@ -176,8 +176,9 @@ export default async function About() {
 						header: "Smarter Web Development:",
 						subheader:
 							"AI enables us to build websites and applications that are more than just pretty – they're intuitive, adaptive, and tailor-made for your users. Through machine learning, your site learns and improves over time, delivering personalized experiences that keep visitors coming back for more.",
+						slug: "/services/web-development",
 						image: {
-							url: "/icons/web-development.svg",
+							url: "/icons/web-development-dark.svg",
 							alt: "web development icon",
 						},
 					},
@@ -185,8 +186,9 @@ export default async function About() {
 						header: "Targeted Digital Marketing",
 						subheader:
 							"Gone are the days of generic campaigns. AI allows us to dive deep into customer data, crafting laser-focused marketing strategies that resonate with your ideal audience. This means more engagement, higher conversions, and a better return on your investment.",
+						slug: "/services/digital-marketing",
 						image: {
-							url: "/icons/digital-marketing.svg",
+							url: "/icons/digital-marketing-dark.svg",
 							alt: "digital marketing icon",
 						},
 					},
@@ -194,8 +196,9 @@ export default async function About() {
 						header: "Data-Driven Decision Making",
 						subheader:
 							"AI-powered analytics uncover hidden patterns and insights in your data, transforming raw information into actionable strategies. You'll make decisions based on facts, not guesswork, leading to smarter choices and better business outcomes.",
+						slug: "/services/strategy",
 						image: {
-							url: "/icons/seo.svg",
+							url: "/icons/seo-dark.svg",
 							alt: "Data-Driven Decision Making",
 						},
 					},
@@ -204,8 +207,9 @@ export default async function About() {
 							"Streamlined Processes and Increased Efficiency",
 						subheader:
 							"AI automates repetitive tasks, freeing up your valuable time and resources to focus on what matters most – growing your business.",
+						slug: "/services/design",
 						image: {
-							url: "/icons/project-design.svg",
+							url: "/icons/project-design-dark.svg",
 							alt: "Processes",
 						},
 					},
@@ -213,8 +217,9 @@ export default async function About() {
 						header: "Enhanced Customer Experience",
 						subheader:
 							"AI-powered chatbots, personalized recommendations, and predictive analytics create a seamless and engaging customer experience, building loyalty and driving sales.",
+						slug: "/services/strategy",
 						image: {
-							url: "/icons/consulting-strategy.svg",
+							url: "/icons/consulting-strategy-dark.svg",
 							alt: "Customer Experience",
 						},
 					},

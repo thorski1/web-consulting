@@ -26,6 +26,7 @@ const CalendarModal = ({ label }: { label: string }) => {
 			<ShimmerButton
 				onClick={toggleModal}
 				shimmerColor="blue"
+				className="hover:scale-105 transform transition duration-500"
 			>
 				{label}
 			</ShimmerButton>

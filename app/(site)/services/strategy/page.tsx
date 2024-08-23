@@ -76,7 +76,7 @@ const StrategyServicePage = async () => {
 				subheader:
 					"We leverage AI algorithms to analyze vast amounts of data from various sources, including market trends, competitor analysis, and customer behavior. This allows us to uncover hidden patterns and identify growth opportunities that you might have missed.",
 				image: {
-					url: "/icons/data-analysis-insights.svg",
+					url: "/icons/data-analysis-insights-dark.svg",
 					alt: "Data Analysis and Insights",
 				},
 			},
@@ -85,7 +85,7 @@ const StrategyServicePage = async () => {
 				subheader:
 					"Our AI models can forecast future trends and potential outcomes, helping you make proactive decisions and stay ahead of the curve.",
 				image: {
-					url: "/icons/predictive-modeling.svg",
+					url: "/icons/predictive-modeling-dark.svg",
 					alt: "Predictive Modeling",
 				},
 			},
@@ -94,7 +94,7 @@ const StrategyServicePage = async () => {
 				subheader:
 					"We use AI to simulate different scenarios and evaluate the potential impact of various strategies, enabling you to make informed choices with confidence.",
 				image: {
-					url: "/icons/scenario-planning.svg",
+					url: "/icons/scenario-planning-dark.svg",
 					alt: "Scenario Planning",
 				},
 			},
@@ -103,7 +103,7 @@ const StrategyServicePage = async () => {
 				subheader:
 					"We leverage AI to tailor our recommendations to your specific business needs, goals, and resources.",
 				image: {
-					url: "/icons/personalized-recommendations.svg",
+					url: "/icons/personalized-recommendations-dark.svg",
 					alt: "Personalized Recommendations",
 				},
 			},
@@ -112,7 +112,7 @@ const StrategyServicePage = async () => {
 				subheader:
 					"Our AI-powered tools continuously monitor and analyze your progress, allowing us to adjust your strategies in real-time for maximum effectiveness.",
 				image: {
-					url: "/icons/continuous-optimization.svg",
+					url: "/icons/continuous-optimization-dark.svg",
 					alt: "Continuous Optimization",
 				},
 			},

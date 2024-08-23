@@ -168,7 +168,7 @@ const DesignServicePage = async () => {
 				subheader:
 					"We utilize AI to analyze user behavior, preferences, and pain points, providing valuable insights to inform our design decisions.",
 				image: {
-					url: "/icons/user-research-analysis.svg",
+					url: "/icons/user-research-analysis-dark.svg",
 					alt: "User Research & Analysis",
 				},
 			},
@@ -177,7 +177,7 @@ const DesignServicePage = async () => {
 				subheader:
 					"We leverage AI tools to quickly generate interactive prototypes, allowing for early testing and validation of design concepts.",
 				image: {
-					url: "/icons/ai-powered-prototyping.svg",
+					url: "/icons/ai-powered-prototyping-dark.svg",
 					alt: "AI-Powered Prototyping",
 				},
 			},
@@ -186,7 +186,7 @@ const DesignServicePage = async () => {
 				subheader:
 					"Our AI algorithms can suggest design elements and layouts that are tailored to your target audience's preferences.",
 				image: {
-					url: "/icons/personalized-web-development.svg",
+					url: "/icons/personalized-web-development-dark.svg",
 					alt: "Personalized Recommendations",
 				},
 			},
@@ -195,7 +195,7 @@ const DesignServicePage = async () => {
 				subheader:
 					"We use AI to simulate user interactions and identify potential usability issues before launch.",
 				image: {
-					url: "/icons/automated-usability-testing.svg",
+					url: "/icons/automated-usability-testing-dark.svg",
 					alt: "Automated Usability Testing",
 				},
 			},
@@ -204,7 +204,7 @@ const DesignServicePage = async () => {
 				subheader:
 					"We monitor user behavior post-launch and utilize AI to suggest refinements for ongoing improvement.",
 				image: {
-					url: "/icons/automated-optimization.svg",
+					url: "/icons/automated-optimization-dark.svg",
 					alt: "Continuous Optimization",
 				},
 			},

@@ -75,7 +75,7 @@ const DigitalMarketingServicePage = async () => {
 				subheader:
 					"We leverage AI to analyze customer data and segment your audience into distinct groups based on demographics, interests, and behaviors.",
 				image: {
-					url: "/icons/audience-segmentation.svg",
+					url: "/icons/audience-segmentation-dark.svg",
 					alt: "Audience Segmentation",
 				},
 			},
@@ -84,7 +84,7 @@ const DigitalMarketingServicePage = async () => {
 				subheader:
 					"Our AI tools craft tailored messages and offers that resonate with each audience segment, increasing engagement and conversions.",
 				image: {
-					url: "/icons/personalized-messaging.svg",
+					url: "/icons/personalized-messaging-dark.svg",
 					alt: "Personalized Messaging",
 				},
 			},
@@ -93,7 +93,7 @@ const DigitalMarketingServicePage = async () => {
 				subheader:
 					"We use AI to optimize your ad campaigns across various platforms, ensuring your ads reach the most relevant audience at the optimal time.",
 				image: {
-					url: "/icons/intelligent-ad-targeting.svg",
+					url: "/icons/intelligent-ad-targeting-dark.svg",
 					alt: "Intelligent Ad Targeting",
 				},
 			},
@@ -102,7 +102,7 @@ const DigitalMarketingServicePage = async () => {
 				subheader:
 					"We use AI to forecast campaign performance, identify potential bottlenecks, and make data-driven adjustments for better results.",
 				image: {
-					url: "/icons/predictive-analytics.svg",
+					url: "/icons/predictive-analytics-dark.svg",
 					alt: "Predictive Analytics",
 				},
 			},
@@ -111,7 +111,7 @@ const DigitalMarketingServicePage = async () => {
 				subheader:
 					"Our AI-powered tools continuously monitor and optimize your campaigns, maximizing efficiency and ensuring your budget is used effectively.",
 				image: {
-					url: "/icons/automated-optimization.svg",
+					url: "/icons/automated-optimization-dark.svg",
 					alt: "Automated Optimization",
 				},
 			},
