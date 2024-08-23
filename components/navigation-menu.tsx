@@ -149,7 +149,7 @@ export default function NavBar() {
 											)}
 										</div>
 										<div
-											className="py-6 "
+											className="py-6"
 										>
 											<CalendarModal
 												label={"Schedule consultation"}
