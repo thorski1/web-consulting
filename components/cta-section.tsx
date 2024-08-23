@@ -3,6 +3,7 @@ import React from 'react'
 import { HeaderSection } from './header-section';
 import CalendarModal from './calendar-modal';
 import { motion } from "framer-motion";
+import BlurFade from './magicui/blur-fade';
 
 interface Props {
 	header?: string;
@@ -16,12 +17,7 @@ const CTASection = ({
 	ctaLabel = "Schedule Your Free Consultation",
 }: Props) => {
 	return (
-		<motion.section
-			id="about"
-			initial={{ x: -100, opacity: 0 }}
-			whileInView={{ x: 0, opacity: 1 }}
-			viewport={{ once: true }}
-			transition={{ duration: 0.7, ease: "easeOut" }}
+		<section
 			className="w-full py-6 lg:py-12"
 		>
 			<div className="grid items-center justify-center gap-4 px-4 text-center md:px-6">
@@ -29,11 +25,12 @@ const CTASection = ({
 					header={header}
 					subheader={subheader}
 				/>
+				<BlurFade delay={0.5} inView>
 				<div className="w-full flex justify-center">
 					<CalendarModal label={ctaLabel} />
-				</div>
+				</div></BlurFade>
 			</div>
-		</motion.section>
+		</section>
 	);
 };
 

@@ -2,20 +2,16 @@
 import React from "react";
 import Image from "next/image";
 import { HeaderSection } from "./header-section";
-import { motion } from "framer-motion";
+import BlurFade from "./magicui/blur-fade";
 
 const ThreeColumnIconGrid = () => {
 	return (
-		<motion.section
-			initial={{ x: -100, opacity: 0 }}
-			whileInView={{ x: 0, opacity: 1 }}
-			viewport={{ once: true }}
-			transition={{ duration: 0.7, ease: "easeOut" }}
+		<section
 			className="w-full py-6 xl:py-12"
 		>
 			<HeaderSection header="Our Values" />
 			<div className="container grid items-start justify-center gap-8 px-4 md:px-6 lg:grid-cols-3">
-				<div className="space-y-4 text-center">
+				<BlurFade delay={0.25} inView className="space-y-4 text-center">
 					<Image
 						src="/icons/ribbon.svg"
 						width="100"
@@ -32,8 +28,8 @@ const ThreeColumnIconGrid = () => {
 						quality and performance. Our work is driven by a
 						dedication to excellence in every project.
 					</p>
-				</div>
-				<div className="space-y-4 text-center">
+				</BlurFade>
+				<BlurFade delay={0.5} inView className="space-y-4 text-center">
 					<Image
 						src="/icons/customer-centric.svg"
 						width="100"
@@ -50,8 +46,8 @@ const ThreeColumnIconGrid = () => {
 						your unique needs and tailor our services to
 						help you achieve your goals.
 					</p>
-				</div>
-				<div className="space-y-4 text-center">
+				</BlurFade>
+				<BlurFade delay={0.75} inView className="space-y-4 text-center">
 					<Image
 						src="/icons/innovation-adaptability.svg"
 						width="100"
@@ -69,9 +65,9 @@ const ThreeColumnIconGrid = () => {
 						ensuring that our clients benefit from
 						cutting-edge solutions.
 					</p>
-				</div>
+				</BlurFade>
 			</div>
-		</motion.section>
+		</section>
 	);
 };
 

@@ -6,6 +6,14 @@ import { TwoByTwoGrid } from "@/components/two-by-two-grid";
 import TextBlock from "@/components/text-block";
 import { ItemList } from "@/components/item-list";
 import { Metadata, ResolvingMetadata } from "next";
+import { BentoGridSection } from "@/components/bento-grid-section";
+import {
+	BellIcon,
+	CalendarIcon,
+	FileTextIcon,
+	GlobeIcon,
+	InputIcon,
+} from "@radix-ui/react-icons";
 
 export async function generateMetadata(
 	// @ts-ignore
@@ -67,6 +75,91 @@ export async function generateMetadata(
 }
 
 const DesignServicePage = async () => {
+	const features = [
+		{
+			Icon: FileTextIcon,
+			name: "User Research & Analysis",
+			description:
+				"We believe that understanding your users is the foundation of great design. We conduct in-depth research using surveys, interviews, and analytics to gain insights into your target audience's behaviors, needs, and pain points. This information guides our design decisions, ensuring that your product or website truly resonates with your users.",
+			background: (
+				<img
+					src="/services/design/user-research-analysis.svg"
+					alt="User Research & Analysis"
+					className="absolute -right-0 -top-0 opacity-60"
+				/>
+			),
+			className:
+				"lg:row-start-1 lg:row-end-3 lg:col-start-1 lg:col-end-3",
+		},
+		{
+			Icon: InputIcon,
+			name: "Information Architecture",
+			description:
+				"We create a clear and logical structure for your content and navigation. Our information architects will organize your information in a way that is intuitive and easy for users to find what they're looking for. We'll develop sitemaps, wireframes, and user flows to ensure a seamless and enjoyable user experience.",
+			// href: "/",
+			// cta: "Learn more",
+			background: (
+				<img
+					src="/services/design/information-architecture.svg"
+					alt="Information Architecture"
+					className="absolute -right-0 -top-0 opacity-60"
+				/>
+			),
+			className:
+				"lg:col-start-3 lg:col-end-4 lg:row-start-1 lg:row-end-3",
+		},
+		{
+			Icon: GlobeIcon,
+			name: "Wireframing & Prototyping",
+			description:
+				"We bring your ideas to life with interactive prototypes. Our designers will create low-fidelity wireframes to visualize the basic structure and layout of your product or website. We'll then develop interactive prototypes that simulate the user experience, allowing you to test and refine the design before moving to the development phase.",
+			// href: "/",
+			// cta: "Learn more",
+			background: (
+				<img
+					src="/services/design/wireframing-prototyping.svg"
+					alt="Wireframing & Prototyping"
+					className="absolute opacity-60"
+				/>
+			),
+			className:
+				"lg:col-start-2 lg:col-end-4 lg:row-start-3 lg:row-end-5",
+		},
+		{
+			Icon: CalendarIcon,
+			name: "Visual Design",
+			description:
+				"We create visually stunning interfaces that leave a lasting impression. Our talented designers will craft a unique aesthetic that aligns with your brand identity and appeals to your target audience. We'll use color, typography, imagery, and animation to create a cohesive and engaging visual experience.",
+			// href: "/",
+			// cta: "Learn more",
+			background: (
+				<img
+					src="/services/design/visual-design.svg"
+					alt="Visual Design"
+					className="absolute -right-0 -top-0 opacity-60"
+				/>
+			),
+			className:
+				"lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-5",
+		},
+		{
+			Icon: BellIcon,
+			name: "Usability Testing",
+			description:
+				"We ensure that your product or website is easy to use and navigate. Our team conducts rigorous usability testing with real users to identify any potential pain points or areas for improvement. We then iterate on the design based on user feedback, ensuring a smooth and intuitive experience for everyone.",
+			// href: "/",
+			// cta: "Learn more",
+			background: (
+				<img
+					src="/services/design/usability-testing.svg"
+					alt="Usability Testing"
+					className="absolute -right-0 -top-0 opacity-60"
+				/>
+			),
+			className:
+				"lg:col-start-1 lg:col-end-4 lg:row-start-5 lg:row-end-6",
+		},
+	];
 	const itemList = {
 		header: "How We Use AI",
 		items: [
@@ -117,7 +210,56 @@ const DesignServicePage = async () => {
 			},
 		],
 	};
-	
+	const twoByTwoConfig = {
+		header: "Our UI/UX Design Services",
+		items: [
+			{
+				header: "User Research & Analysis",
+				subheader:
+					"We believe that understanding your users is the foundation of great design. We conduct in-depth research using surveys, interviews, and analytics to gain insights into your target audience's behaviors, needs, and pain points. This information guides our design decisions, ensuring that your product or website truly resonates with your users.",
+				image: {
+					url: "/services/design/user-research-analysis.svg",
+					alt: "User Research & Analysis",
+				},
+			},
+			{
+				header: "Information Architecture",
+				subheader:
+					"We create a clear and logical structure for your content and navigation. Our information architects will organize your information in a way that is intuitive and easy for users to find what they're looking for. We'll develop sitemaps, wireframes, and user flows to ensure a seamless and enjoyable user experience.",
+				image: {
+					url: "/services/design/information-architecture.svg",
+					alt: "Information Architecture",
+				},
+			},
+			{
+				header: "Wireframing & Prototyping",
+				subheader:
+					"We bring your ideas to life with interactive prototypes. Our designers will create low-fidelity wireframes to visualize the basic structure and layout of your product or website. We'll then develop interactive prototypes that simulate the user experience, allowing you to test and refine the design before moving to the development phase.",
+				image: {
+					url: "/services/design/wireframing-prototyping.svg",
+					alt: "Wireframing & Prototyping",
+				},
+			},
+			{
+				header: "Visual Design",
+				subheader:
+					"We create visually stunning interfaces that leave a lasting impression. Our talented designers will craft a unique aesthetic that aligns with your brand identity and appeals to your target audience. We'll use color, typography, imagery, and animation to create a cohesive and engaging visual experience.",
+				image: {
+					url: "/services/design/visual-design.svg",
+					alt: "Visual Design",
+				},
+			},
+			{
+				header: "Usability Testing",
+				subheader:
+					"We ensure that your product or website is easy to use and navigate. Our team conducts rigorous usability testing with real users to identify any potential pain points or areas for improvement. We then iterate on the design based on user feedback, ensuring a smooth and intuitive experience for everyone.",
+				image: {
+					url: "/services/design/usability-testing.svg",
+					alt: "Usability Testing",
+				},
+			},
+		],
+	};
 	const twoColumnConfig = {
 		header: "The ReCode Pros Difference",
 		eyebrow: "What We Offer",
@@ -144,56 +286,7 @@ const DesignServicePage = async () => {
 			},
 		],
     };
-    const twoByTwoConfig = {
-			header: "Our UI/UX Design Services",
-			items: [
-				{
-					header: "User Research & Analysis",
-					subheader:
-						"We believe that understanding your users is the foundation of great design. We conduct in-depth research using surveys, interviews, and analytics to gain insights into your target audience's behaviors, needs, and pain points. This information guides our design decisions, ensuring that your product or website truly resonates with your users.",
-					image: {
-						url: "/services/design/user-research-analysis.svg",
-						alt: "User Research & Analysis",
-					},
-				},
-				{
-					header: "Information Architecture",
-					subheader:
-						"We create a clear and logical structure for your content and navigation. Our information architects will organize your information in a way that is intuitive and easy for users to find what they're looking for. We'll develop sitemaps, wireframes, and user flows to ensure a seamless and enjoyable user experience.",
-					image: {
-						url: "/services/design/information-architecture.svg",
-						alt: "Information Architecture",
-					},
-				},
-				{
-					header: "Wireframing & Prototyping",
-					subheader:
-						"We bring your ideas to life with interactive prototypes. Our designers will create low-fidelity wireframes to visualize the basic structure and layout of your product or website. We'll then develop interactive prototypes that simulate the user experience, allowing you to test and refine the design before moving to the development phase.",
-					image: {
-						url: "/services/design/wireframing-prototyping.svg",
-						alt: "Wireframing & Prototyping",
-					},
-				},
-				{
-					header: "Visual Design",
-					subheader:
-						"We create visually stunning interfaces that leave a lasting impression. Our talented designers will craft a unique aesthetic that aligns with your brand identity and appeals to your target audience. We'll use color, typography, imagery, and animation to create a cohesive and engaging visual experience.",
-					image: {
-						url: "/services/design/visual-design.svg",
-						alt: "Visual Design",
-					},
-				},
-				{
-					header: "Usability Testing",
-					subheader:
-						"We ensure that your product or website is easy to use and navigate. Our team conducts rigorous usability testing with real users to identify any potential pain points or areas for improvement. We then iterate on the design based on user feedback, ensuring a smooth and intuitive experience for everyone.",
-					image: {
-						url: "/services/design/usability-testing.svg",
-						alt: "Usability Testing",
-					},
-				},
-			],
-		};
+    
 	return (
 		<main>
 			<Hero
@@ -220,6 +313,7 @@ const DesignServicePage = async () => {
 				header={twoByTwoConfig.header}
 				items={twoByTwoConfig.items}
 			/>
+			{/* <BentoGridSection features={features} /> */}
 			<CTASection
 				header="Ready to create a digital experience that your users will love?"
 				subheader=""

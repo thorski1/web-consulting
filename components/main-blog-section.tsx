@@ -1,42 +1,49 @@
-"use client"
-import React from 'react'
-import ShineBorder from './magicui/shine-border';
+"use client";
+import React from "react";
+import ShineBorder from "./magicui/shine-border";
 import { motion } from "framer-motion";
+import BlurFade from "./magicui/blur-fade";
 
-const MainBlogSection = ({posts, tags}: {posts: any, tags: any}) => {
-  return (
-		<motion.section
-			initial={{ x: -100, opacity: 0 }}
-			whileInView={{ x: 0, opacity: 1 }}
-			viewport={{ once: true }}
-			transition={{ duration: 0.7, ease: "easeOut" }}
-			className="grid md:grid-cols-2 gap-8 mb-12"
-		>
+const MainBlogSection = ({
+	posts,
+	tags,
+}: {
+	posts: any;
+	tags: any;
+}) => {
+	return (
+		<section className="grid md:grid-cols-2 gap-8 mb-12">
 			<div>
 				<h2 className="text-2xl font-semibold mb-4">
 					Latest Articles
 				</h2>
 				<div className="space-y-4">
 					{posts.map((post: any, i: number) => (
-						<ShineBorder
+						<BlurFade
 							key={i}
-							borderWidth={3}
-							className="relative flex h-auto w-full flex-col items-start overflow-hidden border md:shadow-xl bg-muted-foreground shadow-md rounded-lg p-4"
-							color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+							delay={0.25 + i * 0.05}
+							inView
 						>
-							<h3 className="text-xl font-semibold mb-2 text-background">
-								{post.title}
-							</h3>
-							<p className="text-background mb-2">
-								{post.excerpt}
-							</p>
-							<a
-								href={`/blog/${post.slug}`}
-								className="z-10 text-blue-600 hover:underline text-left"
+							<ShineBorder
+								key={i}
+								borderWidth={3}
+								className="relative flex h-auto w-full flex-col items-start overflow-hidden border md:shadow-xl bg-muted-foreground shadow-md rounded-lg p-4"
+								color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
 							>
-								Read more
-							</a>
-						</ShineBorder>
+								<h3 className="text-xl font-semibold mb-2 text-background">
+									{post.title}
+								</h3>
+								<p className="text-background mb-2">
+									{post.excerpt}
+								</p>
+								<a
+									href={`/blog/${post.slug}`}
+									className="z-10 text-blue-600 hover:underline text-left"
+								>
+									Read more
+								</a>
+							</ShineBorder>
+						</BlurFade>
 					))}
 				</div>
 			</div>
@@ -50,28 +57,34 @@ const MainBlogSection = ({posts, tags}: {posts: any, tags: any}) => {
 							topic: { name: string; excerpt: string },
 							i: number
 						) => (
-							<ShineBorder
+							<BlurFade
 								key={i}
-								borderWidth={3}
-								className="relative flex h-auto w-full flex-col items-start overflow-hidden border md:shadow-xl bg-muted-foreground shadow-md rounded-lg p-4"
-								color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
+								delay={0.25 + i * 0.05}
+								inView
 							>
-								<h3 className="text-lg font-semibold mb-2 text-background">
-									{topic.name}
-								</h3>
-								<a
-									href={`/blog/tags/${topic.name.split(" ").join("-")}`}
-									className="z-10 text-blue-600 hover:underline"
+								<ShineBorder
+									key={i}
+									borderWidth={3}
+									className="relative flex h-auto w-full flex-col items-start overflow-hidden border md:shadow-xl bg-muted-foreground shadow-md rounded-lg p-4"
+									color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
 								>
-									Explore articles
-								</a>
-							</ShineBorder>
+									<h3 className="text-lg font-semibold mb-2 text-background">
+										{topic.name}
+									</h3>
+									<a
+										href={`/blog/tags/${topic.name.split(" ").join("-")}`}
+										className="z-10 text-blue-600 hover:underline"
+									>
+										Explore articles
+									</a>
+								</ShineBorder>
+							</BlurFade>
 						)
 					)}
 				</div>
 			</div>
-		</motion.section>
+		</section>
 	);
-}
+};
 
-export default MainBlogSection
+export default MainBlogSection;

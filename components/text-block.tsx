@@ -1,6 +1,6 @@
-"use client"
+"use client";
 import { ElementType } from "react";
-import { motion } from "framer-motion";
+import BlurFade from "./magicui/blur-fade";
 
 interface Props {
 	text: string[];
@@ -14,24 +14,18 @@ const TextBlock = ({
 	as: Component = "p",
 }: Props) => {
 	return (
-		<motion.section
-			id="about"
-			initial={{ x: -100, opacity: 0 }}
-			whileInView={{ x: 0, opacity: 1 }}
-			viewport={{ once: true }}
-			transition={{ duration: 0.7, ease: "easeOut" }}
+		<section
 			className={`text-muted-foreground py-6 lg:py-12 text-${alignment}`}
 		>
 			{text.map((t, i) => (
-				<Component
-					key={i}
-					className="mx-auto max-w-[1000px] text-muted-foreground md:text-xl/relaxed"
-				>
-					{t}
-				</Component>
+				<BlurFade key={i} delay={0.25 + i * 0.05} inView>
+					<Component className="mx-auto max-w-[1000px] text-muted-foreground md:text-xl/relaxed">
+						{t}
+					</Component>
+				</BlurFade>
 			))}
-		</motion.section>
+		</section>
 	);
 };
 
-export default TextBlock
+export default TextBlock;

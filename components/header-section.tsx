@@ -1,6 +1,7 @@
 "use client"
 import AnimatedShinyText from "./magicui/animated-shiny-text";
 import { motion } from "framer-motion";
+import BlurFade from "./magicui/blur-fade";
 
 interface Props {
     header: string;
@@ -8,23 +9,23 @@ interface Props {
 }
 export const HeaderSection = ({ header, subheader }: Props) => {
     return (
-			<motion.section
-				initial={{ opacity: 0, y: 50 }}
-				animate={{ opacity: 1, y: 0 }}
-				transition={{ duration: 0.6, ease: "easeOut" }}
+			<section
 				className="mb-2 md:mb-4 lg:mb-8"
-			>
+		>
+			<BlurFade delay={0.25} inView>
 				<AnimatedShinyText
 					as="h2"
 					className="text-3xl font-bold tracking-tight sm:text-4xl text-center"
 				>
 					{header}
-				</AnimatedShinyText>
+				</AnimatedShinyText></BlurFade>
 				{subheader && subheader !== "" && (
+					<BlurFade delay={0.5} inView>
 					<p className="mx-auto max-w-[1000px] text-muted-foreground md:text-xl/relaxed text-center pt-3">
 						{subheader}
 					</p>
+					</BlurFade>
 				)}
-			</motion.section>
+			</section>
 		);
 }
