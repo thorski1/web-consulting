@@ -1,8 +1,8 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { HeaderSection } from "./header-section";
-import { motion } from "framer-motion";
+import BlurFade from "./magicui/blur-fade";
 
 interface Props {
 	items: {
@@ -21,12 +21,7 @@ export function ItemList({
 	subheader,
 }: Props) {
 	return (
-		<motion.section
-			id="about"
-			initial={{ x: -100, opacity: 0 }}
-			whileInView={{ x: 0, opacity: 1 }}
-			viewport={{ once: true }}
-			transition={{ duration: 0.7, ease: "easeOut" }}
+		<section
 			className="w-full py-6 lg:py-12"
 		>
 			<HeaderSection
@@ -54,25 +49,28 @@ export function ItemList({
 							</p>
 						</>
 					);
-					return item.slug ? (
-						<Link
-							key={i}
-							prefetch={false}
-							href={`/services/${item.slug}`}
-							className={`rounded-lg bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg`}
-						>
-							<InnerComponent />
-						</Link>
-					) : (
-						<div
-							key={i}
-							className="rounded-lg bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg"
-						>
-							<InnerComponent />
-						</div>
+					return (
+						<BlurFade key={i} delay={0.25 + i * 0.05} inView>
+							{item.slug ? (
+								<Link
+									prefetch={false}
+									href={`/services/${item.slug}`}
+									className={`rounded-lg bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg`}
+								>
+									<InnerComponent />
+								</Link>
+							) : (
+								<div
+									key={i}
+									className="rounded-lg bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-lg"
+								>
+									<InnerComponent />
+								</div>
+							)}
+						</BlurFade>
 					);
 				})}
 			</div>
-		</motion.section>
+		</section>
 	);
 }

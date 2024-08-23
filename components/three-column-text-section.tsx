@@ -3,14 +3,11 @@ import React from 'react'
 import Image from "next/image";
 import { HeaderSection } from "./header-section";
 import { motion } from "framer-motion";
+import BlurFade from './magicui/blur-fade';
 
 const ThreeColumnTextSection = () => {
   return (
-		<motion.section
-			initial={{ x: -100, opacity: 0 }}
-			whileInView={{ x: 0, opacity: 1 }}
-			viewport={{ once: true }}
-			transition={{ duration: 0.7, ease: "easeOut" }}
+		<section
 			className="w-full py-6 lg:py-12"
 		>
 			<div className="container grid items-center justify-center gap-4 px-4 text-center md:px-6">
@@ -25,8 +22,8 @@ const ThreeColumnTextSection = () => {
 					/>
 					<div className="flex flex-col justify-center space-y-4">
 						<ul className="grid gap-6">
-							<li>
-								<div className="grid gap-1">
+						  <li>
+								<BlurFade delay={0.25} inView className="grid gap-1">
 									<h3 className="text-xl font-bold">
 										AI-First Approach
 									</h3>
@@ -38,10 +35,10 @@ const ThreeColumnTextSection = () => {
 										your web presence, from design to
 										marketing.
 									</p>
-								</div>
+								</BlurFade>
 							</li>
 							<li>
-								<div className="grid gap-1">
+								<BlurFade delay={0.5} inView className="grid gap-1">
 									<h3 className="text-xl font-bold">
 										Data-Driven Decisions
 									</h3>
@@ -51,10 +48,10 @@ const ThreeColumnTextSection = () => {
 										edge, ensuring your website works
 										smarter, not harder.
 									</p>
-								</div>
+								</BlurFade>
 							</li>
 							<li>
-								<div className="grid gap-1">
+								<BlurFade delay={0.75} inView className="grid gap-1">
 									<h3 className="text-xl font-bold">
 										Proven Results
 									</h3>
@@ -65,13 +62,13 @@ const ThreeColumnTextSection = () => {
 										deliver measurable results that impact
 										your bottom line.
 									</p>
-								</div>
+								</BlurFade>
 							</li>
 						</ul>
 					</div>
 				</div>
 			</div>
-		</motion.section>
+		</section>
 	);
 }
 
