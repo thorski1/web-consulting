@@ -74,7 +74,7 @@ export default async function Home() {
 		items: [
 			{
 				image: {
-					url: "/icons/web-development.svg",
+					url: "/icons/web-development-dark.svg",
 					alt: "web development",
 				},
 				header: "Web Development",
@@ -84,7 +84,7 @@ export default async function Home() {
 			},
 			{
 				image: {
-					url: "/icons/seo.svg",
+					url: "/icons/seo-dark.svg",
 					alt: "seo",
 				},
 				header: "SEO",
@@ -94,7 +94,7 @@ export default async function Home() {
 			},
 			{
 				image: {
-					url: "/icons/digital-marketing.svg",
+					url: "/icons/digital-marketing-dark.svg",
 					alt: "digital marketing",
 				},
 				header: "Digital Marketing",
@@ -104,7 +104,7 @@ export default async function Home() {
 			},
 			{
 				image: {
-					url: "/icons/project-design.svg",
+					url: "/icons/project-design-dark.svg",
 					alt: "UI/UX Design",
 				},
 				header: "UI/UX Design",
@@ -114,7 +114,7 @@ export default async function Home() {
 			},
 			{
 				image: {
-					url: "/icons/consulting-strategy.svg",
+					url: "/icons/consulting-strategy-dark.svg",
 					alt: "Consultation and Strategy",
 				},
 				header: "Consultation & Strategy",

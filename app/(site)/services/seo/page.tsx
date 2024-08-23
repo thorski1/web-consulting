@@ -75,7 +75,7 @@ const SEOServicePage = async () => {
 				subheader:
 					"Our AI algorithms analyze search trends and competition to identify the most valuable keywords for your industry and target audience.",
 				image: {
-					url: "/icons/smart-content-recommendations.svg",
+					url: "/icons/smart-content-recommendations-dark.svg",
 					alt: "Data-Driven Keyword Research",
 				},
 			},
@@ -84,7 +84,7 @@ const SEOServicePage = async () => {
 				subheader:
 					"We use AI to optimize your website's content, ensuring it's not only engaging for humans but also optimized for search engine crawlers.",
 				image: {
-					url: "/icons/intelligent-content-optimization.svg",
+					url: "/icons/intelligent-content-optimization-dark.svg",
 					alt: "Intelligent Content Optimization",
 				},
 			},
@@ -93,7 +93,7 @@ const SEOServicePage = async () => {
 				subheader:
 					"Our AI-powered tools perform in-depth technical audits, identifying and fixing issues that hinder your search rankings.",
 				image: {
-					url: "/icons/automated-technical-audits.svg",
+					url: "/icons/automated-technical-audits-dark.svg",
 					alt: "Automated Technical Audits",
 				},
 			},
@@ -102,7 +102,7 @@ const SEOServicePage = async () => {
 				subheader:
 					"We use AI to forecast trends and anticipate changes in search algorithms, keeping your SEO strategy ahead of the curve.",
 				image: {
-					url: "/icons/predictive-analytics.svg",
+					url: "/icons/predictive-analytics-dark.svg",
 					alt: "Predictive Analytics",
 				},
 			},
@@ -111,7 +111,7 @@ const SEOServicePage = async () => {
 				subheader:
 					"Our AI-driven dashboards provide real-time insights into your SEO performance, allowing for continuous optimization and improvement.",
 				image: {
-					url: "/icons/performance-tracking-reporting.svg",
+					url: "/icons/performance-tracking-reporting-dark.svg",
 					alt: "Performance Tracking & Reporting",
 				},
 			},
