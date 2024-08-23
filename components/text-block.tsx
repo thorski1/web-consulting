@@ -15,10 +15,10 @@ const TextBlock = ({
 }: Props) => {
 	return (
 		<section
-			className={`text-muted-foreground py-6 lg:py-12 text-${alignment}`}
+			className={`z-10 text-muted-foreground py-6 lg:py-12 text-${alignment}`}
 		>
 			{text.map((t, i) => (
-				<BlurFade key={i} delay={0.25 + i * 0.05} inView>
+				<BlurFade key={i} delay={0.25 + i * 0.05} inView className="-z-10 relative">
 					<Component className="mx-auto max-w-[1000px] text-muted-foreground md:text-xl/relaxed">
 						{t}
 					</Component>

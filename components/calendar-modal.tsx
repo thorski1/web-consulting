@@ -45,7 +45,7 @@ const CalendarModal = ({ label }: { label: string }) => {
 
 						<iframe
 							src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3B2PT1I0FE_LOWzm0vkL4eTD8lf5Iqzi1yqusscZ702HOfHoWSa_1NGN5MSHEL_VaW4rODGeAt?gv=true"
-							style={{ border: 0 }}
+							style={{ border: 0, zIndex: 50 }}
 							width="100%"
 							height="600"
 						></iframe>

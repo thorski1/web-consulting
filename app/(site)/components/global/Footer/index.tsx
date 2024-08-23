@@ -5,7 +5,7 @@ export default function Footer() {
 	return (
 		<footer className="container absolute bottom-0 left-0 right-0 text-sm w-full py-6 lg:py-12 px-4 md:px-16">
 			<div className="container max-w-7xl grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
-				<div className="flex items-start gap-4">
+				<div className="flex items-start gap-4 -z-10 relative">
 					<Image
 						src="/icons/logo.svg"
 						width="20"

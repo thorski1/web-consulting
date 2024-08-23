@@ -40,7 +40,7 @@ export const Hero = ({
 						/></BlurFade>
 					)}
 				</div>
-				<BlurFade delay={1} inView>
+				<BlurFade delay={1} inView className="relative -z-10">
 				<Image
 					src={image}
 					width="500"
