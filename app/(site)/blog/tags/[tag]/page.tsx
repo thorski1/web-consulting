@@ -11,10 +11,16 @@ export default async function TagsPage({
 }: {
 	params: any;
 }) {
-	const tag = await getTagByName(
+	let tag = await getTagByName(
 		params.tag.split("-").join(" ")
-	);
-	const articles = await getPostsByTag(tag._id);
+	)
+	if (!tag) {
+		tag = await getTagByName(params.tag);
+	}
+	if (!tag) {
+		return
+	}
+	const articles = await getPostsByTag(tag?._id);
 	return (
 		<div className="container mx-auto px-4 py-8">
 			<div className="mb-6">

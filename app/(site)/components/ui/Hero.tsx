@@ -34,7 +34,6 @@ export const Hero = ({
 						</p>
 						</BlurFade>
 					{hasCta && (
-						// <BlurFade delay={0.75} inView>
 						<CalendarModal
 							label={"Schedule a consultation"}
 						/>

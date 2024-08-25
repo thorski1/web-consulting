@@ -10,7 +10,6 @@ import { cn } from "@/lib/utils";
 import NavBar from "@/components/navigation-menu";
 import { Analytics } from "@vercel/analytics/react";
 
-
 const fontSans = FontSans({
 	subsets: ["latin"],
 	variable: "--font-sans",
