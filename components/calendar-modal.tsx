@@ -9,6 +9,7 @@ import {
 } from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 import { sendGTMEvent } from "@next/third-parties/google";
+import BlurFade from "./magicui/blur-fade";
 
 const CalendarModal = ({ label }: { label: string }) => {
 	const [isOpen, setIsOpen] = useState(false);
@@ -23,13 +24,15 @@ const CalendarModal = ({ label }: { label: string }) => {
 
 	return (
 		<>
-			<ShimmerButton
-				onClick={toggleModal}
-				shimmerColor="blue"
-				className="hover:scale-105 transform transition duration-500"
-			>
-				{label}
-			</ShimmerButton>
+			<BlurFade delay={0.75} inView>
+				<ShimmerButton
+					onClick={toggleModal}
+					shimmerColor="blue"
+					className="hover:scale-105 transform transition duration-500"
+				>
+					{label}
+				</ShimmerButton>
+			</BlurFade>
 
 			<Dialog open={isOpen} onOpenChange={setIsOpen}>
 				<DialogContent className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-900 bg-opacity-50">

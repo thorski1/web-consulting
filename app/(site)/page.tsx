@@ -7,6 +7,7 @@ import { TwoColumnSection } from "@/components/two-column-section";
 import TextBlock from "@/components/text-block";
 import { HeaderSection } from "@/components/header-section";
 import ThreeColumnTextSection from "@/components/three-column-text-section";
+import HeroNoImage from "@/components/hero-no-image";
 
 export async function generateMetadata(
 	// @ts-ignore
@@ -149,10 +150,10 @@ export default async function Home() {
 
 	return (
 		<main>
-			<Hero
-				title={"AI-Powered Web Solutions That Drive Growth"}
-				image="/transform-online-presence.svg"
-				subtitle="Harnessing the Power of AI for Unparalleled Digital Success"
+			<HeroNoImage
+				header="AI-Powered Web Solutions That Drive Growth"
+				hasCta
+				subheader="Harnessing the Power of AI for Unparalleled Digital Success"
 			/>
 			<TextBlock
 				text={[
