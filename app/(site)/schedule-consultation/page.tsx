@@ -63,9 +63,7 @@ export async function generateMetadata(
 
 export default function ScheduleConsultationPage() {
 	return (
-            <main>
                 <ScheduleConsultationSection />
-			</main>
 		);
 	
 };

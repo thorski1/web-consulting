@@ -1,18 +1,18 @@
 import "../globals.css";
 import type { Metadata } from "next";
 import Footer from "./components/global/Footer";
+import NavBar from "@/components/navigation-menu";
 import { Inter as FontSans } from "next/font/google";
 import {
 	GoogleAnalytics,
 	GoogleTagManager,
 } from "@next/third-parties/google";
 import { cn } from "@/lib/utils";
-import NavBar from "@/components/navigation-menu";
 import { Analytics } from "@vercel/analytics/react";
 
 const fontSans = FontSans({
 	subsets: ["latin"],
-	variable: "--font-sans",
+	variable: "--font-sans", // CSS variable name for the font
 });
 
 export default function RootLayout({
@@ -21,21 +21,29 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
-			<link
-				rel="icon"
-				href="/favicon.svg"
-				type="image/svg"
-			/>
-			<GoogleTagManager gtmId="GTM-NCJRDXKB" />
+		<html lang="en" className="dark">
+			<head>
+				<link
+					rel="icon"
+					href="/favicon.svg"
+					type="image/svg+xml"
+				/>
+				<GoogleTagManager gtmId="GTM-NCJRDXKB" />
+			</head>
 			<body
-				className={`${cn(
-					"min-h-screen lg:max-w-7xl mx-auto max-w-5x md:px-16 px-6 bg-background font-sans antialiased",
-					fontSans.variable
-				)} min-h-screen relative pb-40 dark`}
+				className={cn(
+					"relative min-h-screen bg-background font-sans antialiased", // Set minimum height, background, font, and enable antialiasing
+					"text-foreground", // Set text color to contrast with dark background
+					"flex flex-col", // Use flexbox for layout
+					fontSans.variable // Apply the custom font
+				)}
 			>
-				<NavBar />
-				{children}
+				<div className="flex-grow flex flex-col pb-96 lg:pb-80">
+					<NavBar />
+					<main className="flex-grow mx-auto px-4 sm:px-6 lg:px-8">
+						{children} {/* Render the page-specific content */}
+					</main>
+				</div>
 				<Footer />
 				<Analytics />
 			</body>

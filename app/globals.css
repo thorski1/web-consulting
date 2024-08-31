@@ -1,69 +1,177 @@
+/* Import Tailwind CSS base styles */
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+/* Import Tailwind CSS component styles */
+@tailwind components;
+/* Import Tailwind CSS utility styles */
+@tailwind utilities;
 
-  @layer base {
-    :root {
-      --background: 0 0% 100%;
-      --foreground: 240 10% 3.9%;
-      --card: 0 0% 100%;
-      --card-foreground: 240 10% 3.9%;
-      --popover: 0 0% 100%;
-      --popover-foreground: 240 10% 3.9%;
-      --primary: 240 5.9% 10%;
-      --primary-foreground: 0 0% 98%;
-      --secondary: 240 4.8% 95.9%;
-      --secondary-foreground: 240 5.9% 10%;
-      --muted: 240 4.8% 95.9%;
-      --muted-foreground: 240 3.8% 46.1%;
-      --accent: 240 4.8% 95.9%;
-      --accent-foreground: 240 5.9% 10%;
-      --destructive: 0 84.2% 60.2%;
-      --destructive-foreground: 0 0% 98%;
-      --border: 240 5.9% 90%;
-      --input: 240 5.9% 90%;
-      --ring: 240 10% 3.9%;
-      --radius: 0.5rem;
-      --chart-1: 12 76% 61%;
-      --chart-2: 173 58% 39%;
-      --chart-3: 197 37% 24%;
-      --chart-4: 43 74% 66%;
-      --chart-5: 27 87% 67%;
-    }
+/* Define custom properties for the light theme */
+@layer base {
+  :root {
+    /* Background color: very light blue-gray */
+    --background: 220 33% 98%;
+    /* Text color: very dark blue-gray */
+    --foreground: 220 33% 2%;
 
-    .dark {
-      --background: 252 56% 19%;
-      --foreground: 0 0% 98%;
-      --card: 252 56% 19%;
-      --card-foreground: 0 0% 98%;
-      --popover: 120, 60%, 40%;
-      --popover-foreground: 0 0% 98%;
-      --primary: 0 0% 98%;
-      --primary-foreground: 240 5.9% 10%;
-      --secondary: 192 100% 25%;
-      --secondary-foreground: 192 100% 15%;
-      --muted: 192 100% 5%;
-      --muted-foreground: 192 100% 86%;
-      --accent: 192 100% 45%;
-      --accent-foreground: 192, 100%, 35%;
-      --destructive: 0 62.8% 30.6%;
-      --destructive-foreground: 0 0% 98%;
-      --border: 240 3.7% 15.9%;
-      --input: 240 3.7% 15.9%;
-      --ring: 240 4.9% 83.9%;
-      --chart-1: 220 70% 50%;
-      --chart-2: 160 60% 45%;
-      --chart-3: 30 80% 55%;
-      --chart-4: 280 65% 60%;
-      --chart-5: 340 75% 55%;
-    }
+    /* Card background: pure white */
+    --card: 0 0% 100%;
+    /* Card text color: very dark blue-gray */
+    --card-foreground: 220 33% 2%;
+
+    /* Popover background: pure white */
+    --popover: 0 0% 100%;
+    /* Popover text color: very dark blue-gray */
+    --popover-foreground: 220 33% 2%;
+
+    /* Primary color: vibrant blue */
+    --primary: 220 100% 50%;
+    /* Text color on primary background: very light blue-gray */
+    --primary-foreground: 220 33% 98%;
+
+    /* Secondary color: vibrant purple */
+    --secondary: 260 100% 50%;
+    /* Text color on secondary background: very light blue-gray */
+    --secondary-foreground: 220 33% 98%;
+
+    /* Muted background color: light blue-gray */
+    --muted: 220 33% 90%;
+    /* Muted text color: medium blue-gray */
+    --muted-foreground: 220 33% 40%;
+
+    /* Accent color: bright cyan */
+    --accent: 180 100% 50%;
+    /* Text color on accent background: very dark blue-gray */
+    --accent-foreground: 220 33% 2%;
+
+    /* Destructive action color: bright red */
+    --destructive: 0 100% 50%;
+    /* Text color on destructive background: very light blue-gray */
+    --destructive-foreground: 220 33% 98%;
+
+    /* Border color: light blue-gray */
+    --border: 220 33% 80%;
+    /* Input element border color: light blue-gray */
+    --input: 220 33% 80%;
+    /* Focus ring color: vibrant blue */
+    --ring: 220 100% 50%;
+
+    /* Border radius for rounded corners */
+    --radius: 0.5rem;
+
+    /* Gradient from primary to secondary color */
+    --gradient-1: linear-gradient(
+      45deg,
+      var(--primary),
+      var(--secondary)
+    );
+    /* Gradient from accent to primary color */
+    --gradient-2: linear-gradient(
+      135deg,
+      var(--accent),
+      var(--primary)
+    );
+
+    /* Text opacity levels */
+    --text-opacity-light: 0.6;
+    --text-opacity-medium: 0.8;
+    --text-opacity-high: 1;
+
+    /* Chart colors */
+    --chart-1: 220 100% 50%;
+    --chart-2: 260 100% 50%;
+    --chart-3: 180 100% 50%;
+    --chart-4: 300 100% 50%;
+    --chart-5: 140 100% 50%;
   }
 
-  @layer base {
-    * {
-      @apply border-border;
-    }
-    body {
-      @apply bg-background text-foreground;
+  /* Define custom properties for the dark theme */
+  .dark {
+    /* Background color: very dark blue-gray */
+    --background: 220 33% 2%;
+    /* Text color: very light blue-gray */
+    --foreground: 220 33% 98%;
+
+    /* Card background: dark blue-gray */
+    --card: 220 33% 4%;
+    /* Card text color: very light blue-gray */
+    --card-foreground: 220 33% 98%;
+
+    /* Popover background: dark blue-gray */
+    --popover: 220 33% 4%;
+    /* Popover text color: very light blue-gray */
+    --popover-foreground: 220 33% 98%;
+
+    /* Primary color: bright blue */
+    --primary: 220 100% 60%;
+    /* Text color on primary background: very dark blue-gray */
+    --primary-foreground: 220 33% 2%;
+
+    /* Secondary color: bright purple */
+    --secondary: 260 100% 60%;
+    /* Text color on secondary background: very dark blue-gray */
+    --secondary-foreground: 220 33% 2%;
+
+    /* Muted background color: dark blue-gray */
+    --muted: 220 33% 20%;
+    /* Muted text color: light blue-gray */
+    --muted-foreground: 220 33% 70%;
+
+    /* Accent color: bright cyan */
+    --accent: 180 100% 60%;
+    /* Text color on accent background: very dark blue-gray */
+    --accent-foreground: 220 33% 2%;
+
+    /* Destructive action color: bright red */
+    --destructive: 0 100% 60%;
+    /* Text color on destructive background: very dark blue-gray */
+    --destructive-foreground: 220 33% 2%;
+
+    /* Border color: dark blue-gray */
+    --border: 220 33% 20%;
+    /* Input element border color: dark blue-gray */
+    --input: 220 33% 20%;
+    /* Focus ring color: bright blue */
+    --ring: 220 100% 60%;
+
+    /* Gradients remain the same as in light mode */
+    --gradient-1: linear-gradient(
+      45deg,
+      var(--primary),
+      var(--secondary)
+    );
+    --gradient-2: linear-gradient(
+      135deg,
+      var(--accent),
+      var(--primary)
+    );
+
+    /* Adjusted text opacity levels for dark mode */
+    --text-opacity-light: 0.5;
+    --text-opacity-medium: 0.7;
+    --text-opacity-high: 0.9;
+
+    /* Chart colors adjusted for dark mode */
+    --chart-1: 220 100% 60%;
+    --chart-2: 260 100% 60%;
+    --chart-3: 180 100% 60%;
+    --chart-4: 300 100% 60%;
+    --chart-5: 140 100% 60%;
+
+    --tw-prose-bullets: var(--foreground);
+    --tw-prose-bold: var(--foreground);
+  }
+}
+
+/* Apply border color to all elements */
+@layer base {
+  * {
+    @apply border-border;
+  }
+  /* Set default background and text color for the body */
+  body {
+    @apply bg-background text-foreground;
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--foreground);
     }
   }
+}

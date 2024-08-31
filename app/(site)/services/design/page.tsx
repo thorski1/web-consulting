@@ -1,6 +1,5 @@
 import CTASection from "@/components/cta-section";
 import { Hero } from "../../components/ui/Hero";
-import { FourColumnIconSection } from "@/components/four-column-icon-section";
 import { TwoColumnSection } from "@/components/two-column-section";
 import { TwoByTwoGrid } from "@/components/two-by-two-grid";
 import TextBlock from "@/components/text-block";
@@ -14,6 +13,7 @@ import {
 	GlobeIcon,
 	InputIcon,
 } from "@radix-ui/react-icons";
+import HeroNoImage from "@/components/hero-no-image";
 
 export async function generateMetadata(
 	// @ts-ignore
@@ -288,11 +288,10 @@ const DesignServicePage = async () => {
     };
     
 	return (
-		<main>
-			<Hero
-				image="/services/design/craft-exceptional-experiences.svg"
-				title="Intuitive UI/UX Design: Craft Exceptional User Experiences"
-				subtitle="AI-Powered Design for Seamless Interactions"
+		<div className="w-full">
+			<HeroNoImage
+				header="Intuitive UI/UX Design: Craft Exceptional User Experiences"
+				subheader="AI-Powered Design for Seamless Interactions"
 				hasCta
 			/>
 			<TextBlock
@@ -319,7 +318,7 @@ const DesignServicePage = async () => {
 				subheader=""
 				ctaLabel="Explore Our UI/UX Design Services"
 			/>
-		</main>
+		</div>
 	);
 };
 

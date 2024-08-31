@@ -13,12 +13,12 @@ export default async function TagsPage({
 }) {
 	let tag = await getTagByName(
 		params.tag.split("-").join(" ")
-	)
+	);
 	if (!tag) {
 		tag = await getTagByName(params.tag);
 	}
 	if (!tag) {
-		return
+		return;
 	}
 	const articles = await getPostsByTag(tag?._id);
 	return (

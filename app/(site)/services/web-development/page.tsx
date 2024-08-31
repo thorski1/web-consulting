@@ -4,6 +4,7 @@ import { FourColumnIconSection } from "@/components/four-column-icon-section";
 import { TwoByTwoGrid } from "@/components/two-by-two-grid";
 import TextBlock from "@/components/text-block";
 import { Metadata, ResolvingMetadata } from "next";
+import HeroNoImage from "@/components/hero-no-image";
 
 export async function generateMetadata(
 	// @ts-ignore
@@ -148,11 +149,10 @@ const WebDevelopmentServicePage = async () => {
 			],
 		};
 	return (
-		<main>
-			<Hero
-				image="/services/web-development/web-dev-header.svg"
-				title="AI-Powered Web Development: Build Your Digital Empire"
-				subtitle="Custom Websites & Web Apps That Drive Results"
+		<div className="w-full">
+			<HeroNoImage
+				header="AI-Powered Web Development: Build Your Digital Empire"
+				subheader="Custom Websites & Web Apps That Drive Results"
 				hasCta
 			/>
 			<TextBlock
@@ -173,7 +173,7 @@ const WebDevelopmentServicePage = async () => {
 				subheader=""
 				ctaLabel="Get a Free Web Development Quote"
 			/>
-		</main>
+		</div>
 	);
 };
 

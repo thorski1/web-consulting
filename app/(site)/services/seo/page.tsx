@@ -1,11 +1,11 @@
 import CTASection from "@/components/cta-section";
 import { Hero } from "../../components/ui/Hero";
-import { FourColumnIconSection } from "@/components/four-column-icon-section";
 import { TwoColumnSection } from "@/components/two-column-section";
 import { TwoByTwoGrid } from "@/components/two-by-two-grid";
 import TextBlock from "@/components/text-block";
 import { ItemList } from "@/components/item-list";
 import { Metadata, ResolvingMetadata } from "next";
+import HeroNoImage from "@/components/hero-no-image";
 
 export async function generateMetadata(
 	// @ts-ignore
@@ -195,11 +195,10 @@ const SEOServicePage = async () => {
 	};
 
 	return (
-		<main>
-			<Hero
-				image="/services/seo/seo-hero.svg"
-				title="Intelligent SEO Optimization: Dominate Search Results"
-				subtitle="AI-Driven Strategies for Organic Growth"
+		<div className="w-full">
+			<HeroNoImage
+				header="Intelligent SEO Optimization: Dominate Search Results"
+				subheader="AI-Driven Strategies for Organic Growth"
 				hasCta
 			/>
 			<TextBlock
@@ -225,7 +224,7 @@ const SEOServicePage = async () => {
 				subheader=""
 				ctaLabel="Request a Free SEO Audit"
 			/>
-		</main>
+		</div>
 	);
 };
 

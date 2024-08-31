@@ -11,6 +11,7 @@ import { ThreeFeatureSection } from "@/components/featured-section";
 import { ItemList } from "@/components/item-list";
 import { HeaderSection } from "@/components/header-section";
 import ThreeColumnIconGrid from "@/components/three-column-icon-grid";
+import HeroNoImage from "@/components/hero-no-image";
 
 export async function generateMetadata(
 	// @ts-ignore
@@ -79,30 +80,38 @@ export default async function About() {
 				header: "AI-First Philosophy",
 				subheader:
 					"We integrate AI into every aspect of our work, from website development and SEO to digital marketing and UI/UX design.",
-				image: { url: "/ai-first-philosophy.svg", alt: "AI-First Philosophy" },
+				image: {
+					url: "/ai-first-philosophy.svg",
+					alt: "AI-First Philosophy",
+				},
 			},
 			{
 				header: "Personalized Attention",
 				subheader:
 					"We offer dedicated focus and personalized attention to each client, ensuring your vision is realized.",
-				image: { url: "/personalized-attention.svg", alt: "Personalized Attention" },
+				image: {
+					url: "/personalized-attention.svg",
+					alt: "Personalized Attention",
+				},
 			},
 			{
 				header: "Data-Driven Strategies",
 				subheader:
 					"We don't rely on guesswork. We use AI-powered analytics to make informed decisions that drive results.",
-				image: { url: "data-driven-strategies.svg", alt: "Data-Driven Strategies" },
+				image: {
+					url: "data-driven-strategies.svg",
+					alt: "Data-Driven Strategies",
+				},
 			},
 		],
 	};
 
 	return (
-		<main>
-			<Hero
-				title="The AI-Powered Approach to Digital Transformation"
-				subtitle="Your Partner in Innovation and Growth"
+		<div>
+			<HeroNoImage
+				header="The AI-Powered Approach to Digital Transformation"
+				subheader="Your Partner in Innovation and Growth"
 				hasCta={false}
-				image="/success-partner.svg"
 			/>
 			<TextBlock
 				text={[
@@ -230,7 +239,7 @@ export default async function About() {
 				header="Ready to experience the ReCode Pros difference?"
 				subheader=""
 			/>
-		</main>
+		</div>
 	);
 }
 
@@ -273,7 +282,6 @@ function PresentationIcon(props: any) {
 		</svg>
 	);
 }
-
 
 function CodeIcon(props: any) {
 	return (

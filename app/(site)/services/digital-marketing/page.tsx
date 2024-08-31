@@ -1,11 +1,11 @@
 import CTASection from "@/components/cta-section";
 import { Hero } from "../../components/ui/Hero";
-import { FourColumnIconSection } from "@/components/four-column-icon-section";
 import { TwoColumnSection } from "@/components/two-column-section";
 import { TwoByTwoGrid } from "@/components/two-by-two-grid";
 import TextBlock from "@/components/text-block";
 import { ItemList } from "@/components/item-list";
 import { Metadata, ResolvingMetadata } from "next";
+import HeroNoImage from "@/components/hero-no-image";
 
 export async function generateMetadata(
 	// @ts-ignore
@@ -195,11 +195,10 @@ const DigitalMarketingServicePage = async () => {
 	};
 	
 	return (
-		<main>
-			<Hero
-				image="/services/digital-marketing/personalized-digital-marketing.svg"
-				title="Personalized Digital Marketing: Connect with Your Ideal Customers"
-				subtitle="AI-Powered Campaigns for Maximum Impact"
+		<div className="w-full">
+			<HeroNoImage
+				header="Personalized Digital Marketing: Connect with Your Ideal Customers"
+				subheader="AI-Powered Campaigns for Maximum Impact"
 				hasCta
 			/>
 			<TextBlock
@@ -225,7 +224,7 @@ const DigitalMarketingServicePage = async () => {
 				subheader=""
 				ctaLabel="Get Started with AI-Driven Marketing"
 			/>
-		</main>
+		</div>
 	);
 };
 

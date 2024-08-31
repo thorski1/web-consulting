@@ -1,4 +1,5 @@
 import { HeaderSection } from "@/components/header-section";
+import HeroNoImage from "@/components/hero-no-image";
 import ShineBorder from "@/components/magicui/shine-border";
 import ThreeBoxSection from "@/components/three-box-section";
 import { Metadata, ResolvingMetadata } from "next";
@@ -66,9 +67,10 @@ export async function generateMetadata(
 const PricingPage = () => {
 	return (
 		<div className="w-full">
-			<HeaderSection
+			<HeroNoImage
 				header="AI-Powered Solutions for Your Business"
 				subheader="Unlock the power of AI to transform your online presence and drive business growth."
+				hasCta={true}
 			/>
 			<ThreeBoxSection />
 		</div>

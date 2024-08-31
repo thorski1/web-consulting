@@ -22,24 +22,29 @@ export default function CustomPortableText({
 	value: any[];
 }) {
 	const components: PortableTextComponents = {
-        block: {
+		block: {
+			h3: ({ children }) => (
+				<h3 className="mb-2 text-lg font-bold text-foreground">
+					{children}
+				</h3>
+			),
 			h4: ({ children }) => (
-				<h4 className="mb-2 text-lg font-bold">
+				<h4 className="mb-2 text-lg font-bold text-foreground">
 					{children}
 				</h4>
 			),
 			h5: ({ children }) => (
-				<h5 className="mb-2 text-sm font-semibold">
+				<h5 className="mb-2 text-sm font-semibold text-foreground">
 					{children}
 				</h5>
 			),
 			h6: ({ children }) => (
-				<h6 className="mb-1 text-xs font-semibold">
+				<h6 className="mb-1 text-xs font-semibold text-foreground">
 					{children}
 				</h6>
 			),
 			normal: ({ children }) => (
-				<p className="py-2">
+				<p className="py-2 text-foreground">
 					{children}
 				</p>
 			),
@@ -52,6 +57,9 @@ export default function CustomPortableText({
 					</a>
 				);
 			},
+			strong: ({ children }) => (
+				<span className="font-bold text-foreground">{children}</span>
+			),
 		},
 	};
 

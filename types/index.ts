@@ -39,7 +39,7 @@ export type Post = {
 	_updatedAt: string;
 	_rev: string;
 	title?: string;
-	slug?: string;
+	slug?: Slug;
 	content?: Array<{
 		children?: Array<{
 			marks?: Array<string>;
