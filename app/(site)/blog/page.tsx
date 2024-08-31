@@ -70,14 +70,14 @@ export async function generateMetadata(
 const BlogHomepage = async () => {
 	const posts = await getBlogs()
 	const tags: { name: string; excerpt: string }[] = await getUniqueTags()
-  return (
-		<main>
+	return (
+		<div>
 			<div className="container mx-auto px-4 py-8">
 				<HeroNoImage
 					header="Insights & Inspiration for the AI-Driven Business"
-					subheader="Welcome to our blog, where we share our expertise, insights, and latest developments in the world of AI-powered web solutions. Stay informed, get inspired, and learn how to leverage AI to take your business to new heights."
+					subheader="Welcome to our blog—your source for AI-powered web insights, innovations, and strategies to elevate your business."
 				/>
-			  <MainBlogSection posts={posts} tags={tags} />
+				<MainBlogSection posts={posts} tags={tags} />
 				{/*
 				{/* TODO: SET THIS UP */}
 				{/* <div className="bg-muted-foreground shadow-md rounded-lg p-6 mb-8">
@@ -121,7 +121,7 @@ const BlogHomepage = async () => {
 				</div> */}
 			</div>
 			<CTASection />
-		</main>
+		</div>
 	);
 }
 

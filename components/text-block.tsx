@@ -1,25 +1,37 @@
 "use client";
-import { ElementType } from "react";
+import React, { ElementType } from "react";
 import BlurFade from "./magicui/blur-fade";
 
-interface Props {
+/**
+ * Props for the TextBlock component
+ * @interface TextBlockProps
+ */
+interface TextBlockProps {
+	/** Array of text strings to display */
 	text: string[];
+	/** Alignment of the text */
 	alignment?: "left" | "center" | "right";
+	/** HTML element type to render the text as */
 	as?: ElementType;
 }
 
-const TextBlock = ({
+/**
+ * TextBlock component for displaying a block of text with fade-in animation
+ * @param {TextBlockProps} props - The props for the TextBlock component
+ * @returns {JSX.Element} The rendered TextBlock component
+ */
+const TextBlock: React.FC<TextBlockProps> = ({
 	text,
 	alignment = "center",
 	as: Component = "p",
-}: Props) => {
+}) => {
 	return (
 		<section
-			className={`z-10 text-muted-foreground py-6 lg:py-12 text-${alignment}`}
+			className={`z-10 text-foreground py-6 lg:py-12 text-${alignment}`}
 		>
 			{text.map((t, i) => (
 				<BlurFade key={i} delay={0.25 + i * 0.05} inView className="-z-10 relative">
-					<Component className="mx-auto max-w-[1000px] text-muted-foreground md:text-xl/relaxed">
+					<Component className="mx-auto max-w-[1000px] text-foreground md:text-xl/relaxed">
 						{t}
 					</Component>
 				</BlurFade>

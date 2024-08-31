@@ -149,7 +149,7 @@ export default async function Home() {
 	};
 
 	return (
-		<main>
+		<div className="w-full">
 			<HeroNoImage
 				header="AI-Powered Web Solutions That Drive Growth"
 				hasCta
@@ -171,6 +171,6 @@ export default async function Home() {
 				items={twoColumnConfig.items}
 			/>
 			<CTASection />
-		</main>
+		</div>
 	);
 }

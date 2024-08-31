@@ -1,11 +1,11 @@
 import CTASection from "@/components/cta-section";
 import { Hero } from "../../components/ui/Hero";
-import { FourColumnIconSection } from "@/components/four-column-icon-section";
 import { TwoColumnSection } from "@/components/two-column-section";
 import { TwoByTwoGrid } from "@/components/two-by-two-grid";
 import TextBlock from "@/components/text-block";
 import { ItemList } from "@/components/item-list";
 import { Metadata, ResolvingMetadata } from "next";
+import HeroNoImage from "@/components/hero-no-image";
 
 export async function generateMetadata(
 	// @ts-ignore
@@ -210,11 +210,10 @@ const StrategyServicePage = async () => {
 		],
 	};
 	return (
-		<main>
-			<Hero
-				image="/services/strategy/strategy-hero.svg"
-				title="Elevate Your Business with AI-Powered Strategy"
-				subtitle="Data-Driven Insights for Informed Decision-Making"
+		<div className="w-full">
+			<HeroNoImage
+				header="Elevate Your Business with AI-Powered Strategy"
+				subheader="Data-Driven Insights for Informed Decision-Making"
 				hasCta
 			/>
 			<TextBlock
@@ -240,7 +239,7 @@ const StrategyServicePage = async () => {
 				subheader=""
 				ctaLabel="Schedule a Consultation"
 			/>
-		</main>
+		</div>
 	);
 };
 

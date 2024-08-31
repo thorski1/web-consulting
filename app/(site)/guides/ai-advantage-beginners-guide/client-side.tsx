@@ -21,7 +21,6 @@ const ClientSide = () => {
 	} else {
 		return (
 			<div className="mx-auto px-4 py-12 min-h-screen">
-				<main>
 					<HeaderSection
 						header="The AI Advantage: A Beginner's Guide to Leveraging Artificial Intelligence for Business Growth"
 						subheader="Demystify AI and Discover its Potential for Your Business"
@@ -54,7 +53,6 @@ const ClientSide = () => {
 							/>
 						</div>
 					</motion.div>
-				</main>
 			</div>
 		);
 	}

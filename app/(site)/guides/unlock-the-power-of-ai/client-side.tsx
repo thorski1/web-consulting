@@ -19,15 +19,12 @@ const ClientSide = () => {
 	} else {
 		return (
 			<div className="mx-auto px-4 py-12 min-h-screen">
-
-				<main>
-					<HeaderSection
-						header="Unlock the Power of AI: Fuel Your Business
-						Growth"
-						subheader="Download Your Free Guide to AI-Powered Success"
-					/>
-					<TextBlock
-						alignment="left"
+				<HeaderSection
+					header="Unlock the Power of AI: Fuel Your Business Growth"
+					subheader="Download Your Free Guide to AI-Powered Success"
+				/>
+				<TextBlock
+					alignment="left"
 						text={[
 							"In today's fast-paced digital world, businesses that harness the power of AI are poised to thrive. Our comprehensive guide provides practical insights and actionable strategies to help you leverage AI for:",
 						]}
@@ -63,9 +60,8 @@ const ClientSide = () => {
 								setIsSuccessful={setIsSuccessful}
 								transactionalId="clzyj5xml00da3on379i7ys71"
 							/>
-						</div>
-					</motion.div>
-				</main>
+					</div>
+				</motion.div>
 			</div>
 		);
 	}
