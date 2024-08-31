@@ -60,7 +60,7 @@ export default function NavBar(): JSX.Element {
 	const closeMenu = () => setIsOpen(false);
 
 	return (
-		<nav className="text-foreground">
+		<nav className="text-foreground z-10">
 			<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 				<div className="flex h-16 items-center justify-between">
 					<Link href="/" className="flex items-center">
@@ -76,7 +76,7 @@ export default function NavBar(): JSX.Element {
 						</span>
 					</Link>
 					<DesktopMenu menuItems={menuItems} />
-					<div className="hidden md:block z-10">
+					<div className="hidden md:block">
 						<CalendarModal
 							label={"Schedule consultation"}
 						/>
@@ -104,7 +104,7 @@ interface DesktopMenuProps {
  */
 const DesktopMenu: React.FC<DesktopMenuProps> = ({ menuItems }) => {
 	return (
-		<div className="hidden md:block z-10">
+		<div className="hidden md:block">
 			<div className="ml-10 flex items-baseline space-x-4">
 				{menuItems.map((item) =>
 					item.items ? (
@@ -165,7 +165,7 @@ interface MobileMenuProps {
  */
 const MobileMenu: React.FC<MobileMenuProps> = ({ menuItems, isOpen, setIsOpen, closeMenu }) => {
 	return (
-		<div className="md:hidden z-10">
+		<div className="md:hidden">
 			<Sheet open={isOpen} onOpenChange={setIsOpen}>
 				<SheetTrigger asChild>
 					<Button variant="outline" size="icon">
